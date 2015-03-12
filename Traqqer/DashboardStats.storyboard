@@ -7,7 +7,7 @@
         <!--Dashboard Stats View Controller-->
         <scene sceneID="tTj-GL-GTP">
             <objects>
-                <viewController id="062-WE-8Bk" customClass="DashboardStatsViewController" customModule="Traqqer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DashboardStats" id="062-WE-8Bk" customClass="DashboardStatsViewController" customModule="Traqqer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pfl-fL-i0p"/>
                         <viewControllerLayoutGuide type="bottom" id="UXr-fb-gnk"/>

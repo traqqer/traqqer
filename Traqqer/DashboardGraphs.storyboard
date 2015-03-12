@@ -7,7 +7,7 @@
         <!--Dashboard Graphs View Controller-->
         <scene sceneID="7Yf-JB-PBb">
             <objects>
-                <viewController id="w98-aG-zk5" customClass="DashboardGraphsViewController" customModule="Traqqer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DashboardGraphs" id="w98-aG-zk5" customClass="DashboardGraphsViewController" customModule="Traqqer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rla-wj-9g0"/>
                         <viewControllerLayoutGuide type="bottom" id="0hy-Wa-xCy"/>

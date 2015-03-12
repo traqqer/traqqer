@@ -7,7 +7,7 @@
         <!--Details Stats View Controller-->
         <scene sceneID="2AP-gs-u3E">
             <objects>
-                <viewController id="c4J-0b-Jdu" customClass="DetailsStatsViewController" customModule="Traqqer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsStats" id="c4J-0b-Jdu" customClass="DetailsStatsViewController" customModule="Traqqer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="roz-79-Sx3"/>
                         <viewControllerLayoutGuide type="bottom" id="EMS-Fu-oo9"/>
