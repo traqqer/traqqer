@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DCC97ACC-E318-4A87-821C-CC4BEF70D934</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Traqqer</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2AC747392D1937452CE742ED15D99DDB77CDEB2D</key>
+		<string>github.com:traqqer/traqqer.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Traqqer.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2AC747392D1937452CE742ED15D99DDB77CDEB2D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:traqqer/traqqer.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2AC747392D1937452CE742ED15D99DDB77CDEB2D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2AC747392D1937452CE742ED15D99DDB77CDEB2D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Traqqer</string>
+		</dict>
+	</array>
+</dict>
+</plist>
