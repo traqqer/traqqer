@@ -7,7 +7,6 @@
         <!--Dashboard-->
         <scene sceneID="QBd-n8-ppD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ctF-uS-JSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Dashboard" id="qrb-L8-do7" customClass="DashboardViewController" customModule="Traqqer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uAX-AY-Gkj"/>
@@ -33,20 +32,23 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PvW-cK-YcW">
                                 <rect key="frame" x="-23" y="-15" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="+">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addStatButtonPressed:" destination="qrb-L8-do7" eventType="touchUpInside" id="k0h-Id-maB"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ctF-uS-JSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="744" y="324"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sq4-X4-x9i">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WNg-eY-Uxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bxy-tj-tCf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mBT-n6-cAF">
@@ -58,6 +60,7 @@
                         <segue destination="qrb-L8-do7" kind="relationship" relationship="rootViewController" id="qLQ-o2-7Zk"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WNg-eY-Uxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="212" y="324"/>
         </scene>

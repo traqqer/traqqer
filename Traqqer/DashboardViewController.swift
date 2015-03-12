@@ -12,24 +12,19 @@ class DashboardViewController: UIViewController {
     var tabVC : UITabBarController!
 //    var viewControllers : NSArray!
     
+    @IBAction func addStatButtonPressed(sender: AnyObject) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabViewController()
     }
     
     func setupTabViewController() {
-        let dashboardStatsVC = UIStoryboard(
-            name: Constants.StoryboardIdentifiers.DASHBOARD_STATS,
-            bundle: nil
-        ).instantiateViewControllerWithIdentifier(
-            Constants.ViewControllerIdentifiers.DASHBOARD_STATS
-        ) as DashboardStatsViewController
-
-        let dashboardGraphsVC = UIStoryboard(
-            name: Constants.StoryboardIdentifiers.DASHBOARD_GRAPHS, bundle: nil
-        ).instantiateViewControllerWithIdentifier(
-            Constants.ViewControllerIdentifiers.DASHBOARD_GRAPHS
-        ) as DashboardGraphsViewController
+        let dashboardStatsVC = Traqqer.instantiateStoryboardVC(Constants.DASHBOARD_STATS)
+        let dashboardGraphsVC =
+            Traqqer.instantiateStoryboardVC(Constants.DASHBOARD_GRAPHS)
         
         dashboardStatsVC.tabBarItem!.title = "Stats"
         dashboardGraphsVC.tabBarItem!.title = "Graphs"

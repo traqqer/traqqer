@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="fX6-d9-XlE">
             <objects>
-                <viewController storyboardIdentifier="Details" id="oyd-5o-M0v" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Details" id="oyd-5o-M0v" customClass="DetailsViewController" customModule="Traqqer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iUE-mA-inM"/>
                         <viewControllerLayoutGuide type="bottom" id="zry-1M-Ws5"/>
