@@ -18,4 +18,7 @@ struct Constants {
     static let DETAILS_GRAPHS = "DetailsGraphs"
     static let NEW_STAT = "NewStat"
     static let NEW_STAT_FORM = "NewStatForm"
+    
+    static let PARSE_APPLICATION_ID = ""
+    static let PARSE_CLIENT_KEY = ""
 }

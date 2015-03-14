@@ -5,6 +5,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "UIImageView+AFNetworking.h"
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 #import "JBChartView.h"
 #import "JBBarChartView.h"
 #import "JBLineChartView.h"
