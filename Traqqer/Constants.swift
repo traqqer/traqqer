@@ -19,6 +19,24 @@ struct Constants {
     static let NEW_STAT = "NewStat"
     static let NEW_STAT_FORM = "NewStatForm"
     
-    static let PARSE_APPLICATION_ID = ""
-    static let PARSE_CLIENT_KEY = ""
+    static let PARSE_APPLICATION_ID = "fkila2DSXO9hpNsz5E5VcOenyU9kMEVDhOVewGfW"
+    static let PARSE_CLIENT_KEY = "inRmC1kHZD2dKh3X2PoTbmJjTdRVqOP2XasVJc40"
+
+    struct StatTypes {
+        static let COUNT = "Count"
+        static let DURATION = "Duration"
+    }
+    
+    struct GoalTypes {
+        static let AT_LEAST = "At Least"
+        static let LESS_THAN = "Less Than"
+        static let MORE_THAN = "More Than"
+        static let AT_MOST = "At Most"
+    }
+    
+    struct IntervalTypes {
+        static let DAY = "Day"
+    }
+    
+
 }

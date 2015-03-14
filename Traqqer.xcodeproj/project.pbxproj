@@ -45,6 +45,7 @@
 		56F96D821AB4D755003FEB7F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D811AB4D755003FEB7F /* libsqlite3.dylib */; };
 		56F96D841AB4D8CE003FEB7F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D831AB4D8CE003FEB7F /* Social.framework */; };
 		56F96D861AB4D8D6003FEB7F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D851AB4D8D6003FEB7F /* Accounts.framework */; };
+		56F96D8A1AB4E4F6003FEB7F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F96D891AB4E4F6003FEB7F /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		56F96D811AB4D755003FEB7F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		56F96D831AB4D8CE003FEB7F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		56F96D851AB4D8D6003FEB7F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		56F96D891AB4E4F6003FEB7F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = ../API.swift; sourceTree = "<group>"; };
 		A757E6C0617708E77008E8A0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE1FD542F3AA759EF8D6BDB7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D018451AB4AD930017A909 /* Traqqer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Traqqer-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				560532451AB13F4A000AF70D /* Supporting Files */,
 				560532851AB147B8000AF70D /* Constants.swift */,
 				5605328C1AB154D4000AF70D /* Traqqer.swift */,
+				56F96D891AB4E4F6003FEB7F /* API.swift */,
 				F1D018451AB4AD930017A909 /* Traqqer-Bridging-Header.h */,
 			);
 			path = Traqqer;
@@ -422,6 +425,7 @@
 				560532801AB14216000AF70D /* DetailsGraphsViewController.swift in Sources */,
 				560532781AB141EF000AF70D /* DashboardViewController.swift in Sources */,
 				560532861AB147B8000AF70D /* Constants.swift in Sources */,
+				56F96D8A1AB4E4F6003FEB7F /* API.swift in Sources */,
 				5605328B1AB151AA000AF70D /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
