@@ -26,7 +26,6 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
         lineChart.dataSource = self
         lineChart.delegate = self
         lineChart.minimumValue = 0
-        lineChart.maximumValue = 500
         lineChart.backgroundColor = UIColor.darkGrayColor()
     }
     
@@ -47,16 +46,7 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     }
     
     func lineChartView(lineChartView: JBLineChartView!, numberOfVerticalValuesAtLineIndex lineIndex: UInt) -> UInt {
-        switch timeSegment! {
-            case .Day:
-                return 24
-            case .Week:
-                return 7
-            case .Month:
-                return 4
-            case .Year:
-                return 12
-        }
+        return UInt(timeSegment!.getSegmentCount())
     }
     
     func lineChartView(lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {

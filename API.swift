@@ -62,6 +62,4 @@ class ParseAPI {
         let query = Stat.query()
         ParseAPI.runQueryAndCallCompletion(query, completion: completion)
     }
-
-
 }

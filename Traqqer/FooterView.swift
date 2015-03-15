@@ -10,40 +10,40 @@ import Foundation
 
 class FooterView: UIView {
     
-    var label: UILabel
+    var labelLeft: UILabel
     var labelRight: UILabel
     var timeSegment: TimeSegment
     
     init(frame: CGRect, timeSegment: TimeSegment) {
-        self.label = UILabel(frame: CGRectMake(0, 0, frame.width/2, 16))
+        self.labelLeft = UILabel(frame: CGRectMake(0, 0, frame.width/2, 16))
         self.labelRight = UILabel(frame: CGRectMake(frame.width/2, 0, frame.width/2, 16))
         self.timeSegment = timeSegment
         
         super.init(frame: frame)
         
-        label.textAlignment = .Left
-        label.textColor = UIColor.whiteColor()
+        labelLeft.textAlignment = .Left
+        labelLeft.textColor = UIColor.whiteColor()
         
         labelRight.textAlignment = .Right
         labelRight.textColor = UIColor.whiteColor()
         
         switch self.timeSegment {
             case .Day:
-                label.text = "12 AM"
+                labelLeft.text = "12 AM"
                 labelRight.text = "12 AM"
             case .Week:
-                label.text = "Sun"
+                labelLeft.text = "Sun"
                 labelRight.text = "Sat"
             case .Month:
-                label.text = "1"
+                labelLeft.text = "1"
                 let lastDayOfCurrentMonth: NSDate = DateUtils.lastDayOfCurrentMonth()
                 labelRight.text = String(DateUtils.dayNumberFromDate(lastDayOfCurrentMonth))
             case .Year:
-                label.text = "Jan"
+                labelLeft.text = "Jan"
                 labelRight.text = "Dec"
         }
         
-        addSubview(label)
+        addSubview(labelLeft)
         addSubview(labelRight)
     }
 

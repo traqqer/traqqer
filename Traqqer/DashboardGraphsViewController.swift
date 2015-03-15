@@ -10,6 +10,19 @@ import UIKit
 
 enum TimeSegment: Int {
     case Day = 0, Week, Month, Year
+    
+    func getSegmentCount() -> Int {
+        switch self {
+            case .Day:
+                return 24
+            case .Week:
+                return 7
+            case .Month:
+                return 4
+            case .Year:
+                return 12
+        }
+    }
 }
 
 class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate {

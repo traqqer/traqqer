@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Traqqer/DashboardGraphsViewController.swift"
-            timestampString = "448143760.939226"
+            timestampString = "448153688.828258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "DashboardGraphsViewController"
             landmarkType = "3">
             <Locations>
