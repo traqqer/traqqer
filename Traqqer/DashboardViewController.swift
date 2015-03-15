@@ -19,6 +19,8 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabViewController()
+        
+
     }
     
     func setupTabViewController() {

@@ -22,13 +22,46 @@ class ParseAPI {
         }
     }
     
-    func getEntriesforStat(stat: Stat, completion: [Entry]->()) {
+    class func saveObjectAndCallCompletion<T:PFObject> (object: T, completion: () -> ()) {
+        object.saveInBackgroundWithBlock {(success: Bool, error: NSError!) -> Void in
+            if (!success) {
+                println(error)
+            } else {
+                completion()
+            }
+        }
+    }
+    
+    class func getEntriesforStat(stat: Stat, completion: [Entry]->()) {
         let query = Entry.query().whereKey(EntryKeys.statRef, equalTo: stat)
         ParseAPI.runQueryAndCallCompletion(query, completion: completion)
     }
-    
-    func getStats(completion: [Stat] -> ()) {
+
+    class func createEntry(stat: Stat, timestamp: NSDate?, duration: NSNumber?, completion: () -> ()?) {
+        let entry = Entry()
+        
+        // Set the timestamp
+        if let timestamp = timestamp {
+            entry[EntryKeys.timestamp] = timestamp
+        } else {
+            // Use now
+            entry[EntryKeys.timestamp] = NSDate()
+        }
+        
+        // Maybe set the duration
+        if let duration = duration {
+            entry[EntryKeys.duration] = duration
+        }
+        
+        // Maybe run a completion
+        completion()?
+        
+    }
+
+    class func getStats(completion: [Stat] -> ()) {
         let query = Stat.query()
         ParseAPI.runQueryAndCallCompletion(query, completion: completion)
     }
+
+
 }
