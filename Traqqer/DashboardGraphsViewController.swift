@@ -24,6 +24,7 @@ class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.darkGrayColor()
+        self.tableView.backgroundColor = UIColor.darkGrayColor()
         tableView.registerNib(UINib(nibName: "DashboardGraphCell", bundle: nil), forCellReuseIdentifier: "DashboardGraphCell")
         tableView.rowHeight = CGFloat(250);
     }

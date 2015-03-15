@@ -23,6 +23,7 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="DmE-mD-rrU"/>
+                                <exclude reference="HRN-wd-LJC"/>
                             </mask>
                         </variation>
                     </view>
