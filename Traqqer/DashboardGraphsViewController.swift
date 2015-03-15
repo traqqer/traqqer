@@ -8,15 +8,24 @@
 
 import UIKit
 
+enum TimeSegment: Int {
+    case Day = 0, Week, Month, Year
+}
+
 class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var timeSegments: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBAction func onSegmentChanged(sender: UISegmentedControl) {
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
+        self.view.backgroundColor = UIColor.darkGrayColor()
         tableView.registerNib(UINib(nibName: "DashboardGraphCell", bundle: nil), forCellReuseIdentifier: "DashboardGraphCell")
-        tableView.rowHeight = CGFloat(400);
+        tableView.rowHeight = CGFloat(250);
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,6 +41,7 @@ class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, U
         let cell = tableView.dequeueReusableCellWithIdentifier("DashboardGraphCell", forIndexPath: indexPath) as DashboardGraphCell
         cell.accessoryType = UITableViewCellAccessoryType.None
         cell.selectionStyle = UITableViewCellSelectionStyle.None;
+        cell.timeSegment = TimeSegment(rawValue: timeSegments.selectedSegmentIndex)
         return cell
     }
     

@@ -12,6 +12,8 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     
     @IBOutlet weak var lineChart: JBLineChartView!
     @IBOutlet weak var infoLabel: UILabel!
+    
+    var timeSegment: TimeSegment?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,7 +49,16 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     }
     
     func lineChartView(lineChartView: JBLineChartView!, numberOfVerticalValuesAtLineIndex lineIndex: UInt) -> UInt {
-        return 5
+        switch timeSegment! {
+            case .Day:
+                return 24
+            case .Week:
+                return 7
+            case .Month:
+                return 4
+            case .Year:
+                return 12
+        }
     }
     
     func lineChartView(lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
@@ -92,7 +103,7 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     }
     
     func createHeaderView() -> UIView {
-        var label = UILabel(frame: CGRectMake(0, 0, lineChart.frame.width, 50))
+        var label = UILabel(frame: CGRectMake(0, 0, lineChart.frame.width, 20))
         label.textAlignment = .Center
         label.font = UIFont.systemFontOfSize(24)
         label.textColor = UIColor.whiteColor()
@@ -109,6 +120,28 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
         label2.textAlignment = .Right
         label2.textColor = UIColor.whiteColor()
         label2.text = "Sat"
+        
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
+        let hour = components.hour
+        let minutes = components.minute
+        
+        switch timeSegment! {
+            case .Day:
+                label1.text = "12 AM"
+                label2.text = "12 AM"
+            case .Week:
+                label1.text = "Sun"
+                label2.text = "Sat"
+            case .Month:
+                label1.text = "1"
+                let lastDayOfCurrentMonth: NSDate = DateUtils.lastDayOfCurrentMonth()
+                label2.text = String(DateUtils.dayNumberFromDate(lastDayOfCurrentMonth))
+            case .Year:
+                label1.text = "Jan"
+                label2.text = "Dec"
+        }
         
         var footerView = UIView(frame: CGRectMake(0, 0, lineChart.frame.width, 16))
         footerView.addSubview(label1)

@@ -16,8 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WSw-A4-C5j">
+                                <rect key="frame" x="8" y="8" width="304" height="29"/>
+                                <segments>
+                                    <segment title="Day"/>
+                                    <segment title="Week"/>
+                                    <segment title="Month"/>
+                                    <segment title="Year"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="onSegmentChanged:" destination="w98-aG-zk5" eventType="valueChanged" id="2IE-GB-ayr"/>
+                                </connections>
+                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7ed-uD-hTh">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DashboardGraphCell" id="4rg-Pf-ZYM" customClass="DashboardGraphCell" customModule="Traqqer" customModuleProvider="target">
@@ -34,21 +47,25 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="0hy-Wa-xCy" firstAttribute="top" secondItem="7ed-uD-hTh" secondAttribute="bottom" id="Byn-Fk-R82"/>
+                            <constraint firstItem="WSw-A4-C5j" firstAttribute="top" secondItem="2ws-ev-dFP" secondAttribute="top" constant="8" id="28Q-du-8bh"/>
                             <constraint firstItem="7ed-uD-hTh" firstAttribute="leading" secondItem="2ws-ev-dFP" secondAttribute="leading" id="L1i-D8-VZK"/>
-                            <constraint firstItem="7ed-uD-hTh" firstAttribute="top" secondItem="2ws-ev-dFP" secondAttribute="top" id="pN2-zs-g7X"/>
+                            <constraint firstItem="WSw-A4-C5j" firstAttribute="leading" secondItem="2ws-ev-dFP" secondAttribute="leading" constant="8" id="LCl-2P-peZ"/>
+                            <constraint firstAttribute="trailing" secondItem="WSw-A4-C5j" secondAttribute="trailing" constant="8" id="OB4-Ws-hLW"/>
+                            <constraint firstItem="0hy-Wa-xCy" firstAttribute="bottom" secondItem="7ed-uD-hTh" secondAttribute="bottom" id="UYh-GC-kq3"/>
+                            <constraint firstItem="7ed-uD-hTh" firstAttribute="top" secondItem="WSw-A4-C5j" secondAttribute="bottom" constant="8" id="YPp-Ra-mWF"/>
                             <constraint firstAttribute="trailing" secondItem="7ed-uD-hTh" secondAttribute="trailing" id="wpy-K9-kxi"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="7ed-uD-hTh" id="J1d-zn-6xC"/>
+                        <outlet property="timeSegments" destination="WSw-A4-C5j" id="0rh-vZ-tjc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nh4-a0-IFp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="212" y="324"/>
+            <point key="canvasLocation" x="212" y="334"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -34,6 +34,7 @@
 		F1D0184C1AB4BD0B0017A909 /* DashboardGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D0184A1AB4BD0B0017A909 /* DashboardGraphCell.xib */; };
 		F1D018571AB4D09D0017A909 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D018561AB4D09D0017A909 /* HeaderView.xib */; };
 		F1D018591AB4D0BE0017A909 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D018581AB4D0BE0017A909 /* HeaderView.swift */; };
+		F1D0185F1AB629080017A909 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D0185E1AB629080017A909 /* DateUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		F1D0184A1AB4BD0B0017A909 /* DashboardGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardGraphCell.xib; sourceTree = "<group>"; };
 		F1D018561AB4D09D0017A909 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		F1D018581AB4D0BE0017A909 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		F1D0185E1AB629080017A909 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				560532851AB147B8000AF70D /* Constants.swift */,
 				5605328C1AB154D4000AF70D /* Traqqer.swift */,
 				F1D018451AB4AD930017A909 /* Traqqer-Bridging-Header.h */,
+				F1D0185E1AB629080017A909 /* DateUtils.swift */,
 			);
 			path = Traqqer;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				560532781AB141EF000AF70D /* DashboardViewController.swift in Sources */,
 				F1D0184B1AB4BD0B0017A909 /* DashboardGraphCell.swift in Sources */,
 				560532861AB147B8000AF70D /* Constants.swift in Sources */,
+				F1D0185F1AB629080017A909 /* DateUtils.swift in Sources */,
 				5605328B1AB151AA000AF70D /* DetailsViewController.swift in Sources */,
 				F1D018591AB4D0BE0017A909 /* HeaderView.swift in Sources */,
 			);
