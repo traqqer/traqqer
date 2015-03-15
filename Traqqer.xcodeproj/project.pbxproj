@@ -46,6 +46,7 @@
 		56F96D841AB4D8CE003FEB7F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D831AB4D8CE003FEB7F /* Social.framework */; };
 		56F96D861AB4D8D6003FEB7F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D851AB4D8D6003FEB7F /* Accounts.framework */; };
 		56F96D8A1AB4E4F6003FEB7F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F96D891AB4E4F6003FEB7F /* API.swift */; };
+		56F96D8C1AB4EEFD003FEB7F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F96D8B1AB4EEFD003FEB7F /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		56F96D831AB4D8CE003FEB7F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		56F96D851AB4D8D6003FEB7F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		56F96D891AB4E4F6003FEB7F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = ../API.swift; sourceTree = "<group>"; };
+		56F96D8B1AB4EEFD003FEB7F /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A757E6C0617708E77008E8A0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE1FD542F3AA759EF8D6BDB7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D018451AB4AD930017A909 /* Traqqer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Traqqer-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				5605328C1AB154D4000AF70D /* Traqqer.swift */,
 				56F96D891AB4E4F6003FEB7F /* API.swift */,
 				F1D018451AB4AD930017A909 /* Traqqer-Bridging-Header.h */,
+				56F96D8B1AB4EEFD003FEB7F /* Models.swift */,
 			);
 			path = Traqqer;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				560532821AB1421D000AF70D /* NewStatViewController.swift in Sources */,
+				56F96D8C1AB4EEFD003FEB7F /* Models.swift in Sources */,
 				5605327A1AB141F9000AF70D /* DashboardStatsViewController.swift in Sources */,
 				560532481AB13F4A000AF70D /* AppDelegate.swift in Sources */,
 				5605328D1AB154D4000AF70D /* Traqqer.swift in Sources */,

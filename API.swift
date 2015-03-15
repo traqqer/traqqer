@@ -9,16 +9,26 @@
 import Foundation
 
 
-class API {
-    class var instance : API {
-        struct Static {
-            static let instance = API()
+class ParseAPI {
+    class func runQueryAndCallCompletion<T:PFObject>(query : PFQuery, completion : [T] -> ()) {
+        query.findObjectsInBackgroundWithBlock{
+            (objects : [AnyObject]!, error : NSError!) in
+            if error == nil {
+                println(error)
+            } else {
+                let castObjects = objects as [T]
+                completion(castObjects)
+            }
         }
-        return Static.instance
     }
     
-    class func doSomething() {
-        
+    func getEntriesforStat(stat: Stat, completion: [Entry]->()) {
+        let query = Entry.query().whereKey(EntryKeys.statRef, equalTo: stat)
+        ParseAPI.runQueryAndCallCompletion(query, completion: completion)
     }
-
+    
+    func getStats(completion: [Stat] -> ()) {
+        let query = Stat.query()
+        ParseAPI.runQueryAndCallCompletion(query, completion: completion)
+    }
 }
