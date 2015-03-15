@@ -98,11 +98,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Traqqer/DashboardGraphCell.swift"
-            timestampString = "448065409.601134"
+            timestampString = "448132786.623747"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "lineChartView(_:verticalValueForHorizontalIndex:atLineIndex:)"
             landmarkType = "5">
          </BreakpointContent>

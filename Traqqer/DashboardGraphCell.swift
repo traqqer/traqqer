@@ -56,15 +56,35 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     }
     
     func lineChartView(lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.whiteColor()
+        return UIColor.redColor()
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
+        return UIColor.redColor()
     }
     
     func lineChartView(lineChartView: JBLineChartView!, widthForLineAtLineIndex lineIndex: UInt) -> CGFloat {
-        return CGFloat(1.0)
+        return CGFloat(2.0)
     }
     
     func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt) {
         infoLabel.text = String(horizontalIndex * 100)
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {
+        return false
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, lineStyleForLineAtLineIndex lineIndex: UInt) -> JBLineChartViewLineStyle {
+        return .Dashed
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
+        return true
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, dotRadiusForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
+        return CGFloat(2 * 4)
     }
     
     func didDeselectLineInLineChartView(lineChartView: JBLineChartView!) {
