@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6750" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DashboardGraphCell" rowHeight="249" id="KGk-i7-Jjw" customClass="DashboardGraphCell" customModule="Traqqer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6x-Jh-7ic" customClass="JBLineChartView">
+                        <rect key="frame" x="8" y="8" width="304" height="199"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="200" id="DmE-mD-rrU"/>
+                            <constraint firstAttribute="height" constant="199" id="HRN-wd-LJC"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="DmE-mD-rrU"/>
+                                <exclude reference="HRN-wd-LJC"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRY-wg-4rt">
+                        <rect key="frame" x="8" y="215" width="304" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="AMb-Dh-6sf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dRY-wg-4rt" firstAttribute="top" secondItem="A6x-Jh-7ic" secondAttribute="bottom" constant="8" id="5eb-rA-MrE"/>
+                    <constraint firstItem="A6x-Jh-7ic" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="63R-hs-2l8"/>
+                    <constraint firstAttribute="bottom" secondItem="dRY-wg-4rt" secondAttribute="bottom" constant="8" id="Fx1-tF-W5a"/>
+                    <constraint firstAttribute="trailing" secondItem="A6x-Jh-7ic" secondAttribute="trailing" constant="8" id="Oxs-ZM-6Qy"/>
+                    <constraint firstItem="dRY-wg-4rt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="RYr-w6-766"/>
+                    <constraint firstAttribute="bottom" secondItem="A6x-Jh-7ic" secondAttribute="bottom" constant="74" id="Ruk-sW-jgO"/>
+                    <constraint firstItem="A6x-Jh-7ic" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="r3w-XD-sY1"/>
+                    <constraint firstAttribute="trailing" secondItem="dRY-wg-4rt" secondAttribute="trailing" constant="8" id="zZb-i4-3nT"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Ruk-sW-jgO"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="infoLabel" destination="dRY-wg-4rt" id="EOP-yv-hbH"/>
+                <outlet property="lineChart" destination="A6x-Jh-7ic" id="AZO-aq-I9b"/>
+            </connections>
+            <point key="canvasLocation" x="211" y="181.5"/>
+        </tableViewCell>
+    </objects>
+</document>

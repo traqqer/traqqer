@@ -19,8 +19,7 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabViewController()
-        
-
+        self.navigationController!.navigationBar.translucent = false
     }
     
     func setupTabViewController() {
@@ -35,6 +34,5 @@ class DashboardViewController: UIViewController {
         
         tabVC.viewControllers = [dashboardStatsVC, dashboardGraphsVC]
         self.view.addSubview(tabVC.view)
-        
     }
 }

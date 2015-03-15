@@ -30,6 +30,9 @@
 		560532861AB147B8000AF70D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560532851AB147B8000AF70D /* Constants.swift */; };
 		5605328B1AB151AA000AF70D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5605328A1AB151AA000AF70D /* DetailsViewController.swift */; };
 		5605328D1AB154D4000AF70D /* Traqqer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5605328C1AB154D4000AF70D /* Traqqer.swift */; };
+		F1D0184B1AB4BD0B0017A909 /* DashboardGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D018491AB4BD0B0017A909 /* DashboardGraphCell.swift */; };
+		F1D0184C1AB4BD0B0017A909 /* DashboardGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D0184A1AB4BD0B0017A909 /* DashboardGraphCell.xib */; };
+		F1D0185F1AB629080017A909 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D0185E1AB629080017A909 /* DateUtils.swift */; };
 		56F96D6A1AB4D695003FEB7F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D691AB4D695003FEB7F /* Parse.framework */; };
 		56F96D6C1AB4D6A2003FEB7F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D6B1AB4D6A2003FEB7F /* Bolts.framework */; };
 		56F96D6E1AB4D6D4003FEB7F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D6D1AB4D6D4003FEB7F /* AudioToolbox.framework */; };
@@ -107,6 +110,9 @@
 		A757E6C0617708E77008E8A0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EE1FD542F3AA759EF8D6BDB7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D018451AB4AD930017A909 /* Traqqer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Traqqer-Bridging-Header.h"; sourceTree = "<group>"; };
+		F1D018491AB4BD0B0017A909 /* DashboardGraphCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardGraphCell.swift; sourceTree = "<group>"; };
+		F1D0184A1AB4BD0B0017A909 /* DashboardGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardGraphCell.xib; sourceTree = "<group>"; };
+		F1D0185E1AB629080017A909 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +204,7 @@
 		560532441AB13F4A000AF70D /* Traqqer */ = {
 			isa = PBXGroup;
 			children = (
+				F1D018481AB4BC8F0017A909 /* Views */,
 				560532891AB14B6B000AF70D /* View Controllers */,
 				560532881AB14B57000AF70D /* Nibs */,
 				560532871AB14B47000AF70D /* Storyboards */,
@@ -208,6 +215,7 @@
 				5605328C1AB154D4000AF70D /* Traqqer.swift */,
 				56F96D891AB4E4F6003FEB7F /* API.swift */,
 				F1D018451AB4AD930017A909 /* Traqqer-Bridging-Header.h */,
+				F1D0185E1AB629080017A909 /* DateUtils.swift */,
 				56F96D8B1AB4EEFD003FEB7F /* Models.swift */,
 			);
 			path = Traqqer;
@@ -274,6 +282,31 @@
 				5605328A1AB151AA000AF70D /* DetailsViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F1D018481AB4BC8F0017A909 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F1D018531AB4CBBF0017A909 /* Charts */,
+				F1D0184D1AB4C67E0017A909 /* Cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F1D0184D1AB4C67E0017A909 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F1D018491AB4BD0B0017A909 /* DashboardGraphCell.swift */,
+				F1D0184A1AB4BD0B0017A909 /* DashboardGraphCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		F1D018531AB4CBBF0017A909 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Charts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,6 +397,7 @@
 				5605326C1AB1413D000AF70D /* DashboardGraphs.storyboard in Resources */,
 				560532681AB14115000AF70D /* Dashboard.storyboard in Resources */,
 				560532761AB141C8000AF70D /* NewStatForm.storyboard in Resources */,
+				F1D0184C1AB4BD0B0017A909 /* DashboardGraphCell.xib in Resources */,
 				560532741AB141BA000AF70D /* NewStat.storyboard in Resources */,
 				560532701AB14177000AF70D /* DetailsStats.storyboard in Resources */,
 				5605324F1AB13F4A000AF70D /* Images.xcassets in Resources */,
@@ -428,7 +462,9 @@
 				5605327C1AB14204000AF70D /* DashboardGraphsViewController.swift in Sources */,
 				560532801AB14216000AF70D /* DetailsGraphsViewController.swift in Sources */,
 				560532781AB141EF000AF70D /* DashboardViewController.swift in Sources */,
+				F1D0184B1AB4BD0B0017A909 /* DashboardGraphCell.swift in Sources */,
 				560532861AB147B8000AF70D /* Constants.swift in Sources */,
+				F1D0185F1AB629080017A909 /* DateUtils.swift in Sources */,
 				56F96D8A1AB4E4F6003FEB7F /* API.swift in Sources */,
 				5605328B1AB151AA000AF70D /* DetailsViewController.swift in Sources */,
 			);
