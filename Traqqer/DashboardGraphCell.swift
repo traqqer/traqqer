@@ -40,8 +40,6 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func numberOfLinesInLineChartView(lineChartView: JBLineChartView!) -> UInt {
@@ -103,49 +101,10 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     }
     
     func createHeaderView() -> UIView {
-        var label = UILabel(frame: CGRectMake(0, 0, lineChart.frame.width, 20))
-        label.textAlignment = .Center
-        label.font = UIFont.systemFontOfSize(24)
-        label.textColor = UIColor.whiteColor()
-        label.text = "Coffee"
-        return label
+        return HeaderView(frame: CGRectMake(0, 0, lineChart.frame.width, 20))
     }
     
     func createFooterView() -> UIView {
-        var label1 = UILabel(frame: CGRectMake(0, 0, lineChart.frame.width/2, 16))
-        label1.textColor = UIColor.whiteColor()
-        label1.text = "Sun"
-        
-        var label2 = UILabel(frame: CGRectMake(lineChart.frame.width/2, 0, lineChart.frame.width/2, 16))
-        label2.textAlignment = .Right
-        label2.textColor = UIColor.whiteColor()
-        label2.text = "Sat"
-        
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
-        let hour = components.hour
-        let minutes = components.minute
-        
-        switch timeSegment! {
-            case .Day:
-                label1.text = "12 AM"
-                label2.text = "12 AM"
-            case .Week:
-                label1.text = "Sun"
-                label2.text = "Sat"
-            case .Month:
-                label1.text = "1"
-                let lastDayOfCurrentMonth: NSDate = DateUtils.lastDayOfCurrentMonth()
-                label2.text = String(DateUtils.dayNumberFromDate(lastDayOfCurrentMonth))
-            case .Year:
-                label1.text = "Jan"
-                label2.text = "Dec"
-        }
-        
-        var footerView = UIView(frame: CGRectMake(0, 0, lineChart.frame.width, 16))
-        footerView.addSubview(label1)
-        footerView.addSubview(label2)
-        return footerView
+        return FooterView(frame: CGRectMake(0, 0, lineChart.frame.width, 16), timeSegment: timeSegment!)
     }
 }
