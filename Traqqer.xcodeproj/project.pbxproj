@@ -32,8 +32,6 @@
 		5605328D1AB154D4000AF70D /* Traqqer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5605328C1AB154D4000AF70D /* Traqqer.swift */; };
 		F1D0184B1AB4BD0B0017A909 /* DashboardGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D018491AB4BD0B0017A909 /* DashboardGraphCell.swift */; };
 		F1D0184C1AB4BD0B0017A909 /* DashboardGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D0184A1AB4BD0B0017A909 /* DashboardGraphCell.xib */; };
-		F1D018571AB4D09D0017A909 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D018561AB4D09D0017A909 /* HeaderView.xib */; };
-		F1D018591AB4D0BE0017A909 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D018581AB4D0BE0017A909 /* HeaderView.swift */; };
 		F1D0185F1AB629080017A909 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D0185E1AB629080017A909 /* DateUtils.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,8 +78,6 @@
 		F1D018451AB4AD930017A909 /* Traqqer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Traqqer-Bridging-Header.h"; sourceTree = "<group>"; };
 		F1D018491AB4BD0B0017A909 /* DashboardGraphCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardGraphCell.swift; sourceTree = "<group>"; };
 		F1D0184A1AB4BD0B0017A909 /* DashboardGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardGraphCell.xib; sourceTree = "<group>"; };
-		F1D018561AB4D09D0017A909 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
-		F1D018581AB4D0BE0017A909 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		F1D0185E1AB629080017A909 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,19 +236,9 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		F1D0184F1AB4CB990017A909 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				F1D018561AB4D09D0017A909 /* HeaderView.xib */,
-				F1D018581AB4D0BE0017A909 /* HeaderView.swift */,
-			);
-			name = Headers;
-			sourceTree = "<group>";
-		};
 		F1D018531AB4CBBF0017A909 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
-				F1D0184F1AB4CB990017A909 /* Headers */,
 			);
 			name = Charts;
 			sourceTree = "<group>";
@@ -342,7 +328,6 @@
 				560532521AB13F4A000AF70D /* LaunchScreen.xib in Resources */,
 				5605326E1AB1416E000AF70D /* Details.storyboard in Resources */,
 				560532721AB1417F000AF70D /* DetailsGraphs.storyboard in Resources */,
-				F1D018571AB4D09D0017A909 /* HeaderView.xib in Resources */,
 				5605326C1AB1413D000AF70D /* DashboardGraphs.storyboard in Resources */,
 				560532681AB14115000AF70D /* Dashboard.storyboard in Resources */,
 				560532761AB141C8000AF70D /* NewStatForm.storyboard in Resources */,
@@ -414,7 +399,6 @@
 				560532861AB147B8000AF70D /* Constants.swift in Sources */,
 				F1D0185F1AB629080017A909 /* DateUtils.swift in Sources */,
 				5605328B1AB151AA000AF70D /* DetailsViewController.swift in Sources */,
-				F1D018591AB4D0BE0017A909 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
