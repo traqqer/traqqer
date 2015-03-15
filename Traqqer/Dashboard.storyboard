@@ -19,7 +19,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Dashboard" id="Oaj-BM-CvK">
                         <barButtonItem key="backBarButtonItem" title="Dashboard" id="qRZ-UJ-x4N"/>
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="Z4r-yU-jA9">
+                        <barButtonItem key="leftBarButtonItem" style="done" id="Z4r-yU-jA9">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hNO-FF-Iwt">
                                 <rect key="frame" x="-23" y="-15" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -28,7 +28,7 @@
                                 </state>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="+" style="plain" id="LvR-sQ-B0N">
+                        <barButtonItem key="rightBarButtonItem" title="+" style="done" id="LvR-sQ-B0N">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PvW-cK-YcW">
                                 <rect key="frame" x="-23" y="-15" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
