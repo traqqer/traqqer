@@ -25,9 +25,9 @@ class DashboardStatsCell: UITableViewCell {
     func setupView() {
         nameLabel.text = stat.name
         if stat.type == Constants.StatTypes.COUNT {
-//            totalLabel.text = String(format: "%d", numEntries)
+            totalLabel.text = String(format: "%d", numEntries)
         } else if stat.type == Constants.StatTypes.DURATION {
-//            totalLabel.text = DateUtils.formatTimeInterval(totalDuration)
+            totalLabel.text = DateUtils.formatTimeInterval(totalDuration)
         }
     }
     
@@ -40,7 +40,7 @@ class DashboardStatsCell: UITableViewCell {
             ParseAPI.createEntry(stat, timestamp: NSDate(), duration: nil, completion: {
                 // Reload the cell, so that the goal count increases
                 println("complete")
-                
+                self.numEntries = self.numEntries + 1
                 self.setupView()
             })
         } else if stat.type == Constants.StatTypes.DURATION {
@@ -51,6 +51,8 @@ class DashboardStatsCell: UITableViewCell {
                 let interval = now.timeIntervalSinceDate(startDate)
                 ParseAPI.createEntry(stat, timestamp: nil, duration: interval, completion: {
                     // Reload the total count
+                    self.numEntries = self.numEntries + 1
+                    self.totalDuration = self.totalDuration + interval
                     self.setupView()
                     self.startDate = nil
                 })
