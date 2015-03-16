@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Traqqer": {
+            "applicationId": "fkila2DSXO9hpNsz5E5VcOenyU9kMEVDhOVewGfW", 
+            "masterKey": "Ja4sBCSAWH1E2pFewNQLXsHG1ojIa2DTBBI7m9nG"
+        }, 
+        "_default": {
+            "link": "Traqqer"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.5"
+    }
+}

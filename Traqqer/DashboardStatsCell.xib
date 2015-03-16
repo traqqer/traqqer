@@ -15,25 +15,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaj-Xb-smz">
-                        <rect key="frame" x="13" y="28" width="46" height="99"/>
+                        <rect key="frame" x="18" y="28" width="46" height="99"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvo-c4-L9a">
-                        <rect key="frame" x="252" y="28" width="10" height="99"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSo-Xa-MUO">
-                        <rect key="frame" x="267" y="28" width="6" height="99"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geW-gk-LN6">
                         <rect key="frame" x="308" y="28" width="10" height="99"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USO-AG-KdN" userLabel="Stopwatch">
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -43,25 +36,19 @@
                     <constraint firstAttribute="centerY" secondItem="gaj-Xb-smz" secondAttribute="centerY" id="335-s7-wV6"/>
                     <constraint firstItem="gaj-Xb-smz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="4MQ-xO-BmP"/>
                     <constraint firstAttribute="bottomMargin" secondItem="dvo-c4-L9a" secondAttribute="bottom" constant="20" id="Ddp-66-9Lt"/>
+                    <constraint firstAttribute="centerX" secondItem="USO-AG-KdN" secondAttribute="centerX" id="DmJ-6q-26Y"/>
                     <constraint firstItem="dvo-c4-L9a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="QOl-H7-b8l"/>
-                    <constraint firstItem="MSo-Xa-MUO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="QPh-2M-dHU"/>
-                    <constraint firstAttribute="centerY" secondItem="geW-gk-LN6" secondAttribute="centerY" id="Qpb-T1-Wlr"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="geW-gk-LN6" secondAttribute="bottom" constant="20" id="WX8-7b-9Lj"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="MSo-Xa-MUO" secondAttribute="trailing" constant="50" id="Wju-Po-qq4"/>
-                    <constraint firstItem="gaj-Xb-smz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="ZYB-bT-HtJ"/>
-                    <constraint firstItem="geW-gk-LN6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="bsp-lw-LRo"/>
+                    <constraint firstItem="gaj-Xb-smz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="ZYB-bT-HtJ"/>
+                    <constraint firstAttribute="centerY" secondItem="USO-AG-KdN" secondAttribute="centerY" id="e8Q-Bw-3gN"/>
                     <constraint firstAttribute="bottomMargin" secondItem="gaj-Xb-smz" secondAttribute="bottom" constant="20" id="jC5-Ie-GnX"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="dvo-c4-L9a" secondAttribute="trailing" constant="5" id="luA-4L-gMM"/>
                     <constraint firstAttribute="centerY" secondItem="dvo-c4-L9a" secondAttribute="centerY" id="td6-df-4r7"/>
-                    <constraint firstAttribute="centerY" secondItem="MSo-Xa-MUO" secondAttribute="centerY" id="uMD-eO-SWO"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="MSo-Xa-MUO" secondAttribute="bottom" constant="20" id="y28-9E-qUN"/>
-                    <constraint firstItem="MSo-Xa-MUO" firstAttribute="leading" secondItem="dvo-c4-L9a" secondAttribute="trailing" constant="5" id="y97-qa-Fp6"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="geW-gk-LN6" secondAttribute="trailing" constant="5" id="zfa-kt-6Wl"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="goalDemoninator" destination="geW-gk-LN6" id="sLu-Yk-lEq"/>
-                <outlet property="goalNumerator" destination="dvo-c4-L9a" id="Kef-pC-tAC"/>
+                <outlet property="duration" destination="USO-AG-KdN" id="qV2-NP-g1u"/>
                 <outlet property="nameLabel" destination="gaj-Xb-smz" id="g8U-Hh-oY1"/>
+                <outlet property="totalLabel" destination="dvo-c4-L9a" id="H6M-Bd-ho2"/>
             </connections>
             <point key="canvasLocation" x="265.5" y="260"/>
         </tableViewCell>
