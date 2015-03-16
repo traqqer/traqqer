@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 struct Constants {
+    // VCs
     static let DASHBOARD = "Dashboard"
     static let DASHBOARD_STATS = "DashboardStats"
     static let DASHBOARD_GRAPHS = "DashboardGraphs"
@@ -18,7 +19,11 @@ struct Constants {
     static let DETAILS_GRAPHS = "DetailsGraphs"
     static let NEW_STAT = "NewStat"
     static let NEW_STAT_FORM = "NewStatForm"
+
+    // Cells
+    static let DASHBOARD_STATS_CELL = "DashboardStatsCell"
     
+    // Config
     static let PARSE_APPLICATION_ID = "fkila2DSXO9hpNsz5E5VcOenyU9kMEVDhOVewGfW"
     static let PARSE_CLIENT_KEY = "inRmC1kHZD2dKh3X2PoTbmJjTdRVqOP2XasVJc40"
 
@@ -36,7 +41,5 @@ struct Constants {
     
     struct IntervalTypes {
         static let DAY = "Day"
-    }
-    
-
+    }    
 }

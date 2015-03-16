@@ -13,18 +13,26 @@
                         <viewControllerLayoutGuide type="bottom" id="UXr-fb-gnk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vzb-ou-hS6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dashboard Stats" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2j7-Vh-Tav">
-                                <rect key="frame" x="51" y="245" width="219" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="C0H-DC-0vU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C0H-DC-0vU" firstAttribute="leading" secondItem="vzb-ou-hS6" secondAttribute="leading" id="Wpg-Pr-Uw2"/>
+                            <constraint firstItem="UXr-fb-gnk" firstAttribute="top" secondItem="C0H-DC-0vU" secondAttribute="bottom" id="Zkx-55-e5O"/>
+                            <constraint firstAttribute="trailing" secondItem="C0H-DC-0vU" secondAttribute="trailing" id="fdv-8s-g0n"/>
+                            <constraint firstItem="C0H-DC-0vU" firstAttribute="top" secondItem="Pfl-fL-i0p" secondAttribute="bottom" id="nxG-l5-Cj2"/>
+                        </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="C0H-DC-0vU" id="Mym-z9-YWH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zNo-Tf-mAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -14,5 +14,14 @@ class Traqqer {
             name: identifier, bundle: nil
         ).instantiateViewControllerWithIdentifier(identifier) as UIViewController
     }
+
+    /*
+    Assuming "identifier" is both the nib name and the reuse identifier, registers the nib for the reuse identifier on "tableView"
+    */
+    class func registerNibAsCell(tableView : UITableView, identifier : String) {
+        let nib = UINib(nibName: identifier, bundle: nil)
+        tableView.registerNib(nib, forCellReuseIdentifier: identifier)
+    }
+    
 }
 

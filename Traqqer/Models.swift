@@ -14,6 +14,9 @@ struct StatKeys {
 }
 
 class Stat : PFObject, PFSubclassing {
+    @NSManaged var name : String!
+    @NSManaged var type : String!
+    
     override class func initialize() {
         var onceToken : dispatch_once_t = 0;
         dispatch_once(&onceToken) {
@@ -31,8 +34,11 @@ struct EntryKeys {
     static let duration = "duration"
 }
 
-
 class Entry : PFObject, PFSubclassing {
+    @NSManaged var statRef : Stat!
+    @NSManaged var timestamp : NSDate!
+    @NSManaged var duration : NSNumber!
+    
     override class func initialize() {
         var onceToken : dispatch_once_t = 0;
         dispatch_once(&onceToken) {

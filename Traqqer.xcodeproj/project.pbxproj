@@ -30,6 +30,8 @@
 		560532861AB147B8000AF70D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560532851AB147B8000AF70D /* Constants.swift */; };
 		5605328B1AB151AA000AF70D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5605328A1AB151AA000AF70D /* DetailsViewController.swift */; };
 		5605328D1AB154D4000AF70D /* Traqqer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5605328C1AB154D4000AF70D /* Traqqer.swift */; };
+		56888F0F1AB6697500BB98F3 /* DashboardStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56888F0D1AB6697500BB98F3 /* DashboardStatsCell.swift */; };
+		56888F101AB6697500BB98F3 /* DashboardStatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56888F0E1AB6697500BB98F3 /* DashboardStatsCell.xib */; };
 		56F96D6A1AB4D695003FEB7F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D691AB4D695003FEB7F /* Parse.framework */; };
 		56F96D6C1AB4D6A2003FEB7F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D6B1AB4D6A2003FEB7F /* Bolts.framework */; };
 		56F96D6E1AB4D6D4003FEB7F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D6D1AB4D6D4003FEB7F /* AudioToolbox.framework */; };
@@ -92,6 +94,8 @@
 		5605328A1AB151AA000AF70D /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		5605328C1AB154D4000AF70D /* Traqqer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Traqqer.swift; sourceTree = "<group>"; };
 		562CD446C07415865BD1894C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		56888F0D1AB6697500BB98F3 /* DashboardStatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardStatsCell.swift; sourceTree = "<group>"; };
+		56888F0E1AB6697500BB98F3 /* DashboardStatsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardStatsCell.xib; sourceTree = "<group>"; };
 		56F96D691AB4D695003FEB7F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		56F96D6B1AB4D6A2003FEB7F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		56F96D6D1AB4D6D4003FEB7F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -210,7 +214,6 @@
 			children = (
 				F1D018481AB4BC8F0017A909 /* Views */,
 				560532891AB14B6B000AF70D /* View Controllers */,
-				560532881AB14B57000AF70D /* Nibs */,
 				560532871AB14B47000AF70D /* Storyboards */,
 				5605324E1AB13F4A000AF70D /* Images.xcassets */,
 				560532501AB13F4A000AF70D /* LaunchScreen.xib */,
@@ -266,13 +269,6 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
-		560532881AB14B57000AF70D /* Nibs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Nibs;
-			sourceTree = "<group>";
-		};
 		560532891AB14B6B000AF70D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +298,8 @@
 			children = (
 				F1D018491AB4BD0B0017A909 /* DashboardGraphCell.swift */,
 				F1D0184A1AB4BD0B0017A909 /* DashboardGraphCell.xib */,
+				56888F0D1AB6697500BB98F3 /* DashboardStatsCell.swift */,
+				56888F0E1AB6697500BB98F3 /* DashboardStatsCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -399,6 +397,7 @@
 			files = (
 				560532521AB13F4A000AF70D /* LaunchScreen.xib in Resources */,
 				5605326E1AB1416E000AF70D /* Details.storyboard in Resources */,
+				56888F101AB6697500BB98F3 /* DashboardStatsCell.xib in Resources */,
 				560532721AB1417F000AF70D /* DetailsGraphs.storyboard in Resources */,
 				5605326C1AB1413D000AF70D /* DashboardGraphs.storyboard in Resources */,
 				560532681AB14115000AF70D /* Dashboard.storyboard in Resources */,
@@ -468,6 +467,7 @@
 				5605327C1AB14204000AF70D /* DashboardGraphsViewController.swift in Sources */,
 				560532801AB14216000AF70D /* DetailsGraphsViewController.swift in Sources */,
 				560532781AB141EF000AF70D /* DashboardViewController.swift in Sources */,
+				56888F0F1AB6697500BB98F3 /* DashboardStatsCell.swift in Sources */,
 				F1D0184B1AB4BD0B0017A909 /* DashboardGraphCell.swift in Sources */,
 				560532861AB147B8000AF70D /* Constants.swift in Sources */,
 				F1D0185F1AB629080017A909 /* DateUtils.swift in Sources */,
