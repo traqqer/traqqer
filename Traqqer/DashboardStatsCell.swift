@@ -20,8 +20,8 @@ class DashboardStatsCell: UITableViewCell {
     var numEntries : NSInteger!
     var totalDuration : NSTimeInterval!
     var startDate : NSDate!
-    
-    
+    var stopwatchListener : StopwatchListener!
+
     func setupView() {
         nameLabel.text = stat.name
         if stat.type == Constants.StatTypes.COUNT {
@@ -44,11 +44,9 @@ class DashboardStatsCell: UITableViewCell {
                 self.setupView()
             })
         } else if stat.type == Constants.StatTypes.DURATION {
-            let now = NSDate()
             if let startDate = startDate {
-                // This is a race condition that might make our times "slightly" mismatch; fix later
-                Stopwatch.instance.removeObserver(self, forKeyPath: "time")
-                let interval = now.timeIntervalSinceDate(startDate)
+                let interval = stopwatchListener.currentTime.timeIntervalSinceDate(startDate)
+                self.stopwatchListener = nil  // Timer will be stopped by deallocation
                 ParseAPI.createEntry(stat, timestamp: nil, duration: interval, completion: {
                     // Reload the total count
                     self.numEntries = self.numEntries + 1
@@ -57,23 +55,12 @@ class DashboardStatsCell: UITableViewCell {
                     self.startDate = nil
                 })
             } else {
-                startDate = now
-                Stopwatch.instance.addObserver(self, forKeyPath: "time", options: .New, context: &context)
+                startDate = NSDate()
+                stopwatchListener = StopwatchListener {currentTime in
+                    let interval = currentTime.timeIntervalSinceDate(self.startDate)
+                    self.duration.text = DateUtils.formatTimeInterval(interval)
+                }
             }
         }
     }
-    
-    
-    /*
-    Listener setup taken from: https://developer.apple.com/library/prerelease/mac/documentation/Swift/Conceptual/BuildingCocoaApps/AdoptingCocoaDesignPatterns.html#//apple_ref/doc/uid/TP40014216-CH7-XID_8
-    */
-    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject: AnyObject], context: UnsafeMutablePointer<Void>) {
-            let interval = -1 * startDate.timeIntervalSinceNow
-            self.duration.text = DateUtils.formatTimeInterval(interval)
-    }
-    deinit {
-        Stopwatch.instance.removeObserver(self, forKeyPath: "time", context: &context)
-    }
-    
-    
 }

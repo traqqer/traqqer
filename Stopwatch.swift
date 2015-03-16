@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+private var context = 0;
+
 struct StopwatchConstants {
     static let REFRESH_INTERVAL = 0.01 // seconds
     static let TIME_FIELD = "time"
@@ -43,5 +45,34 @@ class Stopwatch : NSObject {
     */
     class func stopwatchTick() {
         Stopwatch.instance.time = NSDate()
+    }
+}
+
+
+class StopwatchListener : NSObject {
+    var callback: NSDate -> ()
+    var currentTime: NSDate
+    
+    init(callback: NSDate->()) {
+        self.callback = callback
+        self.currentTime = Stopwatch.instance.time
+        super.init()
+        Stopwatch.instance.addObserver(self, forKeyPath: StopwatchConstants.TIME_FIELD, options: .New, context: &context)
+    }
+    
+    /*
+    Listener setup taken from: https://developer.apple.com/library/prerelease/mac/documentation/Swift/Conceptual/BuildingCocoaApps/AdoptingCocoaDesignPatterns.html#//apple_ref/doc/uid/TP40014216-CH7-XID_8
+    */
+    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject: AnyObject], context: UnsafeMutablePointer<Void>) {
+        let newTime = change[NSKeyValueChangeNewKey] as NSDate
+        callback(newTime)
+        self.currentTime = newTime
+    }
+    
+    /*
+    Stop getting notified of the stopwatch events if this object is deallocated
+    */
+    deinit {
+        Stopwatch.instance.removeObserver(self, forKeyPath: StopwatchConstants.TIME_FIELD, context: &context)
     }
 }
