@@ -13,7 +13,8 @@ class ParseAPI {
     class func runQueryAndCallCompletion<T:PFObject>(query : PFQuery, completion : [T] -> ()) {
         query.findObjectsInBackgroundWithBlock{
             (objects : [AnyObject]!, error : NSError!) in
-            if error == nil {
+            
+            if error != nil {
                 println(error)
             } else {
                 let castObjects = objects as [T]
@@ -22,12 +23,13 @@ class ParseAPI {
         }
     }
     
-    class func saveObjectAndCallCompletion<T:PFObject> (object: T, completion: () -> ()) {
+    class func saveObjectAndCallCompletion<T:PFObject> (object: T, completion: (() -> ())?) {
         object.saveInBackgroundWithBlock {(success: Bool, error: NSError!) -> Void in
             if (!success) {
                 println(error)
             } else {
-                completion()
+                // Run completion if it was supplied
+                completion?()
             }
         }
     }
@@ -37,25 +39,12 @@ class ParseAPI {
         ParseAPI.runQueryAndCallCompletion(query, completion: completion)
     }
 
-    class func createEntry(stat: Stat, timestamp: NSDate?, duration: NSNumber?, completion: () -> ()?) {
+    class func createEntry(stat: Stat, timestamp: NSDate?, duration: NSTimeInterval?, completion: (() -> ())?) {
         let entry = Entry()
-        
-        // Set the timestamp
-        if let timestamp = timestamp {
-            entry[EntryKeys.timestamp] = timestamp
-        } else {
-            // Use now
-            entry[EntryKeys.timestamp] = NSDate()
-        }
-        
-        // Maybe set the duration
-        if let duration = duration {
-            entry[EntryKeys.duration] = duration
-        }
-        
-        // Maybe run a completion
-        completion()?
-        
+        entry.statRef = stat
+        entry.timestamp = timestamp ?? NSDate() // Nil Coalescing Operator
+        entry.duration = duration
+        ParseAPI.saveObjectAndCallCompletion(entry, completion: completion)
     }
 
     class func getStats(completion: [Stat] -> ()) {
