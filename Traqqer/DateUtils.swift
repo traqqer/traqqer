@@ -40,4 +40,11 @@ class DateUtils {
         var components = NSCalendar.currentCalendar().components(NSCalendarUnit.DayCalendarUnit, fromDate: date)
         return components.day
     }
+    
+    class func formatTimeInterval(interval : NSTimeInterval) -> String {
+        let s = interval % 60
+        let m = (interval / 60) % 60
+        let h = interval / 3600
+        return NSString(format: "%02d:%02d:%05.2f", Int(h), Int(m), s)
+    }
 }
