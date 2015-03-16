@@ -25,9 +25,9 @@ class DashboardStatsCell: UITableViewCell {
     func setupView() {
         nameLabel.text = stat.name
         if stat.type == Constants.StatTypes.COUNT {
-            totalLabel.text = String(format: "%d", numEntries)
+//            totalLabel.text = String(format: "%d", numEntries)
         } else if stat.type == Constants.StatTypes.DURATION {
-            totalLabel.text = DateUtils.formatTimeInterval(totalDuration)
+//            totalLabel.text = DateUtils.formatTimeInterval(totalDuration)
         }
     }
     
