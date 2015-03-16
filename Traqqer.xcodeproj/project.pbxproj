@@ -32,7 +32,7 @@
 		5605328D1AB154D4000AF70D /* Traqqer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5605328C1AB154D4000AF70D /* Traqqer.swift */; };
 		56888F0F1AB6697500BB98F3 /* DashboardStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56888F0D1AB6697500BB98F3 /* DashboardStatsCell.swift */; };
 		56888F101AB6697500BB98F3 /* DashboardStatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56888F0E1AB6697500BB98F3 /* DashboardStatsCell.xib */; };
-		56888F121AB6939300BB98F3 /* StopwatchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56888F111AB6939300BB98F3 /* StopwatchTimer.swift */; };
+		56888F121AB6939300BB98F3 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56888F111AB6939300BB98F3 /* Stopwatch.swift */; };
 		56F96D6A1AB4D695003FEB7F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D691AB4D695003FEB7F /* Parse.framework */; };
 		56F96D6C1AB4D6A2003FEB7F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D6B1AB4D6A2003FEB7F /* Bolts.framework */; };
 		56F96D6E1AB4D6D4003FEB7F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D6D1AB4D6D4003FEB7F /* AudioToolbox.framework */; };
@@ -97,7 +97,7 @@
 		562CD446C07415865BD1894C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		56888F0D1AB6697500BB98F3 /* DashboardStatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardStatsCell.swift; sourceTree = "<group>"; };
 		56888F0E1AB6697500BB98F3 /* DashboardStatsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardStatsCell.xib; sourceTree = "<group>"; };
-		56888F111AB6939300BB98F3 /* StopwatchTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StopwatchTimer.swift; path = ../StopwatchTimer.swift; sourceTree = "<group>"; };
+		56888F111AB6939300BB98F3 /* Stopwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stopwatch.swift; path = ../Stopwatch.swift; sourceTree = "<group>"; };
 		56F96D691AB4D695003FEB7F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		56F96D6B1AB4D6A2003FEB7F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		56F96D6D1AB4D6D4003FEB7F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -221,7 +221,7 @@
 				560532501AB13F4A000AF70D /* LaunchScreen.xib */,
 				560532451AB13F4A000AF70D /* Supporting Files */,
 				560532851AB147B8000AF70D /* Constants.swift */,
-				56888F111AB6939300BB98F3 /* StopwatchTimer.swift */,
+				56888F111AB6939300BB98F3 /* Stopwatch.swift */,
 				5605328C1AB154D4000AF70D /* Traqqer.swift */,
 				56F96D891AB4E4F6003FEB7F /* API.swift */,
 				F1D018451AB4AD930017A909 /* Traqqer-Bridging-Header.h */,
@@ -463,7 +463,7 @@
 				560532821AB1421D000AF70D /* NewStatViewController.swift in Sources */,
 				56F96D8C1AB4EEFD003FEB7F /* Models.swift in Sources */,
 				5605327A1AB141F9000AF70D /* DashboardStatsViewController.swift in Sources */,
-				56888F121AB6939300BB98F3 /* StopwatchTimer.swift in Sources */,
+				56888F121AB6939300BB98F3 /* Stopwatch.swift in Sources */,
 				560532481AB13F4A000AF70D /* AppDelegate.swift in Sources */,
 				5605328D1AB154D4000AF70D /* Traqqer.swift in Sources */,
 				560532841AB14227000AF70D /* NewStatFormViewController.swift in Sources */,
