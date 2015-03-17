@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Traqqer/DashboardViewController.swift"
-            timestampString = "448076779.961279"
+            timestampString = "448274769.070997"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Traqqer/DashboardViewController.swift"
-            timestampString = "448076779.961279"
+            timestampString = "448274769.070997"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "setupTabViewController()"
             landmarkType = "5">
          </BreakpointContent>
@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "API.swift"
-            timestampString = "448186237.799545"
+            timestampString = "448264339.118523"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "ParseAPI"
             landmarkType = "3">
          </BreakpointContent>
@@ -111,6 +111,108 @@
             endingLineNumber = "43"
             landmarkName = "createEntry(_:timestamp:duration:completion:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Traqqer/DetailsGraphsViewController.swift"
+            timestampString = "448274435.223711"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "DetailsGraphsViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Traqqer.DetailsGraphsViewController.stat.getter : Swift.ImplicitlyUnwrappedOptional&lt;Traqqer.Stat&gt;"
+                  moduleName = "Traqqer"
+                  urlString = "file:///Users/jboggs/Projects/Traqqer/Traqqer/DetailsGraphsViewController.swift"
+                  timestampString = "448274435.254107"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Traqqer.DetailsGraphsViewController.stat.setter : Swift.ImplicitlyUnwrappedOptional&lt;Traqqer.Stat&gt;"
+                  moduleName = "Traqqer"
+                  urlString = "file:///Users/jboggs/Projects/Traqqer/Traqqer/DetailsGraphsViewController.swift"
+                  timestampString = "448274435.255231"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Traqqer.DetailsGraphsViewController.stat.materializeForSet : Swift.ImplicitlyUnwrappedOptional&lt;Traqqer.Stat&gt;"
+                  moduleName = "Traqqer"
+                  urlString = "file:///Users/jboggs/Projects/Traqqer/Traqqer/DetailsGraphsViewController.swift"
+                  timestampString = "448274435.2554"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Traqqer.DetailsGraphsViewController.init (Traqqer.DetailsGraphsViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; Traqqer.DetailsGraphsViewController"
+                  moduleName = "Traqqer"
+                  urlString = "file:///Users/jboggs/Projects/Traqqer/Traqqer/DetailsGraphsViewController.swift"
+                  timestampString = "448274435.255537"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "209">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Traqqer.DetailsGraphsViewController.init (Traqqer.DetailsGraphsViewController.Type)() -&gt; Traqqer.DetailsGraphsViewController"
+                  moduleName = "Traqqer"
+                  urlString = "file:///Users/jboggs/Projects/Traqqer/Traqqer/DetailsGraphsViewController.swift"
+                  timestampString = "448274435.255676"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "175">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Traqqer.DetailsGraphsViewController.init (Traqqer.DetailsGraphsViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; Traqqer.DetailsGraphsViewController"
+                  moduleName = "Traqqer"
+                  urlString = "file:///Users/jboggs/Projects/Traqqer/Traqqer/DetailsGraphsViewController.swift"
+                  timestampString = "448274435.255807"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "183">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

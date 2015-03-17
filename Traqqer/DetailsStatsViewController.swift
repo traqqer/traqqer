@@ -8,28 +8,39 @@
 
 import UIKit
 
-class DetailsStatsViewController: UIViewController {
-
+class DetailsStatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var tableView: UITableView!
+    
+    var stat : Stat!
+    var entries = [] as [Entry]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        tableView.delegate = self
+        tableView.dataSource = self
+        Traqqer.registerNibAsCell(tableView, identifier: Constants.DETAILS_STATS_CELL)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(animated: Bool) {
+        refreshData()
     }
-    */
-
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DETAILS_STATS_CELL) as DetailsStatsCell
+        cell.entry = entries[indexPath.row]
+        cell.setup()
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return entries.count
+    }
+    
+    func refreshData() {
+        ParseAPI.getEntriesforStat(stat, completion: {entries in
+            self.entries = entries
+            self.tableView.reloadData()
+        })
+    }
+    
 }

@@ -10,6 +10,14 @@ import Foundation
 
 class DateUtils {
     
+    class var formatter : NSDateFormatter {
+        struct Static {
+            static let formatter = NSDateFormatter()
+        }
+        Static.formatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd hh:mm:s")
+        return Static.formatter
+    }
+    
     class func lastDayOfCurrentMonth() -> NSDate {
         // Setup the calendar object
         let calendar = NSCalendar.currentCalendar()
@@ -46,5 +54,9 @@ class DateUtils {
         let m = (interval / 60) % 60
         let h = interval / 3600
         return NSString(format: "%02d:%02d:%05.2f", Int(h), Int(m), s)
+    }
+    
+    class func formatDatetime(date : NSDate) -> String {
+        return DateUtils.formatter.stringFromDate(date)
     }
 }

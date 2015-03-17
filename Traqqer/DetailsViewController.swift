@@ -10,16 +10,18 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     var tabVC : UITabBarController!
+    var detailsStatsVC : DetailsStatsViewController!
+    var detailsGraphsVC : DetailsGraphsViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
-    func setupTabViewController() {
-        let detailsStatsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS_STATS)
-        let detailsGraphsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS_GRAPHS)
+    
+    func setup(stat: Stat) {
+        navigationItem.title = stat.name
+        
+        detailsStatsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS_STATS) as DetailsStatsViewController
+        detailsGraphsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS_GRAPHS) as DetailsGraphsViewController
         
         detailsStatsVC.tabBarItem!.title = "Stats"
         detailsGraphsVC.tabBarItem!.title = "Graphs"
@@ -28,6 +30,8 @@ class DetailsViewController: UIViewController {
         
         tabVC.viewControllers = [detailsStatsVC, detailsGraphsVC]
         self.view.addSubview(tabVC.view)
+        
+        detailsStatsVC.stat = stat
+        detailsGraphsVC.stat = stat
     }
-
 }

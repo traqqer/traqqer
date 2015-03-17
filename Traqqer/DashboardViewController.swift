@@ -8,12 +8,25 @@
 
 import UIKit
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UIViewController, NavigationDelegate {
     var tabVC : UITabBarController!
-//    var viewControllers : NSArray!
+    var dashboardStatsVC : DashboardStatsViewController!
+    var dashboardGraphsVC : DashboardGraphsViewController!
+    var detailsMode = false
+    
     
     @IBAction func addStatButtonPressed(sender: AnyObject) {
-        
+        let newStatVC = Traqqer.instantiateStoryboardVC(Constants.NEW_STAT)
+        self.presentViewController(newStatVC, animated: true, completion: nil)
+
+    }
+    
+    @IBAction func detailButtonPressed(sender: AnyObject) {
+        // Flip the detailsMode on or off
+        detailsMode = !detailsMode
+        dashboardStatsVC.detailsMode = detailsMode
+        dashboardGraphsVC.detailsMode = detailsMode
+        navigationController?.navigationBar.barTintColor = detailsMode ? UIColor.blueColor() : UIColor.whiteColor()
     }
     
     override func viewDidLoad() {
@@ -23,16 +36,31 @@ class DashboardViewController: UIViewController {
     }
     
     func setupTabViewController() {
-        let dashboardStatsVC = Traqqer.instantiateStoryboardVC(Constants.DASHBOARD_STATS)
-        let dashboardGraphsVC =
-            Traqqer.instantiateStoryboardVC(Constants.DASHBOARD_GRAPHS)
+        dashboardStatsVC = Traqqer.instantiateStoryboardVC(Constants.DASHBOARD_STATS) as? DashboardStatsViewController
+        dashboardGraphsVC = Traqqer.instantiateStoryboardVC(Constants.DASHBOARD_GRAPHS) as? DashboardGraphsViewController
         
-        dashboardStatsVC.tabBarItem!.title = "Stats"
-        dashboardGraphsVC.tabBarItem!.title = "Graphs"
+        // Set the tab bar items
+        dashboardStatsVC!.tabBarItem!.title = "Stats"
+        dashboardGraphsVC!.tabBarItem!.title = "Graphs"
 
-        tabVC = UITabBarController()
+        // Set self as the "NavigationDelegate"
+        dashboardStatsVC!.navigationDelegate = self
+        dashboardGraphsVC!.navigationDelegate = self
         
-        tabVC.viewControllers = [dashboardStatsVC, dashboardGraphsVC]
+        // Put the views on a tab bar, and add the tab bar to the view
+        tabVC = UITabBarController()
+        tabVC.viewControllers = [dashboardStatsVC!, dashboardGraphsVC!]
         self.view.addSubview(tabVC.view)
     }
+    
+    func segueToDetail(forStats stat: Stat) {
+        let detailsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS) as DetailsViewController
+        detailsVC.setup(stat)
+        navigationController!.pushViewController(detailsVC, animated: true)
+    }
+    
+}
+
+protocol NavigationDelegate : class {
+    func segueToDetail(forStats stat: Stat)
 }

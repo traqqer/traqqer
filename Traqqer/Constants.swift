@@ -22,6 +22,10 @@ struct Constants {
 
     // Cells
     static let DASHBOARD_STATS_CELL = "DashboardStatsCell"
+    static let DASHBOARD_GRAPHS_CELL = "DashboardGraphsCell"
+    static let DETAILS_STATS_CELL = "DetailsStatsCell"
+    static let DETAILS_GRAPHS_CELL = "DetailsGraphsCell"
+    static let DETAILS_GRAPHS_SUMMARY_CELL = "DetailsGraphsSummaryCell"
     
     // Config
     static let PARSE_APPLICATION_ID = "fkila2DSXO9hpNsz5E5VcOenyU9kMEVDhOVewGfW"
