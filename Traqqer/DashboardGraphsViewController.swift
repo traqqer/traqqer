@@ -26,7 +26,6 @@ enum TimeSegment: Int {
 }
 
 class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate {
-    
     @IBOutlet weak var timeSegments: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,12 +33,15 @@ class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, U
         tableView.reloadData()
     }
     
+    var detailsMode = false
+    weak var navigationDelegate : NavigationDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.darkGrayColor()
         self.tableView.backgroundColor = UIColor.darkGrayColor()
-        tableView.registerNib(UINib(nibName: "DashboardGraphCell", bundle: nil), forCellReuseIdentifier: "DashboardGraphCell")
-        tableView.rowHeight = CGFloat(250);
+        Traqqer.registerNibAsCell(tableView, identifier: Constants.DASHBOARD_GRAPHS_CELL)
+        tableView.rowHeight = CGFloat(250)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,7 +49,7 @@ class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, U
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("DashboardGraphCell", forIndexPath: indexPath) as DashboardGraphCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DASHBOARD_GRAPHS_CELL, forIndexPath: indexPath) as DashboardGraphCell
         cell.accessoryType = UITableViewCellAccessoryType.None
         cell.selectionStyle = UITableViewCellSelectionStyle.None;
         cell.timeSegment = TimeSegment(rawValue: timeSegments.selectedSegmentIndex)

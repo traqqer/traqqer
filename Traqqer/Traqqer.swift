@@ -22,6 +22,5 @@ class Traqqer {
         let nib = UINib(nibName: identifier, bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: identifier)
     }
-    
 }
 

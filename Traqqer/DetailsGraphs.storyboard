@@ -13,22 +13,48 @@
                         <viewControllerLayoutGuide type="bottom" id="PGK-OK-KhJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yXR-Ke-lGR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Details Graphs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUf-XG-bw0">
-                                <rect key="frame" x="51" y="242" width="219" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="T3y-7G-OD2">
+                                <rect key="frame" x="8" y="8" width="304" height="29"/>
+                                <segments>
+                                    <segment title="Day"/>
+                                    <segment title="Week"/>
+                                    <segment title="Month"/>
+                                    <segment title="Year"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="onSegmentChanged:" destination="IyD-OP-zb1" eventType="valueChanged" id="iJ9-hn-4Tb"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mGe-ee-jAP">
+                                <rect key="frame" x="0.0" y="44" width="320" height="411"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PGK-OK-KhJ" firstAttribute="top" secondItem="mGe-ee-jAP" secondAttribute="bottom" id="AhE-BH-7wy"/>
+                            <constraint firstAttribute="trailing" secondItem="mGe-ee-jAP" secondAttribute="trailing" id="K6w-4n-kGr"/>
+                            <constraint firstItem="mGe-ee-jAP" firstAttribute="leading" secondItem="yXR-Ke-lGR" secondAttribute="leading" id="R7t-2R-U78"/>
+                            <constraint firstItem="T3y-7G-OD2" firstAttribute="leading" secondItem="yXR-Ke-lGR" secondAttribute="leading" constant="8" id="Tb3-Rt-D8D"/>
+                            <constraint firstItem="T3y-7G-OD2" firstAttribute="top" secondItem="Hiy-BP-R6a" secondAttribute="bottom" constant="8" id="VCM-2C-8EC"/>
+                            <constraint firstItem="mGe-ee-jAP" firstAttribute="top" secondItem="T3y-7G-OD2" secondAttribute="bottom" constant="8" id="eJt-vJ-nfd"/>
+                            <constraint firstAttribute="trailing" secondItem="T3y-7G-OD2" secondAttribute="trailing" constant="8" id="xor-PT-Sbu"/>
+                        </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="mGe-ee-jAP" id="x5R-ac-3Qe"/>
+                        <outlet property="timeSegments" destination="T3y-7G-OD2" id="gdq-BI-has"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEU-CV-w9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="212.26666666666665" y="324.70666666666665"/>
+            <point key="canvasLocation" x="212" y="324"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

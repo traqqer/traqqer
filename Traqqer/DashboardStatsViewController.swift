@@ -9,18 +9,19 @@
 import UIKit
 
 class DashboardStatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    var stats : [Stat] = []
-    
     @IBOutlet weak var tableView: UITableView!
+
+    var detailsMode = false
+    var stats : [Stat] = []
+    weak var navigationDelegate : NavigationDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         // Setup the tableview
         tableView.delegate = self; tableView.dataSource = self
         Traqqer.registerNibAsCell(tableView, identifier: Constants.DASHBOARD_STATS_CELL)
-
+        tableView.rowHeight = CGFloat(80)
         fetchData()
     }
     
@@ -40,7 +41,14 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let cell = self.tableView.cellForRowAtIndexPath(indexPath) as DashboardStatsCell
-        cell.clicked()
+        if detailsMode {
+            // Segue to detail view
+            navigationDelegate?.segueToDetail(forStats: cell.stat)
+        } else {
+            // Trigger the event
+            cell.clicked()
+        }
+
     }
     
     func fetchData() {

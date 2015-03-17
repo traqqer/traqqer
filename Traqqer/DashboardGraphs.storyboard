@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6750" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--Dashboard Graphs View Controller-->
@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0hy-Wa-xCy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2ws-ev-dFP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WSw-A4-C5j">
@@ -30,7 +30,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7ed-uD-hTh">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DashboardGraphCell" id="4rg-Pf-ZYM" customClass="DashboardGraphCell" customModule="Traqqer" customModuleProvider="target">
@@ -53,11 +53,13 @@
                             <constraint firstItem="7ed-uD-hTh" firstAttribute="leading" secondItem="2ws-ev-dFP" secondAttribute="leading" id="L1i-D8-VZK"/>
                             <constraint firstItem="WSw-A4-C5j" firstAttribute="leading" secondItem="2ws-ev-dFP" secondAttribute="leading" constant="8" id="LCl-2P-peZ"/>
                             <constraint firstAttribute="trailing" secondItem="WSw-A4-C5j" secondAttribute="trailing" constant="8" id="OB4-Ws-hLW"/>
-                            <constraint firstItem="0hy-Wa-xCy" firstAttribute="bottom" secondItem="7ed-uD-hTh" secondAttribute="bottom" id="UYh-GC-kq3"/>
+                            <constraint firstItem="0hy-Wa-xCy" firstAttribute="bottom" secondItem="7ed-uD-hTh" secondAttribute="bottom" id="QU7-Si-8Lx"/>
                             <constraint firstItem="7ed-uD-hTh" firstAttribute="top" secondItem="WSw-A4-C5j" secondAttribute="bottom" constant="8" id="YPp-Ra-mWF"/>
                             <constraint firstAttribute="trailing" secondItem="7ed-uD-hTh" secondAttribute="trailing" id="wpy-K9-kxi"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="tableView" destination="7ed-uD-hTh" id="J1d-zn-6xC"/>
                         <outlet property="timeSegments" destination="WSw-A4-C5j" id="0rh-vZ-tjc"/>

@@ -15,14 +15,21 @@ class DashboardStatsCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
-
+    @IBOutlet weak var goalStaticLabel: UILabel!
+    @IBOutlet weak var goalLabel: UILabel!
+    
+    
+    
     var stat : Stat!
     var numEntries : NSInteger!
     var totalDuration : NSTimeInterval!
     var startDate : NSDate!
     var stopwatchListener : StopwatchListener!
-
+    var detailMode = false
+    
+    
     func setupView() {
+        self.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         nameLabel.text = stat.name
         if stat.type == Constants.StatTypes.COUNT {
             totalLabel.text = String(format: "%d", numEntries)
@@ -56,9 +63,12 @@ class DashboardStatsCell: UITableViewCell {
                 })
             } else {
                 startDate = NSDate()
-                stopwatchListener = StopwatchListener {currentTime in
-                    let interval = currentTime.timeIntervalSinceDate(self.startDate)
-                    self.duration.text = DateUtils.formatTimeInterval(interval)
+                stopwatchListener = StopwatchListener { [weak self] currentTime in
+                    if let vc = self {
+                        let interval = currentTime.timeIntervalSinceDate(vc.startDate)
+                        vc.duration.text = DateUtils.formatTimeInterval(interval)
+                    }
+                    return ()
                 }
             }
         }
