@@ -16,8 +16,8 @@ class DashboardViewController: UIViewController, NavigationDelegate {
     
     
     @IBAction func addStatButtonPressed(sender: AnyObject) {
-        let newStatVC = Traqqer.instantiateStoryboardVC(Constants.NEW_STAT)
-        self.presentViewController(newStatVC, animated: true, completion: nil)
+        let newStatFormVC = Traqqer.instantiateStoryboardVC(Constants.NEW_STAT_FORM)
+        self.presentViewController(newStatFormVC, animated: true, completion: nil)
 
     }
     
