@@ -26,6 +26,15 @@ class Stat : PFObject, PFSubclassing {
     class func parseClassName() -> String! {
         return "Stat"
     }
+    
+    func getEntries(completion: [Entry]->()) {
+        return ParseAPI.getEntriesforStat(self, completion: completion)
+    }
+    
+    func createEntry(stat: Stat, timestamp: NSDate?, duration: NSTimeInterval?, completion: (() -> ())?) {
+        return ParseAPI.createEntry(self, timestamp: timestamp, duration: duration, completion: completion)
+    }
+    
 }
 
 struct EntryKeys {
