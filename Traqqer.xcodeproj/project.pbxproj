@@ -59,6 +59,10 @@
 		F1D0184B1AB4BD0B0017A909 /* DashboardGraphsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D018491AB4BD0B0017A909 /* DashboardGraphsCell.swift */; };
 		F1D0184C1AB4BD0B0017A909 /* DashboardGraphsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D0184A1AB4BD0B0017A909 /* DashboardGraphsCell.xib */; };
 		F1D0185F1AB629080017A909 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D0185E1AB629080017A909 /* DateUtils.swift */; };
+		F1DFB8FE1ABAA40700A37020 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFB8FA1ABAA40700A37020 /* Duration.swift */; };
+		F1DFB8FF1ABAA40700A37020 /* Int+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFB8FB1ABAA40700A37020 /* Int+Timepiece.swift */; };
+		F1DFB9001ABAA40700A37020 /* NSDate+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFB8FC1ABAA40700A37020 /* NSDate+Timepiece.swift */; };
+		F1DFB9011ABAA40700A37020 /* String+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFB8FD1ABAA40700A37020 /* String+Timepiece.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +135,10 @@
 		F1D018491AB4BD0B0017A909 /* DashboardGraphsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardGraphsCell.swift; sourceTree = "<group>"; };
 		F1D0184A1AB4BD0B0017A909 /* DashboardGraphsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardGraphsCell.xib; sourceTree = "<group>"; };
 		F1D0185E1AB629080017A909 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		F1DFB8FA1ABAA40700A37020 /* Duration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
+		F1DFB8FB1ABAA40700A37020 /* Int+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Timepiece.swift"; sourceTree = "<group>"; };
+		F1DFB8FC1ABAA40700A37020 /* NSDate+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Timepiece.swift"; sourceTree = "<group>"; };
+		F1DFB8FD1ABAA40700A37020 /* String+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Timepiece.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +230,7 @@
 		560532441AB13F4A000AF70D /* Traqqer */ = {
 			isa = PBXGroup;
 			children = (
+				F1DFB8F91ABAA3C400A37020 /* Timepiece */,
 				F1D018481AB4BC8F0017A909 /* Views */,
 				560532891AB14B6B000AF70D /* View Controllers */,
 				560532871AB14B47000AF70D /* Storyboards */,
@@ -326,6 +335,17 @@
 				F102978F1AB63CE200A99DA3 /* FooterView.swift */,
 			);
 			name = Charts;
+			sourceTree = "<group>";
+		};
+		F1DFB8F91ABAA3C400A37020 /* Timepiece */ = {
+			isa = PBXGroup;
+			children = (
+				F1DFB8FA1ABAA40700A37020 /* Duration.swift */,
+				F1DFB8FB1ABAA40700A37020 /* Int+Timepiece.swift */,
+				F1DFB8FC1ABAA40700A37020 /* NSDate+Timepiece.swift */,
+				F1DFB8FD1ABAA40700A37020 /* String+Timepiece.swift */,
+			);
+			name = Timepiece;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,17 +496,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				560532821AB1421D000AF70D /* NewStatViewController.swift in Sources */,
+				F1DFB8FE1ABAA40700A37020 /* Duration.swift in Sources */,
 				56F96D8C1AB4EEFD003FEB7F /* Models.swift in Sources */,
 				5605327A1AB141F9000AF70D /* DashboardStatsViewController.swift in Sources */,
 				56888F121AB6939300BB98F3 /* Stopwatch.swift in Sources */,
 				560532481AB13F4A000AF70D /* AppDelegate.swift in Sources */,
 				5605328D1AB154D4000AF70D /* Traqqer.swift in Sources */,
 				560532841AB14227000AF70D /* NewStatFormViewController.swift in Sources */,
+				F1DFB9001ABAA40700A37020 /* NSDate+Timepiece.swift in Sources */,
 				56EB6ADA1AB81F0300163BAE /* DetailsGraphsSummaryCell.swift in Sources */,
+				F1DFB9011ABAA40700A37020 /* String+Timepiece.swift in Sources */,
 				5605327E1AB1420F000AF70D /* DetailsStatsViewController.swift in Sources */,
 				5605327C1AB14204000AF70D /* DashboardGraphsViewController.swift in Sources */,
 				560532801AB14216000AF70D /* DetailsGraphsViewController.swift in Sources */,
 				56B5918E1AB813AF0033F483 /* DetailsStatsCell.swift in Sources */,
+				F1DFB8FF1ABAA40700A37020 /* Int+Timepiece.swift in Sources */,
 				560532781AB141EF000AF70D /* DashboardViewController.swift in Sources */,
 				56888F0F1AB6697500BB98F3 /* DashboardStatsCell.swift in Sources */,
 				F1D0184B1AB4BD0B0017A909 /* DashboardGraphsCell.swift in Sources */,

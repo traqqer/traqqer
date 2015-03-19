@@ -32,13 +32,13 @@ class FooterView: UIView {
                 labelLeft.text = "12 AM"
                 labelRight.text = "12 AM"
             case .Week:
-                labelLeft.text = "Sun"
-                labelRight.text = "Sat"
+                labelLeft.text = NSDate().stringFromFormat("MMM") + " " + String(NSDate().change(weekday: 1).day)
+                labelRight.text = String(NSDate().change(weekday: 7).day)
             case .Month:
-                labelLeft.text = "1"
-                labelRight.text = String(DateUtils.numberOfDaysInCurrentMonth())
+                labelLeft.text = NSDate().stringFromFormat("MMM") + " 1"
+                labelRight.text = String(NSDate().endOfMonth.day)
             case .Year:
-                labelLeft.text = "Jan"
+                labelLeft.text = "Jan " + NSDate().stringFromFormat("YY")
                 labelRight.text = "Dec"
         }
         

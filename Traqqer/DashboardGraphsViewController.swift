@@ -18,7 +18,7 @@ enum TimeSegment: Int {
             case .Week:
                 return 7
             case .Month:
-                return DateUtils.numberOfDaysInCurrentMonth()
+                return NSDate().endOfMonth.day
             case .Year:
                 return 12
         }
