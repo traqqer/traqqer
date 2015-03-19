@@ -8,6 +8,8 @@
 
 import UIKit
 
+let weekdays: Array<String> = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
+
 enum TimeSegment: Int {
     case Day = 0, Week, Month, Year
     
@@ -21,6 +23,19 @@ enum TimeSegment: Int {
                 return NSDate().endOfMonth.day
             case .Year:
                 return 12
+        }
+    }
+    
+    func getSegmentName(index: Int) -> String {
+        switch self {
+            case .Day:
+                return NSDate().change(hour: index).stringFromFormat("hh a")
+            case .Week:
+                return weekdays[index]
+            case .Month:
+                return String(index+1)
+            case .Year:
+                return NSDate().change(month: index+1).stringFromFormat("MMM").uppercaseString
         }
     }
 }
@@ -38,10 +53,11 @@ class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, U
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.darkGrayColor()
-        self.tableView.backgroundColor = UIColor.darkGrayColor()
-        Traqqer.registerNibAsCell(tableView, identifier: Constants.DASHBOARD_GRAPHS_CELL)
+        
+        view.backgroundColor = UIColor.darkGrayColor()
+        tableView.backgroundColor = UIColor.darkGrayColor()
         tableView.rowHeight = CGFloat(250)
+        Traqqer.registerNibAsCell(tableView, identifier: Constants.DASHBOARD_GRAPHS_CELL)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

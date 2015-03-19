@@ -13,7 +13,17 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     @IBOutlet weak var lineChart: JBLineChartView!
     @IBOutlet weak var infoLabel: UILabel!
     
+    var toolTip: ToolTip
     var timeSegment: TimeSegment?
+
+    required init(coder aDecoder: NSCoder) {
+        toolTip = ToolTip()
+        
+        super.init(coder: aDecoder)
+        
+        toolTip.hidden = true
+        addSubview(toolTip)
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,8 +41,8 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        lineChart.headerView = createHeaderView()
-        lineChart.footerView = createFooterView()
+        lineChart.headerView = HeaderView(frame: CGRectMake(0, 0, lineChart.frame.width, 20))
+        lineChart.footerView = FooterView(frame: CGRectMake(0, 0, lineChart.frame.width, 16), timeSegment: timeSegment!)
         lineChart.setState(.Expanded, animated: true)
         lineChart.reloadData()
     }
@@ -70,6 +80,28 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
         infoLabel.text = String(horizontalIndex * 100)
     }
     
+    func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt, touchPoint: CGPoint) {
+        toolTip.hidden = false
+        toolTip.setText(timeSegment!.getSegmentName(Int(horizontalIndex)))
+        
+        let originalTouchPoint = self.convertPoint(touchPoint, fromView:lineChartView)
+        var convertedTouchPoint = originalTouchPoint
+        
+        let minChartX = (lineChart.frame.origin.x + ceil(toolTip.frame.size.width * 0.5));
+        if (convertedTouchPoint.x < minChartX)
+        {
+            convertedTouchPoint.x = minChartX;
+        }
+        
+        let maxChartX = (lineChartView.frame.origin.x + lineChartView.frame.size.width - ceil(toolTip.frame.size.width * 0.5));
+        if (convertedTouchPoint.x > maxChartX)
+        {
+            convertedTouchPoint.x = maxChartX;
+        }
+
+        toolTip.frame = CGRectMake(convertedTouchPoint.x - ceil(toolTip.frame.size.width * 0.5), CGRectGetMaxY(lineChart.headerView.frame), toolTip.frame.size.width, toolTip.frame.size.height)
+    }
+    
     func lineChartView(lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {
         return false
     }
@@ -88,13 +120,6 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     
     func didDeselectLineInLineChartView(lineChartView: JBLineChartView!) {
         infoLabel.text = ""
-    }
-    
-    func createHeaderView() -> UIView {
-        return HeaderView(frame: CGRectMake(0, 0, lineChart.frame.width, 20))
-    }
-    
-    func createFooterView() -> UIView {
-        return FooterView(frame: CGRectMake(0, 0, lineChart.frame.width, 16), timeSegment: timeSegment!)
+        toolTip.hidden = true
     }
 }
