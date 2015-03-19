@@ -91,7 +91,7 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         case FormTag.Goal.rawValue:
             let isGoalEnabled = newValue as Bool
             if (isGoalEnabled) {
-                self.addReminderRows(formRow)
+                self.addGoalRows(formRow)
             } else {
                 self.form.removeFormRowWithTag(FormTag.GoalMetadata.rawValue)
                 self.form.removeFormRowWithTag(FormTag.GoalMetadata2.rawValue)
@@ -100,7 +100,7 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         case FormTag.Reminder.rawValue:
             let isReminderEnabled = newValue as Bool
             if (isReminderEnabled) {
-                self.addGoalRows(formRow)
+                self.addReminderRows(formRow)
             } else {
                 self.form.removeFormRowWithTag(FormTag.ReminderMetadata.rawValue)
             }
@@ -112,15 +112,15 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
     
     func addGoalRows(parentRow: XLFormRowDescriptor) {
         // greater than or less than
-        let goalMetadataRow = XLFormRowDescriptor(tag: FormTag.GoalMetadata.rawValue, rowType: XLFormRowDescriptorTypeSelectorSegmentedControl, title: "Goal Metadata")
+        let goalMetadataRow = XLFormRowDescriptor(tag: FormTag.GoalMetadata.rawValue, rowType: XLFormRowDescriptorTypeSelectorSegmentedControl)
         goalMetadataRow.selectorOptions = [
-            XLFormOptionsObject(value: "less_than", displayText: "<"),
-            XLFormOptionsObject(value: "greater_than", displayText: ">")
+            XLFormOptionsObject(value: "less_than", displayText: "Less than"),
+            XLFormOptionsObject(value: "greater_than", displayText: "Greater than")
         ]
         self.form.addFormRow(goalMetadataRow, afterRow: parentRow)
         
         // goal target?
-        let goalMetadataRow2 = XLFormRowDescriptor(tag: FormTag.GoalMetadata2.rawValue, rowType: XLFormRowDescriptorTypeInteger, title: "Goal Metadata 2")
+        let goalMetadataRow2 = XLFormRowDescriptor(tag: FormTag.GoalMetadata2.rawValue, rowType: XLFormRowDescriptorTypeInteger)
         
         if (self.statType == Constants.StatTypes.DURATION) {
             goalMetadataRow2.cellConfigAtConfigure["textField.placeholder"] = "Goal count"
@@ -133,7 +133,7 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
     }
     
     func addReminderRows(parentRow: XLFormRowDescriptor) {
-        let reminderMetadataRow = XLFormRowDescriptor(tag: FormTag.ReminderMetadata.rawValue, rowType: XLFormRowDescriptorTypeTimeInline, title: "Reminder Metadata")
+        let reminderMetadataRow = XLFormRowDescriptor(tag: FormTag.ReminderMetadata.rawValue, rowType: XLFormRowDescriptorTypeTimeInline, title: "Remind me at ...")
         self.form.addFormRow(reminderMetadataRow, afterRow: parentRow)
     }
 }
