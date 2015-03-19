@@ -20,8 +20,8 @@ class DetailsViewController: UIViewController {
     func setup(stat: Stat) {
         navigationItem.title = stat.name
         
-        detailsStatsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS_STATS) as DetailsStatsViewController
-        detailsGraphsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS_GRAPHS) as DetailsGraphsViewController
+        detailsStatsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS_STATS) as! DetailsStatsViewController
+        detailsGraphsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS_GRAPHS) as! DetailsGraphsViewController
         
         detailsStatsVC.tabBarItem!.title = "Stats"
         detailsGraphsVC.tabBarItem!.title = "Graphs"

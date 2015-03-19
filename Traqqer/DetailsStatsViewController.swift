@@ -26,7 +26,7 @@ class DetailsStatsViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DETAILS_STATS_CELL) as DetailsStatsCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DETAILS_STATS_CELL) as! DetailsStatsCell
         cell.entry = entries[indexPath.row]
         cell.setup()
         return cell

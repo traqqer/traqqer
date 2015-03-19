@@ -53,7 +53,7 @@ class DateUtils {
         let s = interval % 60
         let m = (interval / 60) % 60
         let h = interval / 3600
-        return NSString(format: "%02d:%02d:%05.2f", Int(h), Int(m), s)
+        return String(format: "%02d:%02d:%05.2f", Int(h), Int(m), s)
     }
     
     class func formatDatetime(date : NSDate) -> String {

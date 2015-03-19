@@ -26,7 +26,7 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DASHBOARD_STATS_CELL) as DashboardStatsCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DASHBOARD_STATS_CELL) as! DashboardStatsCell
         cell.stat = stats[indexPath.row]
         cell.numEntries = 0 // For now, should be set via Parse aggregation
         cell.totalDuration = 0.0 // Dito
@@ -40,7 +40,7 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let cell = self.tableView.cellForRowAtIndexPath(indexPath) as DashboardStatsCell
+        let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! DashboardStatsCell
         if detailsMode {
             // Segue to detail view
             navigationDelegate?.segueToDetail(forStats: cell.stat)
