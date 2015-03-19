@@ -12,7 +12,7 @@ class Traqqer {
     class func instantiateStoryboardVC(identifier : String) -> UIViewController {
         return UIStoryboard(
             name: identifier, bundle: nil
-        ).instantiateViewControllerWithIdentifier(identifier) as UIViewController
+        ).instantiateViewControllerWithIdentifier(identifier) as! UIViewController
     }
 
     /*

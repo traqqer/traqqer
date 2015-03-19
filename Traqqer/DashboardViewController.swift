@@ -54,7 +54,7 @@ class DashboardViewController: UIViewController, NavigationDelegate {
     }
     
     func segueToDetail(forStats stat: Stat) {
-        let detailsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS) as DetailsViewController
+        let detailsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS) as! DetailsViewController
         detailsVC.setup(stat)
         navigationController!.pushViewController(detailsVC, animated: true)
     }

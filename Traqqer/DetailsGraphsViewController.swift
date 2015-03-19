@@ -34,13 +34,13 @@ class DetailsGraphsViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DASHBOARD_GRAPHS_CELL, forIndexPath: indexPath) as DashboardGraphCell
+            let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DASHBOARD_GRAPHS_CELL, forIndexPath: indexPath) as! DashboardGraphCell
             cell.accessoryType = UITableViewCellAccessoryType.None
             cell.selectionStyle = UITableViewCellSelectionStyle.None;
             cell.timeSegment = TimeSegment(rawValue: timeSegments.selectedSegmentIndex)
             return cell
         } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DETAILS_GRAPHS_SUMMARY_CELL, forIndexPath: indexPath) as DetailsGraphsSummaryCell
+            let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DETAILS_GRAPHS_SUMMARY_CELL, forIndexPath: indexPath) as! DetailsGraphsSummaryCell
             return cell
         }
 
