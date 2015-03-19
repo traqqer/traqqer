@@ -44,6 +44,10 @@ class DateUtils {
         return lastDateOfMonth
     }
     
+    class func numberOfDaysInCurrentMonth() -> Int {
+        return dayNumberFromDate(lastDayOfCurrentMonth())
+    }
+    
     class func dayNumberFromDate(date: NSDate) -> Int {
         var components = NSCalendar.currentCalendar().components(NSCalendarUnit.DayCalendarUnit, fromDate: date)
         return components.day

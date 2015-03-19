@@ -36,8 +36,7 @@ class FooterView: UIView {
                 labelRight.text = "Sat"
             case .Month:
                 labelLeft.text = "1"
-                let lastDayOfCurrentMonth: NSDate = DateUtils.lastDayOfCurrentMonth()
-                labelRight.text = String(DateUtils.dayNumberFromDate(lastDayOfCurrentMonth))
+                labelRight.text = String(DateUtils.numberOfDaysInCurrentMonth())
             case .Year:
                 labelLeft.text = "Jan"
                 labelRight.text = "Dec"

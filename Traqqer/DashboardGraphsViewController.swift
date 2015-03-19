@@ -18,7 +18,7 @@ enum TimeSegment: Int {
             case .Week:
                 return 7
             case .Month:
-                return 4
+                return DateUtils.numberOfDaysInCurrentMonth()
             case .Year:
                 return 12
         }
