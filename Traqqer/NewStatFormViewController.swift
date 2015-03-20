@@ -20,6 +20,14 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         case ShareWithFriends = "share_with_friends"
     }
     
+    @IBAction func cancelPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func donePressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
         self.initializeForm()
