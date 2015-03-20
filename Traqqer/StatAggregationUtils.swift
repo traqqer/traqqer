@@ -10,10 +10,14 @@ import UIKit
 
 class StatAggregationUtils {
     class func summaryForStat(stat: Stat, day: NSDate, completion: (Int, NSTimeInterval?) -> ()) {
+        StatAggregationUtils.summaryForStat(stat, start: day.beginningOfDay, end: day.endOfDay, completion: completion)
+    }
+    
+    class func summaryForStat(stat: Stat, start: NSDate, end: NSDate, completion: (Int, NSTimeInterval?) -> ()) {
         let query = Entry.query()
         query.whereKey(EntryKeys.statRef, equalTo: stat)
-        query.whereKey(EntryKeys.timestamp, greaterThan: day.beginningOfDay)
-        query.whereKey(EntryKeys.timestamp, lessThan: day.endOfDay)
+        query.whereKey(EntryKeys.timestamp, greaterThan: start)
+        query.whereKey(EntryKeys.timestamp, lessThan: end)
         
         ParseAPI.getEntriesForQuery(query) {
             (entries: [Entry]) in
@@ -34,15 +38,41 @@ class StatAggregationUtils {
             default:
                 completion(count, nil)
             }
-
+            
         }
     }
     
-    class func graphSummaryForStat() -> [Double] {
-        return []
+    // eventually take a duration, but now we can just hardcode it to 1 day
+    class func graphSummaryForStat(stat: Stat, start: NSDate, numberOfBuckets: Int) {
+        let end = start + numberOfBuckets.days
+        
+        graphSummaryForStat(stat, start: start, end: end, numberOfBuckets: numberOfBuckets)
     }
     
-    class func detailSummaryForStat() -> (Double, Double, Double) {
-        return (1.2, 1.2, 1.2)
+    class func graphSummaryForStat(stat: Stat, end: NSDate, numberOfBuckets: Int) {
+        let start = end - numberOfBuckets.days
+        
+        graphSummaryForStat(stat, start: start, end: end, numberOfBuckets: numberOfBuckets)
+    }
+    
+    private class func graphSummaryForStat(stat: Stat, start: NSDate, end: NSDate, numberOfBuckets: Int) {
+        var buckets: [TimeBucket]
+        
+        for x in 0..<numberOfBuckets {
+            println("guy: \(x)")
+        }
+    }
+    
+    class func detailSummaryForStat() {
+        // pass
+    }
+}
+
+struct TimeBucket {
+    var start: NSDate
+    var end: NSDate
+    
+    func contains(date: NSDate) -> Bool {
+        return self.start <= date && self.start >= end
     }
 }

@@ -54,6 +54,7 @@
 		56F96D861AB4D8D6003FEB7F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D851AB4D8D6003FEB7F /* Accounts.framework */; };
 		56F96D8A1AB4E4F6003FEB7F /* ParseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F96D891AB4E4F6003FEB7F /* ParseAPI.swift */; };
 		56F96D8C1AB4EEFD003FEB7F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F96D8B1AB4EEFD003FEB7F /* Models.swift */; };
+		E4C7C8F51ABBE59800A0BC1E /* NSDate+Traqqer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C7C8F41ABBE59800A0BC1E /* NSDate+Traqqer.swift */; };
 		E4FEF6F71ABBCE8E003143CD /* StatAggregationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FEF6F61ABBCE8E003143CD /* StatAggregationUtils.swift */; };
 		F102978E1AB6391100A99DA3 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F102978D1AB6391100A99DA3 /* HeaderView.swift */; };
 		F10297901AB63CE200A99DA3 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F102978F1AB63CE200A99DA3 /* FooterView.swift */; };
@@ -130,6 +131,7 @@
 		56F96D891AB4E4F6003FEB7F /* ParseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseAPI.swift; path = ../ParseAPI.swift; sourceTree = "<group>"; };
 		56F96D8B1AB4EEFD003FEB7F /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A757E6C0617708E77008E8A0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E4C7C8F41ABBE59800A0BC1E /* NSDate+Traqqer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Traqqer.swift"; sourceTree = "<group>"; };
 		E4FEF6F61ABBCE8E003143CD /* StatAggregationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatAggregationUtils.swift; sourceTree = "<group>"; };
 		EE1FD542F3AA759EF8D6BDB7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F102978D1AB6391100A99DA3 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				F1D0185E1AB629080017A909 /* DateUtils.swift */,
 				56F96D8B1AB4EEFD003FEB7F /* Models.swift */,
 				E4FEF6F61ABBCE8E003143CD /* StatAggregationUtils.swift */,
+				E4C7C8F41ABBE59800A0BC1E /* NSDate+Traqqer.swift */,
 			);
 			path = Traqqer;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				560532481AB13F4A000AF70D /* AppDelegate.swift in Sources */,
 				5605328D1AB154D4000AF70D /* Traqqer.swift in Sources */,
 				560532841AB14227000AF70D /* NewStatFormViewController.swift in Sources */,
+				E4C7C8F51ABBE59800A0BC1E /* NSDate+Traqqer.swift in Sources */,
 				F1DFB9001ABAA40700A37020 /* NSDate+Timepiece.swift in Sources */,
 				56EB6ADA1AB81F0300163BAE /* DetailsGraphsSummaryCell.swift in Sources */,
 				F1DFB9011ABAA40700A37020 /* String+Timepiece.swift in Sources */,
