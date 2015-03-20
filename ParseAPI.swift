@@ -38,6 +38,10 @@ class ParseAPI {
         let query = Entry.query().whereKey(EntryKeys.statRef, equalTo: stat)
         ParseAPI.runQueryAndCallCompletion(query, completion: completion)
     }
+    
+    class func getEntriesForQuery(query: PFQuery, completion: [Entry]->()) {
+        ParseAPI.runQueryAndCallCompletion(query, completion: completion)
+    }
 
     class func createEntry(stat: Stat, timestamp: NSDate?, duration: NSTimeInterval?, completion: (() -> ())?) {
         let entry = Entry()

@@ -11,6 +11,7 @@ import UIKit
 class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate {
     private enum FormTag: String {
         case Name = "name"
+        case StatType = "stat_type"
         case Goal = "goal"
         case GoalMetadata = "goal_metadata"
         case GoalMetadata2 = "goal_metadata_2"
@@ -18,16 +19,17 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         case ReminderMetadata = "reminder_metadata"
         case ShareWithFriends = "share_with_friends"
     }
-    
-    var statType: String?
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder);
-        self.initializeForm()
+    @IBAction func cancelPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBAction func donePressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.initializeForm()
     }
     
     func initializeForm() {
@@ -37,13 +39,26 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         let nameSection = XLFormSectionDescriptor()
         form.addFormSection(nameSection)
         
+        // Stat type
+        let statTypeRow = XLFormRowDescriptor(tag: FormTag.StatType.rawValue, rowType: XLFormRowDescriptorTypeSelectorSegmentedControl)
+        statTypeRow.selectorOptions = [
+            XLFormOptionsObject(value: Constants.StatTypes.COUNT, displayText: "Count"),
+            XLFormOptionsObject(value: Constants.StatTypes.DURATION, displayText: "Duration")
+        ]
+        statTypeRow.value = XLFormOptionsObject(value: Constants.StatTypes.COUNT, displayText: "Count")
+        nameSection.addFormRow(statTypeRow)
+        
+        // Name row
         let nameRow = XLFormRowDescriptor(tag: FormTag.Name.rawValue, rowType: XLFormRowDescriptorTypeName, title: "Name")
+        nameRow.cellConfig["textField.textAlignment"] = NSTextAlignment.Right.rawValue
+
         nameSection.addFormRow(nameRow)
         
         // Goal section
         let goalSection = XLFormSectionDescriptor()
         form.addFormSection(goalSection)
         
+        // Goal row
         let goalRow = XLFormRowDescriptor(tag: FormTag.Goal.rawValue, rowType: XLFormRowDescriptorTypeBooleanSwitch, title: "Enable goal tracking?")
         goalSection.addFormRow(goalRow)
         
@@ -51,8 +66,11 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         let reminderSection = XLFormSectionDescriptor()
         form.addFormSection(reminderSection)
         
+        // Reminder row
         let reminderRow = XLFormRowDescriptor(tag: FormTag.Reminder.rawValue, rowType: XLFormRowDescriptorTypeBooleanSwitch, title: "Enable reminders?")
         reminderSection.addFormRow(reminderRow)
+        
+        self.form = form
         
         //        // Share with friends section
         //        let shareWithFriendsSection = XLFormSectionDescriptor()
@@ -71,8 +89,6 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         //        row = XLFormRowDescriptor(tag: nil, rowType: XLFormRowDescriptorTypeText, title: nil)
         //        row.cellConfig["textField.placeholder"] = "Add a new tag"
         //        shareWithFriendsSection.addFormRow(row)
-        
-        self.form = form
     }
     
     // MARK: XLFormDescriptorDelegate
@@ -80,7 +96,7 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
     override func formRowDescriptorValueHasChanged(formRow: XLFormRowDescriptor!, oldValue: AnyObject!, newValue: AnyObject!) {
         super.formRowDescriptorValueHasChanged(formRow, oldValue: oldValue, newValue: newValue)
         
-        println(form.formValues())
+//        println(form.formValues())
         
         if formRow.tag == nil {
             return
@@ -110,30 +126,38 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         }
     }
     
-    func addGoalRows(parentRow: XLFormRowDescriptor) {
+    private func addGoalRows(parentRow: XLFormRowDescriptor) {
         // greater than or less than
         let goalMetadataRow = XLFormRowDescriptor(tag: FormTag.GoalMetadata.rawValue, rowType: XLFormRowDescriptorTypeSelectorSegmentedControl)
         goalMetadataRow.selectorOptions = [
-            XLFormOptionsObject(value: "less_than", displayText: "Less than"),
-            XLFormOptionsObject(value: "greater_than", displayText: "Greater than")
+            XLFormOptionsObject(value: Constants.GoalTypes.LESS_THAN, displayText: "Less than"),
+            XLFormOptionsObject(value: Constants.GoalTypes.MORE_THAN, displayText: "Greater than")
         ]
+        goalMetadataRow.value = XLFormOptionsObject(value: Constants.GoalTypes.LESS_THAN, displayText: "Less than")
         self.form.addFormRow(goalMetadataRow, afterRow: parentRow)
         
-        // goal target?
+        // goal target
         let goalMetadataRow2 = XLFormRowDescriptor(tag: FormTag.GoalMetadata2.rawValue, rowType: XLFormRowDescriptorTypeInteger)
+        goalMetadataRow2.cellConfig["textField.textAlignment"] = NSTextAlignment.Right.rawValue
         
-        if (self.statType == Constants.StatTypes.DURATION) {
-            goalMetadataRow2.cellConfigAtConfigure["textField.placeholder"] = "Goal count"
-        } else {
+        let statTypeRow = self.form.formRowWithTag(FormTag.StatType.rawValue)
+        let statType = (statTypeRow.value as XLFormOptionsObject).formValue() as String
+        println(statType)
+        
+        if (statType == Constants.StatTypes.DURATION) {
             goalMetadataRow2.cellConfigAtConfigure["textField.placeholder"] = "Goal duration (in minutes)"
+        } else {
+            goalMetadataRow2.cellConfigAtConfigure["textField.placeholder"] = "Goal count"
         }
         self.form.addFormRow(goalMetadataRow2, afterRow: goalMetadataRow)
-        
-        // tracked per?
     }
     
-    func addReminderRows(parentRow: XLFormRowDescriptor) {
+    private func addReminderRows(parentRow: XLFormRowDescriptor) {
         let reminderMetadataRow = XLFormRowDescriptor(tag: FormTag.ReminderMetadata.rawValue, rowType: XLFormRowDescriptorTypeTimeInline, title: "Remind me at ...")
         self.form.addFormRow(reminderMetadataRow, afterRow: parentRow)
+    }
+
+    private func processedFormValues() -> (String, String, Int) {
+        return ("a", "b", 12)
     }
 }

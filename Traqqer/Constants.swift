@@ -45,5 +45,5 @@ struct Constants {
     
     struct IntervalTypes {
         static let DAY = "Day"
-    }    
+    }
 }

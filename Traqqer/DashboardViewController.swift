@@ -59,6 +59,15 @@ class DashboardViewController: UIViewController, NavigationDelegate {
     func segueToDetail(forStats stat: Stat) {
         let detailsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS) as DetailsViewController
         detailsVC.setup(stat)
+        
+//        StatAggregationUtils.summaryForStat(stat, day: NSDate()) {
+//            (count: Int, duration: NSTimeInterval?) in
+//            
+//            println("guy: \(count), \(duration)")
+//        }
+        
+//        StatAggregationUtils.graphSummaryForStat(stat, start: NSDate(), numberOfBuckets: 10)
+        
         navigationController!.pushViewController(detailsVC, animated: true)
     }
 }
