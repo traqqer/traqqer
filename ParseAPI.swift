@@ -43,6 +43,16 @@ class ParseAPI {
         ParseAPI.runQueryAndCallCompletion(query, completion: completion)
     }
 
+    class func createStat(name: NSString, statType: String, completion: (Stat -> ())?) {
+        let stat = Stat()
+        stat.name = name
+        stat.type = statType
+        ParseAPI.saveObjectAndCallCompletion(stat, completion: {
+            completion?(stat)
+            return ()
+        })
+    }
+    
     class func createEntry(stat: Stat, timestamp: NSDate?, duration: NSTimeInterval?, completion: (() -> ())?) {
         let entry = Entry()
         entry.statRef = stat

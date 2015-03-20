@@ -20,11 +20,12 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         case ShareWithFriends = "share_with_friends"
     }
     @IBAction func cancelPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.closeModal()
     }
     
     @IBAction func donePressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.processForm()
+        self.closeModal()
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -109,8 +110,7 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
             if (isGoalEnabled) {
                 self.addGoalRows(formRow)
             } else {
-                self.form.removeFormRowWithTag(FormTag.GoalMetadata.rawValue)
-                self.form.removeFormRowWithTag(FormTag.GoalMetadata2.rawValue)
+                self.removeGoalRows()
             }
             
         case FormTag.Reminder.rawValue:
@@ -118,7 +118,7 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
             if (isReminderEnabled) {
                 self.addReminderRows(formRow)
             } else {
-                self.form.removeFormRowWithTag(FormTag.ReminderMetadata.rawValue)
+                self.removeReminderRows()
             }
             
         default:
@@ -152,12 +152,52 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         self.form.addFormRow(goalMetadataRow2, afterRow: goalMetadataRow)
     }
     
+    private func removeGoalRows() {
+        self.form.removeFormRowWithTag(FormTag.GoalMetadata.rawValue)
+        self.form.removeFormRowWithTag(FormTag.GoalMetadata2.rawValue)
+    }
+    
     private func addReminderRows(parentRow: XLFormRowDescriptor) {
         let reminderMetadataRow = XLFormRowDescriptor(tag: FormTag.ReminderMetadata.rawValue, rowType: XLFormRowDescriptorTypeTimeInline, title: "Remind me at ...")
         self.form.addFormRow(reminderMetadataRow, afterRow: parentRow)
     }
+    
+    private func removeReminderRows(){
+        self.form.removeFormRowWithTag(FormTag.ReminderMetadata.rawValue)
+    }
 
-    private func processedFormValues() -> (String, String, Int) {
-        return ("a", "b", 12)
+    private func processForm() {
+        // Will crash if any of the fields are blank
+        var values = self.form.formValues()
+        println(values)
+
+        let type = (values[FormTag.StatType.rawValue] as XLFormOptionsObject).formValue() as String
+        let name = (values[FormTag.Name.rawValue] as? String) ?? ""
+
+        let usesGoal = values[FormTag.Goal.rawValue] as? Bool
+        let usesReminder = values[FormTag.Reminder.rawValue] as? Bool
+
+        ParseAPI.createStat(name, statType: type, completion: { stat in
+            if let usesGoal = usesGoal {
+                if (usesGoal) {
+                    let goalType = (values[FormTag.GoalMetadata.rawValue] as XLFormOptionsObject).formValue() as String
+                    let goalValue = values[FormTag.GoalMetadata2.rawValue] as? Int
+                    // Create goal
+                    println("goal type: \(goalType), goalValue \(goalValue)")
+                }
+            }
+            if  let usesReminder = usesReminder {
+                if (usesReminder) {
+                    let reminderTime = values[FormTag.ReminderMetadata.rawValue] as NSDate?
+                    println("Reminder time: \(reminderTime)")
+                    // Do nothing, but v2 -> create reminder
+                }
+            }
+        })
+    }
+    
+    private func closeModal() {
+        self.removeReminderRows()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

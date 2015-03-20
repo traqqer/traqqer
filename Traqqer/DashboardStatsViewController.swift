@@ -22,6 +22,9 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
         tableView.delegate = self; tableView.dataSource = self
         Traqqer.registerNibAsCell(tableView, identifier: Constants.DASHBOARD_STATS_CELL)
         tableView.rowHeight = CGFloat(80)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         fetchData()
     }
     
