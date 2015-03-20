@@ -14,7 +14,6 @@ class DashboardViewController: UIViewController, NavigationDelegate {
     var dashboardGraphsVC : DashboardGraphsViewController!
     var detailsMode = false
     
-    
     @IBAction func addStatButtonPressed(sender: AnyObject) {
         let newStatFormVC = Traqqer.instantiateStoryboardVC(Constants.NEW_STAT_FORM)
         self.presentViewController(newStatFormVC, animated: true, completion: nil)
@@ -24,15 +23,19 @@ class DashboardViewController: UIViewController, NavigationDelegate {
     @IBAction func detailButtonPressed(sender: AnyObject) {
         // Flip the detailsMode on or off
         detailsMode = !detailsMode
-        dashboardStatsVC.detailsMode = detailsMode
+        dashboardStatsVC.setDetailsMode(detailsMode)
         dashboardGraphsVC.detailsMode = detailsMode
-        navigationController?.navigationBar.barTintColor = detailsMode ? UIColor.blueColor() : UIColor.whiteColor()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabViewController()
         self.navigationController!.navigationBar.translucent = false
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        detailsMode = false
+        dashboardStatsVC.setDetailsMode(detailsMode)
     }
     
     func setupTabViewController() {
@@ -58,7 +61,6 @@ class DashboardViewController: UIViewController, NavigationDelegate {
         detailsVC.setup(stat)
         navigationController!.pushViewController(detailsVC, animated: true)
     }
-    
 }
 
 protocol NavigationDelegate : class {

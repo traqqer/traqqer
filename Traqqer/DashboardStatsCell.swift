@@ -12,13 +12,9 @@ import UIKit
 private var context = 0
 
 class DashboardStatsCell: UITableViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var duration: UILabel!
-    @IBOutlet weak var totalLabel: UILabel!
-    @IBOutlet weak var goalStaticLabel: UILabel!
-    @IBOutlet weak var goalLabel: UILabel!
-    
-    
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var value: UILabel!
+    @IBOutlet weak var goal: UILabel!
     
     var stat : Stat!
     var numEntries : NSInteger!
@@ -27,19 +23,23 @@ class DashboardStatsCell: UITableViewCell {
     var stopwatchListener : StopwatchListener!
     var detailMode = false
     
-    
-    func setupView() {
-        self.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        nameLabel.text = stat.name
-        if stat.type == Constants.StatTypes.COUNT {
-            totalLabel.text = String(format: "%d", numEntries)
-        } else if stat.type == Constants.StatTypes.DURATION {
-            totalLabel.text = DateUtils.formatTimeInterval(totalDuration)
-        }
+    override func awakeFromNib() {
+        super.awakeFromNib()
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupView()
+    }
+    
+    func setupView() {
+        name.text = stat.name.uppercaseString
+        if stat.type == Constants.StatTypes.COUNT {
+            value.text = String(format: "%d", numEntries).uppercaseString
+        } else if stat.type == Constants.StatTypes.DURATION {
+            value.text = DateUtils.formatTimeInterval(totalDuration)
+        }
+        goal.text = String(100)
     }
     
     func clicked() {
@@ -66,7 +66,7 @@ class DashboardStatsCell: UITableViewCell {
                 stopwatchListener = StopwatchListener { [weak self] currentTime in
                     if let vc = self {
                         let interval = currentTime.timeIntervalSinceDate(vc.startDate)
-                        vc.duration.text = DateUtils.formatTimeInterval(interval)
+                        vc.value.text = DateUtils.formatTimeInterval(interval)
                     }
                     return ()
                 }

@@ -30,7 +30,9 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
         cell.stat = stats[indexPath.row]
         cell.numEntries = 0 // For now, should be set via Parse aggregation
         cell.totalDuration = 0.0 // Dito
-        cell.setupView()
+        cell.accessoryType = detailsMode
+            ? UITableViewCellAccessoryType.DisclosureIndicator
+            : UITableViewCellAccessoryType.None
         return cell
     }
     
@@ -56,5 +58,10 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
             self.stats = stats
             self.tableView.reloadData()
         }
+    }
+    
+    func setDetailsMode(detailsMode: Bool) {
+        self.detailsMode = detailsMode
+        tableView.reloadData()
     }
 }

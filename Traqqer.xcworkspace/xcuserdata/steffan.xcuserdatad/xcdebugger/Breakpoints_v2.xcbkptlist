@@ -139,5 +139,121 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Traqqer/DashboardStatsCell.swift"
+            timestampString = "448515452.098004"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "DashboardStatsCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Traqqer.DashboardStatsCell.nameLabel.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
+                  moduleName = "Traqqer"
+                  urlString = "file:///Users/steffan/workspace/traqqer/Traqqer/DashboardStatsCell.swift"
+                  timestampString = "448515452.105153"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Traqqer.DashboardStatsCell.nameLabel.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
+                  moduleName = "Traqqer"
+                  urlString = "file:///Users/steffan/workspace/traqqer/Traqqer/DashboardStatsCell.swift"
+                  timestampString = "448515452.105391"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Traqqer.DashboardStatsCell.nameLabel.materializeForSet : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
+                  moduleName = "Traqqer"
+                  urlString = "file:///Users/steffan/workspace/traqqer/Traqqer/DashboardStatsCell.swift"
+                  timestampString = "448515452.10554"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Traqqer.DashboardStatsCell.init (Traqqer.DashboardStatsCell.Type)(style : C.UITableViewCellStyle, reuseIdentifier : Swift.Optional&lt;Swift.String&gt;) -&gt; Traqqer.DashboardStatsCell"
+                  moduleName = "Traqqer"
+                  urlString = "file:///Users/steffan/workspace/traqqer/Traqqer/DashboardStatsCell.swift"
+                  timestampString = "448515452.105684"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "54">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Traqqer.DashboardStatsCell.init (Traqqer.DashboardStatsCell.Type)(frame : C.CGRect) -&gt; Traqqer.DashboardStatsCell"
+                  moduleName = "Traqqer"
+                  urlString = "file:///Users/steffan/workspace/traqqer/Traqqer/DashboardStatsCell.swift"
+                  timestampString = "448515452.105826"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "47">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Traqqer.DashboardStatsCell.init (Traqqer.DashboardStatsCell.Type)() -&gt; Traqqer.DashboardStatsCell"
+                  moduleName = "Traqqer"
+                  urlString = "file:///Users/steffan/workspace/traqqer/Traqqer/DashboardStatsCell.swift"
+                  timestampString = "448515452.106004"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Traqqer.DashboardStatsCell.init (Traqqer.DashboardStatsCell.Type)(coder : ObjectiveC.NSCoder) -&gt; Traqqer.DashboardStatsCell"
+                  moduleName = "Traqqer"
+                  urlString = "file:///Users/steffan/workspace/traqqer/Traqqer/DashboardStatsCell.swift"
+                  timestampString = "448515452.106257"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

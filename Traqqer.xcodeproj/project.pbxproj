@@ -64,6 +64,8 @@
 		F1DFB9001ABAA40700A37020 /* NSDate+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFB8FC1ABAA40700A37020 /* NSDate+Timepiece.swift */; };
 		F1DFB9011ABAA40700A37020 /* String+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFB8FD1ABAA40700A37020 /* String+Timepiece.swift */; };
 		F1DFB9091ABABD5300A37020 /* ToolTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFB9081ABABD5300A37020 /* ToolTipView.swift */; };
+		F1DFB90D1ABBE51500A37020 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFB90C1ABBE51500A37020 /* NavigationController.swift */; };
+		F1DFB90F1ABBE5DE00A37020 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFB90E1ABBE5DE00A37020 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +143,8 @@
 		F1DFB8FC1ABAA40700A37020 /* NSDate+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Timepiece.swift"; sourceTree = "<group>"; };
 		F1DFB8FD1ABAA40700A37020 /* String+Timepiece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Timepiece.swift"; sourceTree = "<group>"; };
 		F1DFB9081ABABD5300A37020 /* ToolTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolTipView.swift; sourceTree = "<group>"; };
+		F1DFB90C1ABBE51500A37020 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		F1DFB90E1ABBE5DE00A37020 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +250,7 @@
 				F1D018451AB4AD930017A909 /* Traqqer-Bridging-Header.h */,
 				F1D0185E1AB629080017A909 /* DateUtils.swift */,
 				56F96D8B1AB4EEFD003FEB7F /* Models.swift */,
+				F1DFB90E1ABBE5DE00A37020 /* Utils.swift */,
 			);
 			path = Traqqer;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				5605327F1AB14216000AF70D /* DetailsGraphsViewController.swift */,
 				560532811AB1421D000AF70D /* NewStatViewController.swift */,
 				560532831AB14227000AF70D /* NewStatFormViewController.swift */,
+				F1DFB90C1ABBE51500A37020 /* NavigationController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -501,6 +507,7 @@
 				560532821AB1421D000AF70D /* NewStatViewController.swift in Sources */,
 				F1DFB8FE1ABAA40700A37020 /* Duration.swift in Sources */,
 				56F96D8C1AB4EEFD003FEB7F /* Models.swift in Sources */,
+				F1DFB90F1ABBE5DE00A37020 /* Utils.swift in Sources */,
 				5605327A1AB141F9000AF70D /* DashboardStatsViewController.swift in Sources */,
 				56888F121AB6939300BB98F3 /* Stopwatch.swift in Sources */,
 				560532481AB13F4A000AF70D /* AppDelegate.swift in Sources */,
@@ -510,6 +517,7 @@
 				56EB6ADA1AB81F0300163BAE /* DetailsGraphsSummaryCell.swift in Sources */,
 				F1DFB9011ABAA40700A37020 /* String+Timepiece.swift in Sources */,
 				F1DFB9091ABABD5300A37020 /* ToolTipView.swift in Sources */,
+				F1DFB90D1ABBE51500A37020 /* NavigationController.swift in Sources */,
 				5605327E1AB1420F000AF70D /* DetailsStatsViewController.swift in Sources */,
 				5605327C1AB14204000AF70D /* DashboardGraphsViewController.swift in Sources */,
 				560532801AB14216000AF70D /* DetailsGraphsViewController.swift in Sources */,
