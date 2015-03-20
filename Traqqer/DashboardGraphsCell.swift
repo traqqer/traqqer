@@ -43,8 +43,11 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
         super.layoutSubviews()
         lineChart.headerView = HeaderView(frame: CGRectMake(0, 0, lineChart.frame.width, 20))
         lineChart.footerView = FooterView(frame: CGRectMake(0, 0, lineChart.frame.width, 16), timeSegment: timeSegment!)
-        lineChart.setState(.Expanded, animated: true)
+        
+        lineChart.setState(.Collapsed, animated: false)
         lineChart.reloadData()
+        
+        var timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: Selector("showChart"), userInfo: nil, repeats: false)
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -61,7 +64,7 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     
     func lineChartView(lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
          //y-position (y-axis) of point at horizontalIndex (x-axis)
-        return CGFloat(horizontalIndex * 100)
+        return CGFloat(arc4random_uniform(100))
     }
     
     func lineChartView(lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
@@ -121,5 +124,9 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     func didDeselectLineInLineChartView(lineChartView: JBLineChartView!) {
         infoLabel.text = ""
         toolTip.hidden = true
+    }
+    
+    func showChart() {
+        lineChart.setState(.Expanded, animated: true)
     }
 }
