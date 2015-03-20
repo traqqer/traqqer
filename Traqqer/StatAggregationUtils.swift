@@ -56,11 +56,7 @@ class StatAggregationUtils {
     }
     
     private class func graphSummaryForStat(stat: Stat, start: NSDate, end: NSDate, numberOfBuckets: Int) {
-        var buckets: [TimeBucket]
-        
-        for x in 0..<numberOfBuckets {
-            println("guy: \(x)")
-        }
+        // pass
     }
     
     class func detailSummaryForStat() {
@@ -68,11 +64,25 @@ class StatAggregationUtils {
     }
 }
 
-struct TimeBucket {
-    var start: NSDate
-    var end: NSDate
+class TimeBucket {
+    let start: NSDate
+    let end: NSDate
+    
+    init() {
+        start = NSDate()
+        end = NSDate()
+    }
     
     func contains(date: NSDate) -> Bool {
         return self.start <= date && self.start >= end
+    }
+    
+    class func makeBuckets(start: NSDate, end: NSDate, numberOfBuckets: Int) -> [TimeBucket] {
+        var buckets: [TimeBucket]
+        for x in 0..<numberOfBuckets {
+            println("guy: \(x)")
+        }
+        
+        return []
     }
 }
