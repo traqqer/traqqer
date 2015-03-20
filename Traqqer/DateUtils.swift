@@ -9,7 +9,6 @@
 import Foundation
 
 class DateUtils {
-    
     class var formatter : NSDateFormatter {
         struct Static {
             static let formatter = NSDateFormatter()

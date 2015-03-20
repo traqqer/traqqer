@@ -52,8 +52,9 @@
 		56F96D821AB4D755003FEB7F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D811AB4D755003FEB7F /* libsqlite3.dylib */; };
 		56F96D841AB4D8CE003FEB7F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D831AB4D8CE003FEB7F /* Social.framework */; };
 		56F96D861AB4D8D6003FEB7F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D851AB4D8D6003FEB7F /* Accounts.framework */; };
-		56F96D8A1AB4E4F6003FEB7F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F96D891AB4E4F6003FEB7F /* API.swift */; };
+		56F96D8A1AB4E4F6003FEB7F /* ParseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F96D891AB4E4F6003FEB7F /* ParseAPI.swift */; };
 		56F96D8C1AB4EEFD003FEB7F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F96D8B1AB4EEFD003FEB7F /* Models.swift */; };
+		E4FEF6F71ABBCE8E003143CD /* StatAggregationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FEF6F61ABBCE8E003143CD /* StatAggregationUtils.swift */; };
 		F102978E1AB6391100A99DA3 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F102978D1AB6391100A99DA3 /* HeaderView.swift */; };
 		F10297901AB63CE200A99DA3 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F102978F1AB63CE200A99DA3 /* FooterView.swift */; };
 		F1D0184B1AB4BD0B0017A909 /* DashboardGraphsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D018491AB4BD0B0017A909 /* DashboardGraphsCell.swift */; };
@@ -126,9 +127,10 @@
 		56F96D811AB4D755003FEB7F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		56F96D831AB4D8CE003FEB7F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		56F96D851AB4D8D6003FEB7F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		56F96D891AB4E4F6003FEB7F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = ../API.swift; sourceTree = "<group>"; };
+		56F96D891AB4E4F6003FEB7F /* ParseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseAPI.swift; path = ../ParseAPI.swift; sourceTree = "<group>"; };
 		56F96D8B1AB4EEFD003FEB7F /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A757E6C0617708E77008E8A0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E4FEF6F61ABBCE8E003143CD /* StatAggregationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatAggregationUtils.swift; sourceTree = "<group>"; };
 		EE1FD542F3AA759EF8D6BDB7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F102978D1AB6391100A99DA3 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		F102978F1AB63CE200A99DA3 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
@@ -242,10 +244,11 @@
 				560532851AB147B8000AF70D /* Constants.swift */,
 				56888F111AB6939300BB98F3 /* Stopwatch.swift */,
 				5605328C1AB154D4000AF70D /* Traqqer.swift */,
-				56F96D891AB4E4F6003FEB7F /* API.swift */,
+				56F96D891AB4E4F6003FEB7F /* ParseAPI.swift */,
 				F1D018451AB4AD930017A909 /* Traqqer-Bridging-Header.h */,
 				F1D0185E1AB629080017A909 /* DateUtils.swift */,
 				56F96D8B1AB4EEFD003FEB7F /* Models.swift */,
+				E4FEF6F61ABBCE8E003143CD /* StatAggregationUtils.swift */,
 			);
 			path = Traqqer;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				F1DFB8FE1ABAA40700A37020 /* Duration.swift in Sources */,
 				56F96D8C1AB4EEFD003FEB7F /* Models.swift in Sources */,
 				5605327A1AB141F9000AF70D /* DashboardStatsViewController.swift in Sources */,
+				E4FEF6F71ABBCE8E003143CD /* StatAggregationUtils.swift in Sources */,
 				56888F121AB6939300BB98F3 /* Stopwatch.swift in Sources */,
 				560532481AB13F4A000AF70D /* AppDelegate.swift in Sources */,
 				5605328D1AB154D4000AF70D /* Traqqer.swift in Sources */,
@@ -520,7 +524,7 @@
 				F1D0184B1AB4BD0B0017A909 /* DashboardGraphsCell.swift in Sources */,
 				560532861AB147B8000AF70D /* Constants.swift in Sources */,
 				F1D0185F1AB629080017A909 /* DateUtils.swift in Sources */,
-				56F96D8A1AB4E4F6003FEB7F /* API.swift in Sources */,
+				56F96D8A1AB4E4F6003FEB7F /* ParseAPI.swift in Sources */,
 				5605328B1AB151AA000AF70D /* DetailsViewController.swift in Sources */,
 				F102978E1AB6391100A99DA3 /* HeaderView.swift in Sources */,
 				F10297901AB63CE200A99DA3 /* FooterView.swift in Sources */,
