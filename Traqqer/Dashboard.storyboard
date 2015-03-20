@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
     </dependencies>
     <scenes>
-        <!--Dashboard-->
+        <!--DASHBOARD-->
         <scene sceneID="QBd-n8-ppD">
             <objects>
                 <viewController storyboardIdentifier="Dashboard" id="qrb-L8-do7" customClass="DashboardViewController" customModule="Traqqer" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,8 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dashboard" id="Oaj-BM-CvK">
-                        <barButtonItem key="backBarButtonItem" title="Dashboard" id="qRZ-UJ-x4N"/>
+                    <navigationItem key="navigationItem" title="DASHBOARD" id="Oaj-BM-CvK">
+                        <barButtonItem key="backBarButtonItem" title="DASHBOARD" id="qRZ-UJ-x4N"/>
                         <barButtonItem key="leftBarButtonItem" title="Item" style="done" id="Z4r-yU-jA9">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hNO-FF-Iwt">
                                 <rect key="frame" x="-23" y="-15" width="71" height="30"/>
