@@ -19,7 +19,6 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         case ReminderMetadata = "reminder_metadata"
         case ShareWithFriends = "share_with_friends"
     }
-    
     @IBAction func cancelPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -29,12 +28,8 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
     }
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder);
+        super.init(coder: aDecoder)
         self.initializeForm()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
     
     func initializeForm() {
@@ -160,5 +155,9 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
     private func addReminderRows(parentRow: XLFormRowDescriptor) {
         let reminderMetadataRow = XLFormRowDescriptor(tag: FormTag.ReminderMetadata.rawValue, rowType: XLFormRowDescriptorTypeTimeInline, title: "Remind me at ...")
         self.form.addFormRow(reminderMetadataRow, afterRow: parentRow)
+    }
+
+    private func processedFormValues() -> (String, String, Int) {
+        return ("a", "b", 12)
     }
 }
