@@ -15,6 +15,7 @@ class DashboardStatsCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var value: UILabel!
     @IBOutlet weak var goal: UILabel!
+    @IBOutlet weak var timer: UILabel!
     
     var stat : Stat!
     var numEntries : NSInteger!
@@ -25,6 +26,7 @@ class DashboardStatsCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        hideTimer(false)
     }
     
     override func layoutSubviews() {
@@ -52,6 +54,7 @@ class DashboardStatsCell: UITableViewCell {
             })
         } else if stat.type == Constants.StatTypes.DURATION {
             if let startDate = startDate {
+                hideTimer(true)
                 let interval = stopwatchListener.currentTime.timeIntervalSinceDate(startDate)
                 self.stopwatchListener = nil  // Timer will be stopped by deallocation
                 ParseAPI.createEntry(stat, timestamp: nil, duration: interval, completion: {
@@ -59,18 +62,40 @@ class DashboardStatsCell: UITableViewCell {
                     self.numEntries = self.numEntries + 1
                     self.totalDuration = self.totalDuration + interval
                     self.setupView()
-                    self.startDate = nil
                 })
+                self.startDate = nil
             } else {
+                showTimer()
                 startDate = NSDate()
                 stopwatchListener = StopwatchListener { [weak self] currentTime in
                     if let vc = self {
                         let interval = currentTime.timeIntervalSinceDate(vc.startDate)
-                        vc.value.text = DateUtils.formatTimeInterval(interval)
+                        vc.timer.text = DateUtils.formatTimeInterval(interval)
                     }
                     return ()
                 }
             }
+        }
+    }
+    
+    func showTimer() {
+        timer.hidden = false
+        UIView.animateWithDuration(0.75, animations: {
+            self.timer.alpha = 1.0
+        })
+    }
+    
+    func hideTimer(animate: Bool) {
+        if animate {
+            UIView.animateWithDuration(Double(0.05), animations: {
+                self.timer.alpha = 0
+                }, completion: {
+                    (finished: Bool) in
+                    self.timer.hidden = true
+            })
+        } else {
+            timer.hidden = true
+            timer.alpha = 0
         }
     }
 }

@@ -23,11 +23,11 @@ class FooterView: UIView {
         
         labelLeft.textAlignment = .Left
         labelLeft.textColor = UIColor.whiteColor()
-        labelLeft.font = UIFont (name: "HelveticaNeue-Bold", size: 14)
+        labelLeft.font = UIFont (name: "HelveticaNeue-Bold", size: 16)
         
         labelRight.textAlignment = .Right
         labelRight.textColor = UIColor.whiteColor()
-        labelLeft.font = UIFont (name: "HelveticaNeue-Bold", size: 14)
+        labelRight.font = UIFont (name: "HelveticaNeue-Bold", size: 16)
         
         switch self.timeSegment {
             case .Day:
@@ -40,8 +40,8 @@ class FooterView: UIView {
                 labelLeft.text = NSDate().stringFromFormat("MMM").uppercaseString + " 1"
                 labelRight.text = String(NSDate().endOfMonth.day)
             case .Year:
-                labelLeft.text = "Jan " + NSDate().stringFromFormat("YY")
-                labelRight.text = "Dec"
+                labelLeft.text = "JAN " + NSDate().stringFromFormat("YY")
+                labelRight.text = "DEC"
         }
         
         addSubview(labelLeft)

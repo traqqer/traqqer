@@ -13,6 +13,7 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
 
     var detailsMode = false
     var stats : [Stat] = []
+    var selected : [Bool] = []
     weak var navigationDelegate : NavigationDelegate?
     
     override func viewDidLoad() {
@@ -21,7 +22,6 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
         // Setup the tableview
         tableView.delegate = self; tableView.dataSource = self
         Traqqer.registerNibAsCell(tableView, identifier: Constants.DASHBOARD_STATS_CELL)
-        tableView.rowHeight = CGFloat(80)
         fetchData()
     }
     
@@ -49,13 +49,25 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
         } else {
             // Trigger the event
             cell.clicked()
+            if cell.stat.type == Constants.StatTypes.DURATION {
+                selected[indexPath.row] = !selected[indexPath.row]
+                tableView.beginUpdates()
+                tableView.endUpdates()
+            }
         }
-
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if selected[indexPath.row] {
+            return CGFloat(80) * 2
+        }
+        return CGFloat(80)
     }
     
     func fetchData() {
         ParseAPI.getStats {stats in
             self.stats = stats
+            self.selected = Array<Bool>(count: stats.count, repeatedValue: false)
             self.tableView.reloadData()
         }
     }
