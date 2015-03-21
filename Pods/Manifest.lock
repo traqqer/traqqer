@@ -21,16 +21,19 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - JBChartView (2.8.10)
+  - MBProgressHUD (0.9.1)
   - XLForm (2.1.0)
 
 DEPENDENCIES:
   - AFNetworking
   - JBChartView
+  - MBProgressHUD (~> 0.9.1)
   - XLForm (~> 2.1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
   JBChartView: 50b221ef68d0934f5aea417a369a5b02167848a9
+  MBProgressHUD: f3747dcbd45a9e855a6b0674550651e0b7ed250c
   XLForm: 7d6855fe88df37b44ea00da80cc0cf3a945cfb1b
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.36.0

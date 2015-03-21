@@ -9,6 +9,7 @@
 import UIKit
 
 class DashboardStatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
 
     var detailsMode = false
@@ -18,7 +19,11 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        let hud = MBProgressHUD.showHUDAddedTo(tableView, animated: true)
+        hud.mode = MBProgressHUDMode.Indeterminate
+        hud.labelText = "Loading"
+        
         // Setup the tableview
         tableView.delegate = self; tableView.dataSource = self
         Traqqer.registerNibAsCell(tableView, identifier: Constants.DASHBOARD_STATS_CELL)
@@ -69,6 +74,7 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
     
     func fetchData() {
         ParseAPI.getStats {stats in
+            MBProgressHUD.hideAllHUDsForView(self.tableView, animated: true)
             self.stats = stats
             self.selected = Array<Bool>(count: stats.count, repeatedValue: false)
             self.tableView.reloadData()

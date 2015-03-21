@@ -22,7 +22,6 @@ class DashboardStatsCell: UITableViewCell {
     var totalDuration : NSTimeInterval!
     var startDate : NSDate!
     var stopwatchListener : StopwatchListener!
-    var detailMode = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
