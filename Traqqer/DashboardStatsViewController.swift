@@ -22,6 +22,9 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
         // Setup the tableview
         tableView.delegate = self; tableView.dataSource = self
         Traqqer.registerNibAsCell(tableView, identifier: Constants.DASHBOARD_STATS_CELL)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         fetchData()
     }
     
