@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>Pods-MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>Pods-XLForm.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -42,12 +47,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>730149954A294C17C1060D78</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>86F18BE41FC8780A8D319FC1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AF296F482056AA1D8A03286C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B4F9677890A8C09F14F7D4EE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C011548408B7C31D0E1718A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C7C300F2B5D09F94095842D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -63,6 +88,11 @@
 			<true/>
 		</dict>
 		<key>D38BF09FCE60A8B9B51544F0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E2BDCD16C82DC70847FCB504</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -60,6 +60,14 @@ class ParseAPI {
         entry.duration = duration
         ParseAPI.saveObjectAndCallCompletion(entry, completion: completion)
     }
+    
+    class func createGoal(stat: Stat, type: GoalType, amount: Int, completion: (() -> ())?) {
+        let goal = Goal()
+        goal.statRef = stat
+        goal.type = type.rawValue
+        goal.amount = amount
+        ParseAPI.saveObjectAndCallCompletion(goal, completion: completion)
+    }
 
     class func getStats(completion: [Stat] -> ()) {
         let query = Stat.query()
