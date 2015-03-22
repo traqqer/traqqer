@@ -17,11 +17,15 @@ class DateUtils {
         return Static.formatter
     }
     
-    class func formatTimeInterval(interval : NSTimeInterval) -> String {
+    class func formatTimeInterval(interval : NSTimeInterval, shortForm : Bool = false) -> String {
         let s = interval % 60
         let m = (interval / 60) % 60
         let h = interval / 3600
-        return NSString(format: "%02d:%02d:%05.2f", Int(h), Int(m), s)
+        if shortForm {
+            return NSString(format: "%02d:%02d:%02d", Int(h), Int(m), Int(s))
+        } else {
+            return NSString(format: "%02d:%02d:%05.2f", Int(h), Int(m), s)
+        }
     }
     
     class func formatTimeIntervalHMS(interval : NSTimeInterval) -> String {

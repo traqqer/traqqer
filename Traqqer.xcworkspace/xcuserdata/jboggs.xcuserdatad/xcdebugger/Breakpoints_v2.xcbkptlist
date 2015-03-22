@@ -236,11 +236,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Traqqer/DateUtils.swift"
-            timestampString = "448430533.110255"
+            timestampString = "448682135.214136"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "DateUtils"
             landmarkType = "3">
          </BreakpointContent>
@@ -252,12 +252,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Traqqer/NewStatFormViewController.swift"
-            timestampString = "448677202.15751"
+            timestampString = "448680107.212431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "processForm()"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "processForm(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -268,12 +268,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Traqqer/NewStatFormViewController.swift"
-            timestampString = "448677271.859383"
+            timestampString = "448680107.212431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "addGoalRows(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Traqqer/DashboardStatsViewController.swift"
+            timestampString = "448680688.246261"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "fetchData()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Traqqer/DashboardStatsCell.swift"
+            timestampString = "448681519.415061"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "setupView()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
