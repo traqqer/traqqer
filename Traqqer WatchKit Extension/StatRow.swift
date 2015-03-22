@@ -28,10 +28,20 @@ class StatRow: NSObject {
     
     func refreshView() {
         name.setText(stat.name)
+        let goalAmount = (stat.goalRef?[GoalKeys.Amount.rawValue]) as? Int
         if stat.type == Constants.StatTypes.COUNT {
-            valueGoal.setText(String(numEntries) + " / 100")
+            var value = String(numEntries)
+            if let goalAmount = goalAmount {
+                value = value + String(format: " / %d", goalAmount)
+            }
+            valueGoal.setText(value)
+
         } else if stat.type == Constants.StatTypes.DURATION {
-            valueGoal.setText(DateUtils.formatTimeIntervalHMS(totalDuration) + " / 100")
+            var value = DateUtils.formatTimeInterval(totalDuration, shortForm: true)
+            if let goalAmount = goalAmount {
+                value = value + String(format: " / %dmin", goalAmount)
+            }
+            valueGoal.setText(value)
         }
     }
     
