@@ -59,3 +59,24 @@ class Entry : PFObject, PFSubclassing {
         return "Entry"
     }
 }
+
+class Goal : PFObject, PFSubclassing {
+    @NSManaged var statRef : Stat!
+    @NSManaged var type : String!
+    @NSManaged var amount : NSNumber!
+    
+    override class func initialize() {
+        var onceToken : dispatch_once_t = 0;
+        dispatch_once(&onceToken) {
+            self.registerSubclass()
+        }
+    }
+    class func parseClassName() -> String! {
+        return "Goal"
+    }
+}
+
+enum GoalKeys : String {
+    case Type = "type"
+    case Amount = "amount"
+}

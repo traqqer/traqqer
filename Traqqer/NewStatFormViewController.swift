@@ -129,11 +129,10 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
     private func addGoalRows(parentRow: XLFormRowDescriptor) {
         // greater than or less than
         let goalMetadataRow = XLFormRowDescriptor(tag: FormTag.GoalMetadata.rawValue, rowType: XLFormRowDescriptorTypeSelectorSegmentedControl)
-        goalMetadataRow.selectorOptions = [
-            XLFormOptionsObject(value: Constants.GoalTypes.LESS_THAN, displayText: "Less than"),
-            XLFormOptionsObject(value: Constants.GoalTypes.MORE_THAN, displayText: "Greater than")
-        ]
-        goalMetadataRow.value = XLFormOptionsObject(value: Constants.GoalTypes.LESS_THAN, displayText: "Less than")
+        let lessThanOption = XLFormOptionsObject(value: GoalType.LessThan.rawValue, displayText: "Less than")
+        let greaterThanOption = XLFormOptionsObject(value: GoalType.MoreThan.rawValue, displayText: "Greater than")
+        goalMetadataRow.selectorOptions = [lessThanOption, greaterThanOption]
+        goalMetadataRow.value = lessThanOption
         self.form.addFormRow(goalMetadataRow, afterRow: parentRow)
         
         // goal target
@@ -180,10 +179,10 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         ParseAPI.createStat(name, statType: type, completion: { stat in
             if let usesGoal = usesGoal {
                 if (usesGoal) {
-                    let goalType = (values[FormTag.GoalMetadata.rawValue] as XLFormOptionsObject).formValue() as String
-                    let goalValue = values[FormTag.GoalMetadata2.rawValue] as? Int
-                    // Create goal
-                    println("goal type: \(goalType), goalValue \(goalValue)")
+                    let goalType = GoalType(rawValue: (values[FormTag.GoalMetadata.rawValue] as XLFormOptionsObject).formValue() as String)!
+                    let goalAmount = (values[FormTag.GoalMetadata2.rawValue] as? Int) ?? 5 // Defaults to 5 for the demo, if we screw up
+                    
+                    ParseAPI.createGoal(stat, type: goalType, amount: goalAmount, completion: nil)
                 }
             }
             if  let usesReminder = usesReminder {

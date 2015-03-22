@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+enum GoalType : String {
+    case LessThan = "Less Than"
+    case MoreThan = "More Than"
+}
+
 struct Constants {
     // VCs
     static let DASHBOARD = "Dashboard"
@@ -34,13 +39,6 @@ struct Constants {
     struct StatTypes {
         static let COUNT = "Count"
         static let DURATION = "Duration"
-    }
-    
-    struct GoalTypes {
-        static let AT_LEAST = "At Least"
-        static let LESS_THAN = "Less Than"
-        static let MORE_THAN = "More Than"
-        static let AT_MOST = "At Most"
     }
     
     struct IntervalTypes {
