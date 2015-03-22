@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6750" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,11 +14,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A6x-Jh-7ic" customClass="JBLineChartView">
-                        <rect key="frame" x="8" y="8" width="304" height="199"/>
+                        <rect key="frame" x="8" y="8" width="304" height="200"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="200" id="DmE-mD-rrU"/>
                             <constraint firstAttribute="height" constant="199" id="HRN-wd-LJC"/>
+                            <constraint firstAttribute="height" constant="200" id="l1r-k2-Ocf"/>
+                            <constraint firstAttribute="width" constant="304" id="syB-j6-Few"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -28,36 +30,79 @@
                         </variation>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRY-wg-4rt">
-                        <rect key="frame" x="8" y="215" width="304" height="25"/>
+                        <rect key="frame" x="41" y="216" width="239" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="AMb-Dh-6sf"/>
+                            <constraint firstAttribute="width" constant="239" id="Qrl-vC-bXw"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vg4-bB-244">
+                        <rect key="frame" x="287" y="216" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="Luq-kr-wVh"/>
+                            <constraint firstAttribute="width" constant="25" id="wji-Bg-FLc"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="glyphicons-187-move-rotate">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="onExpand:" destination="KGk-i7-Jjw" eventType="touchDown" id="i4w-Tv-xgf"/>
+                        </connections>
+                    </button>
+                    <view opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXm-Rj-Uzc">
+                        <rect key="frame" x="8" y="216" width="25" height="25"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="5rI-Tg-cwT"/>
+                            <constraint firstAttribute="height" constant="25" id="DHP-oT-9wR"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="dRY-wg-4rt" firstAttribute="leading" secondItem="sXm-Rj-Uzc" secondAttribute="trailing" constant="8" id="0QQ-e4-SFa"/>
+                    <constraint firstAttribute="centerX" secondItem="dRY-wg-4rt" secondAttribute="centerX" id="4jP-EX-8Z4"/>
                     <constraint firstItem="dRY-wg-4rt" firstAttribute="top" secondItem="A6x-Jh-7ic" secondAttribute="bottom" constant="8" id="5eb-rA-MrE"/>
+                    <constraint firstItem="vg4-bB-244" firstAttribute="leading" secondItem="dRY-wg-4rt" secondAttribute="trailing" constant="8" id="5g1-kK-nr0"/>
                     <constraint firstItem="A6x-Jh-7ic" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="63R-hs-2l8"/>
+                    <constraint firstItem="sXm-Rj-Uzc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="CiB-06-yd1"/>
                     <constraint firstAttribute="bottom" secondItem="dRY-wg-4rt" secondAttribute="bottom" constant="8" id="Fx1-tF-W5a"/>
+                    <constraint firstItem="dRY-wg-4rt" firstAttribute="top" secondItem="A6x-Jh-7ic" secondAttribute="bottom" constant="8" id="MOq-3i-svI"/>
                     <constraint firstAttribute="trailing" secondItem="A6x-Jh-7ic" secondAttribute="trailing" constant="8" id="Oxs-ZM-6Qy"/>
                     <constraint firstItem="dRY-wg-4rt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="RYr-w6-766"/>
                     <constraint firstAttribute="bottom" secondItem="A6x-Jh-7ic" secondAttribute="bottom" constant="74" id="Ruk-sW-jgO"/>
+                    <constraint firstItem="vg4-bB-244" firstAttribute="leading" secondItem="dRY-wg-4rt" secondAttribute="trailing" constant="8" id="RzN-PJ-Gqm"/>
+                    <constraint firstItem="vg4-bB-244" firstAttribute="top" secondItem="A6x-Jh-7ic" secondAttribute="bottom" constant="8" id="W9Q-r8-wWO"/>
+                    <constraint firstAttribute="trailing" secondItem="A6x-Jh-7ic" secondAttribute="trailing" constant="8" id="Wdb-Ta-AjX"/>
+                    <constraint firstItem="sXm-Rj-Uzc" firstAttribute="top" secondItem="A6x-Jh-7ic" secondAttribute="bottom" constant="8" id="jBI-Eo-VYc"/>
                     <constraint firstItem="A6x-Jh-7ic" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="r3w-XD-sY1"/>
+                    <constraint firstAttribute="trailing" secondItem="vg4-bB-244" secondAttribute="trailing" constant="8" id="wSG-Jm-Gtw"/>
                     <constraint firstAttribute="trailing" secondItem="dRY-wg-4rt" secondAttribute="trailing" constant="8" id="zZb-i4-3nT"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="Oxs-ZM-6Qy"/>
                         <exclude reference="Ruk-sW-jgO"/>
+                        <exclude reference="5eb-rA-MrE"/>
+                        <exclude reference="Fx1-tF-W5a"/>
+                        <exclude reference="RYr-w6-766"/>
+                        <exclude reference="zZb-i4-3nT"/>
+                        <exclude reference="5g1-kK-nr0"/>
+                        <exclude reference="RzN-PJ-Gqm"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="expandButton" destination="vg4-bB-244" id="hED-fn-OUA"/>
                 <outlet property="infoLabel" destination="dRY-wg-4rt" id="EOP-yv-hbH"/>
                 <outlet property="lineChart" destination="A6x-Jh-7ic" id="AZO-aq-I9b"/>
             </connections>
-            <point key="canvasLocation" x="211" y="181.5"/>
+            <point key="canvasLocation" x="211" y="176.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="glyphicons-187-move-rotate" width="24" height="24"/>
+    </resources>
 </document>

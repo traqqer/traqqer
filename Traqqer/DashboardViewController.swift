@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol NavigationDelegate : class {
+    func segueToDetail(forStats stat: Stat)
+}
+
 class DashboardViewController: UIViewController, NavigationDelegate, UITabBarControllerDelegate {
     
     @IBOutlet weak var addButton: UIButton!
@@ -94,8 +98,4 @@ class DashboardViewController: UIViewController, NavigationDelegate, UITabBarCon
             detailsButton.hidden = true
         }
     }
-}
-
-protocol NavigationDelegate : class {
-    func segueToDetail(forStats stat: Stat)
 }
