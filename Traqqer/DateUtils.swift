@@ -24,6 +24,13 @@ class DateUtils {
         return NSString(format: "%02d:%02d:%05.2f", Int(h), Int(m), s)
     }
     
+    class func formatTimeIntervalHMS(interval : NSTimeInterval) -> String {
+        let s = floor(interval % 60)
+        let m = (interval / 60) % 60
+        let h = interval / 3600
+        return NSString(format: "%02d:%02d:%02d", Int(h), Int(m), Int(s))
+    }
+    
     class func formatDatetime(date : NSDate) -> String {
         return DateUtils.formatter.stringFromDate(date)
     }

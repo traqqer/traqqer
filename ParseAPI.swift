@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Parse
 
 class ParseAPI {
     class func runQueryAndCallCompletion<T:PFObject>(query : PFQuery, completion : [T] -> ()) {

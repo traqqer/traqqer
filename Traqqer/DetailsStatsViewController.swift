@@ -9,6 +9,7 @@
 import UIKit
 
 class DetailsStatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
     
     var stat : Stat!

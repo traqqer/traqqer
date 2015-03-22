@@ -58,6 +58,31 @@
 		E4FEF6F71ABBCE8E003143CD /* StatAggregationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FEF6F61ABBCE8E003143CD /* StatAggregationUtils.swift */; };
 		F102978E1AB6391100A99DA3 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F102978D1AB6391100A99DA3 /* HeaderView.swift */; };
 		F10297901AB63CE200A99DA3 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F102978F1AB63CE200A99DA3 /* FooterView.swift */; };
+		F11444EB1ABE298800FE6185 /* StatRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11444EA1ABE298800FE6185 /* StatRow.swift */; };
+		F139E6DE1ABE3AF10090D873 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D691AB4D695003FEB7F /* Parse.framework */; };
+		F139E6E11ABE3C7C0090D873 /* ParseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F96D891AB4E4F6003FEB7F /* ParseAPI.swift */; };
+		F139E6E21ABE3C7C0090D873 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F96D8B1AB4EEFD003FEB7F /* Models.swift */; };
+		F139E6E31ABE3E0B0090D873 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D6D1AB4D6D4003FEB7F /* AudioToolbox.framework */; };
+		F139E6E41ABE3E190090D873 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D6F1AB4D6DD003FEB7F /* CFNetwork.framework */; };
+		F139E6E51ABE3E200090D873 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D711AB4D6E8003FEB7F /* CoreGraphics.framework */; };
+		F139E6E61ABE3E270090D873 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D731AB4D6F1003FEB7F /* CoreLocation.framework */; };
+		F139E6E71ABE3E2F0090D873 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D751AB4D71C003FEB7F /* MobileCoreServices.framework */; };
+		F139E6E81ABE3E3D0090D873 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D771AB4D723003FEB7F /* QuartzCore.framework */; };
+		F139E6E91ABE3E440090D873 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D791AB4D730003FEB7F /* Security.framework */; };
+		F139E6EA1ABE3E4E0090D873 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D7B1AB4D737003FEB7F /* StoreKit.framework */; };
+		F139E6EB1ABE3E560090D873 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D7D1AB4D740003FEB7F /* SystemConfiguration.framework */; };
+		F139E6EC1ABE3E620090D873 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D7F1AB4D74B003FEB7F /* libz.dylib */; };
+		F139E6ED1ABE3E6C0090D873 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D811AB4D755003FEB7F /* libsqlite3.dylib */; };
+		F139E6EE1ABE3EDC0090D873 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D6B1AB4D6A2003FEB7F /* Bolts.framework */; };
+		F139E6EF1ABE3F730090D873 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560532851AB147B8000AF70D /* Constants.swift */; };
+		F139E6F01ABE4EA70090D873 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56888F111AB6939300BB98F3 /* Stopwatch.swift */; };
+		F139E6F11ABE4ECF0090D873 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D0185E1AB629080017A909 /* DateUtils.swift */; };
+		F19150EC1ABE26880021A326 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19150EB1ABE26880021A326 /* InterfaceController.swift */; };
+		F19150EE1ABE26880021A326 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F19150ED1ABE26880021A326 /* Images.xcassets */; };
+		F19150F21ABE26890021A326 /* Traqqer WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = F19150F11ABE26890021A326 /* Traqqer WatchKit App.app */; };
+		F19150FA1ABE26890021A326 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F19150F81ABE26890021A326 /* Interface.storyboard */; };
+		F19150FC1ABE26890021A326 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F19150FB1ABE26890021A326 /* Images.xcassets */; };
+		F19150FF1ABE26890021A326 /* Traqqer WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F19150E71ABE26880021A326 /* Traqqer WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F1D0184B1AB4BD0B0017A909 /* DashboardGraphsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D018491AB4BD0B0017A909 /* DashboardGraphsCell.swift */; };
 		F1D0184C1AB4BD0B0017A909 /* DashboardGraphsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D0184A1AB4BD0B0017A909 /* DashboardGraphsCell.xib */; };
 		F1D0185F1AB629080017A909 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D0185E1AB629080017A909 /* DateUtils.swift */; };
@@ -78,7 +103,35 @@
 			remoteGlobalIDString = 560532411AB13F4A000AF70D;
 			remoteInfo = Traqqer;
 		};
+		F19150F31ABE26890021A326 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5605323A1AB13F4A000AF70D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F19150F01ABE26890021A326;
+			remoteInfo = "Traqqer WatchKit App";
+		};
+		F19150FD1ABE26890021A326 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5605323A1AB13F4A000AF70D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F19150E61ABE26880021A326;
+			remoteInfo = "Traqqer WatchKit Extension";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F19151061ABE26890021A326 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F19150FF1ABE26890021A326 /* Traqqer WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		560532421AB13F4A000AF70D /* Traqqer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traqqer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +191,15 @@
 		EE1FD542F3AA759EF8D6BDB7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F102978D1AB6391100A99DA3 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		F102978F1AB63CE200A99DA3 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		F11444EA1ABE298800FE6185 /* StatRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatRow.swift; sourceTree = "<group>"; };
+		F19150E71ABE26880021A326 /* Traqqer WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Traqqer WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F19150EA1ABE26880021A326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F19150EB1ABE26880021A326 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		F19150ED1ABE26880021A326 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F19150F11ABE26890021A326 /* Traqqer WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Traqqer WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F19150F71ABE26890021A326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F19150F91ABE26890021A326 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		F19150FB1ABE26890021A326 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F1D018451AB4AD930017A909 /* Traqqer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Traqqer-Bridging-Header.h"; sourceTree = "<group>"; };
 		F1D018491AB4BD0B0017A909 /* DashboardGraphsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardGraphsCell.swift; sourceTree = "<group>"; };
 		F1D0184A1AB4BD0B0017A909 /* DashboardGraphsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardGraphsCell.xib; sourceTree = "<group>"; };
@@ -182,6 +244,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F19150E41ABE26880021A326 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F139E6EE1ABE3EDC0090D873 /* Bolts.framework in Frameworks */,
+				F139E6ED1ABE3E6C0090D873 /* libsqlite3.dylib in Frameworks */,
+				F139E6EC1ABE3E620090D873 /* libz.dylib in Frameworks */,
+				F139E6EB1ABE3E560090D873 /* SystemConfiguration.framework in Frameworks */,
+				F139E6EA1ABE3E4E0090D873 /* StoreKit.framework in Frameworks */,
+				F139E6E91ABE3E440090D873 /* Security.framework in Frameworks */,
+				F139E6E81ABE3E3D0090D873 /* QuartzCore.framework in Frameworks */,
+				F139E6E71ABE3E2F0090D873 /* MobileCoreServices.framework in Frameworks */,
+				F139E6E61ABE3E270090D873 /* CoreLocation.framework in Frameworks */,
+				F139E6E51ABE3E200090D873 /* CoreGraphics.framework in Frameworks */,
+				F139E6E41ABE3E190090D873 /* CFNetwork.framework in Frameworks */,
+				F139E6E31ABE3E0B0090D873 /* AudioToolbox.framework in Frameworks */,
+				F139E6DE1ABE3AF10090D873 /* Parse.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -222,6 +304,8 @@
 				56F96D691AB4D695003FEB7F /* Parse.framework */,
 				560532441AB13F4A000AF70D /* Traqqer */,
 				5605325A1AB13F4A000AF70D /* TraqqerTests */,
+				F19150E81ABE26880021A326 /* Traqqer WatchKit Extension */,
+				F19150F51ABE26890021A326 /* Traqqer WatchKit App */,
 				560532431AB13F4A000AF70D /* Products */,
 				33F73C4B7D103122A6D69266 /* Pods */,
 				4F6CCC83CFC32DAE1A134F08 /* Frameworks */,
@@ -233,6 +317,8 @@
 			children = (
 				560532421AB13F4A000AF70D /* Traqqer.app */,
 				560532571AB13F4A000AF70D /* TraqqerTests.xctest */,
+				F19150E71ABE26880021A326 /* Traqqer WatchKit Extension.appex */,
+				F19150F11ABE26890021A326 /* Traqqer WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,6 +326,8 @@
 		560532441AB13F4A000AF70D /* Traqqer */ = {
 			isa = PBXGroup;
 			children = (
+				F139E6E01ABE3B4B0090D873 /* API */,
+				F139E6DF1ABE3B3A0090D873 /* Models */,
 				F1DFB8F91ABAA3C400A37020 /* Timepiece */,
 				F1D018481AB4BC8F0017A909 /* Views */,
 				560532891AB14B6B000AF70D /* View Controllers */,
@@ -250,10 +338,8 @@
 				560532851AB147B8000AF70D /* Constants.swift */,
 				56888F111AB6939300BB98F3 /* Stopwatch.swift */,
 				5605328C1AB154D4000AF70D /* Traqqer.swift */,
-				56F96D891AB4E4F6003FEB7F /* ParseAPI.swift */,
 				F1D018451AB4AD930017A909 /* Traqqer-Bridging-Header.h */,
 				F1D0185E1AB629080017A909 /* DateUtils.swift */,
-				56F96D8B1AB4EEFD003FEB7F /* Models.swift */,
 				F1DFB90E1ABBE5DE00A37020 /* Utils.swift */,
 				E4FEF6F61ABBCE8E003143CD /* StatAggregationUtils.swift */,
 				E4C7C8F41ABBE59800A0BC1E /* NSDate+Traqqer.swift */,
@@ -318,6 +404,59 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		F139E6DF1ABE3B3A0090D873 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				56F96D8B1AB4EEFD003FEB7F /* Models.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		F139E6E01ABE3B4B0090D873 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				56F96D891AB4E4F6003FEB7F /* ParseAPI.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		F19150E81ABE26880021A326 /* Traqqer WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F19150EB1ABE26880021A326 /* InterfaceController.swift */,
+				F11444EA1ABE298800FE6185 /* StatRow.swift */,
+				F19150ED1ABE26880021A326 /* Images.xcassets */,
+				F19150E91ABE26880021A326 /* Supporting Files */,
+			);
+			path = "Traqqer WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		F19150E91ABE26880021A326 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F19150EA1ABE26880021A326 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F19150F51ABE26890021A326 /* Traqqer WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				F19150F81ABE26890021A326 /* Interface.storyboard */,
+				F19150FB1ABE26890021A326 /* Images.xcassets */,
+				F19150F61ABE26890021A326 /* Supporting Files */,
+			);
+			path = "Traqqer WatchKit App";
+			sourceTree = "<group>";
+		};
+		F19150F61ABE26890021A326 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F19150F71ABE26890021A326 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		F1D018481AB4BC8F0017A909 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,10 +514,12 @@
 				5605323F1AB13F4A000AF70D /* Frameworks */,
 				560532401AB13F4A000AF70D /* Resources */,
 				32E5A32BB92613A3A76DCA83 /* Copy Pods Resources */,
+				F19151061ABE26890021A326 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F19150FE1ABE26890021A326 /* PBXTargetDependency */,
 			);
 			name = Traqqer;
 			productName = Traqqer;
@@ -403,6 +544,39 @@
 			productReference = 560532571AB13F4A000AF70D /* TraqqerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		F19150E61ABE26880021A326 /* Traqqer WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F19151051ABE26890021A326 /* Build configuration list for PBXNativeTarget "Traqqer WatchKit Extension" */;
+			buildPhases = (
+				F19150E31ABE26880021A326 /* Sources */,
+				F19150E41ABE26880021A326 /* Frameworks */,
+				F19150E51ABE26880021A326 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F19150F41ABE26890021A326 /* PBXTargetDependency */,
+			);
+			name = "Traqqer WatchKit Extension";
+			productName = "Traqqer WatchKit Extension";
+			productReference = F19150E71ABE26880021A326 /* Traqqer WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		F19150F01ABE26890021A326 /* Traqqer WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F19151041ABE26890021A326 /* Build configuration list for PBXNativeTarget "Traqqer WatchKit App" */;
+			buildPhases = (
+				F19150EF1ABE26890021A326 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Traqqer WatchKit App";
+			productName = "Traqqer WatchKit App";
+			productReference = F19150F11ABE26890021A326 /* Traqqer WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -419,6 +593,13 @@
 					560532561AB13F4A000AF70D = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 560532411AB13F4A000AF70D;
+					};
+					F19150E61ABE26880021A326 = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = Z79VF2PP2C;
+					};
+					F19150F01ABE26890021A326 = {
+						CreatedOnToolsVersion = 6.2;
 					};
 				};
 			};
@@ -437,6 +618,8 @@
 			targets = (
 				560532411AB13F4A000AF70D /* Traqqer */,
 				560532561AB13F4A000AF70D /* TraqqerTests */,
+				F19150E61ABE26880021A326 /* Traqqer WatchKit Extension */,
+				F19150F01ABE26890021A326 /* Traqqer WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -467,6 +650,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F19150E51ABE26880021A326 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F19150EE1ABE26880021A326 /* Images.xcassets in Resources */,
+				F19150F21ABE26890021A326 /* Traqqer WatchKit App.app in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F19150EF1ABE26890021A326 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F19150FA1ABE26890021A326 /* Interface.storyboard in Resources */,
+				F19150FC1ABE26890021A326 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +752,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F19150E31ABE26880021A326 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F139E6F11ABE4ECF0090D873 /* DateUtils.swift in Sources */,
+				F139E6F01ABE4EA70090D873 /* Stopwatch.swift in Sources */,
+				F139E6EF1ABE3F730090D873 /* Constants.swift in Sources */,
+				F139E6E11ABE3C7C0090D873 /* ParseAPI.swift in Sources */,
+				F139E6E21ABE3C7C0090D873 /* Models.swift in Sources */,
+				F11444EB1ABE298800FE6185 /* StatRow.swift in Sources */,
+				F19150EC1ABE26880021A326 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -558,6 +773,16 @@
 			isa = PBXTargetDependency;
 			target = 560532411AB13F4A000AF70D /* Traqqer */;
 			targetProxy = 560532581AB13F4A000AF70D /* PBXContainerItemProxy */;
+		};
+		F19150F41ABE26890021A326 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F19150F01ABE26890021A326 /* Traqqer WatchKit App */;
+			targetProxy = F19150F31ABE26890021A326 /* PBXContainerItemProxy */;
+		};
+		F19150FE1ABE26890021A326 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F19150E61ABE26880021A326 /* Traqqer WatchKit Extension */;
+			targetProxy = F19150FD1ABE26890021A326 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -568,6 +793,14 @@
 				560532511AB13F4A000AF70D /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		F19150F81ABE26890021A326 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F19150F91ABE26890021A326 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -658,6 +891,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -680,6 +914,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -727,6 +962,72 @@
 			};
 			name = Release;
 		};
+		F19151001ABE26890021A326 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Traqqer WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F19151011ABE26890021A326 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "Traqqer WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		F19151021ABE26890021A326 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = Traqqer_WatchKit_Extension;
+				INFOPLIST_FILE = "Traqqer WatchKit App/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		F19151031ABE26890021A326 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_MODULE = Traqqer_WatchKit_Extension;
+				INFOPLIST_FILE = "Traqqer WatchKit App/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -753,6 +1054,24 @@
 			buildConfigurations = (
 				560532651AB13F4A000AF70D /* Debug */,
 				560532661AB13F4A000AF70D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F19151041ABE26890021A326 /* Build configuration list for PBXNativeTarget "Traqqer WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F19151021ABE26890021A326 /* Debug */,
+				F19151031ABE26890021A326 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F19151051ABE26890021A326 /* Build configuration list for PBXNativeTarget "Traqqer WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F19151001ABE26890021A326 /* Debug */,
+				F19151011ABE26890021A326 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
