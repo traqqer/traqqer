@@ -8,9 +8,10 @@
 
 import UIKit
 
-class DashboardViewController: UIViewController, NavigationDelegate {
+class DashboardViewController: UIViewController, NavigationDelegate, UITabBarControllerDelegate {
     
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var detailsButton: UIButton!
 
     var tabVC : UITabBarController!
     var dashboardStatsVC : DashboardStatsViewController!
@@ -54,7 +55,7 @@ class DashboardViewController: UIViewController, NavigationDelegate {
         
         // Set the tab bar items
         dashboardStatsVC!.tabBarItem!.title = "STATS"
-        dashboardStatsVC!.tabBarItem!.image = UIImage(named: "glyphicons-31-pencil")
+        dashboardStatsVC!.tabBarItem!.image = UIImage(named: "glyphicons-67-tags")
         
         dashboardGraphsVC!.tabBarItem!.title = "GRAPHS"
         dashboardGraphsVC!.tabBarItem!.image = UIImage(named: "glyphicons-41-stats")
@@ -66,6 +67,7 @@ class DashboardViewController: UIViewController, NavigationDelegate {
         // Put the views on a tab bar, and add the tab bar to the view
         tabVC = UITabBarController()
         tabVC.viewControllers = [dashboardStatsVC!, dashboardGraphsVC!]
+        tabVC.delegate = self
         self.view.addSubview(tabVC.view)
     }
     
@@ -82,6 +84,15 @@ class DashboardViewController: UIViewController, NavigationDelegate {
 //        StatAggregationUtils.graphSummaryForStat(stat, start: NSDate(), numberOfBuckets: 10)
         
         navigationController!.pushViewController(detailsVC, animated: true)
+    }
+    
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+        addButton.hidden = false
+        detailsButton.hidden = false
+        if viewController is DashboardGraphsViewController {
+            addButton.hidden = true
+            detailsButton.hidden = true
+        }
     }
 }
 

@@ -12,6 +12,8 @@ import UIKit
 private var context = 0
 
 class DashboardStatsCell: UITableViewCell {
+    
+    @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var value: UILabel!
     @IBOutlet weak var goal: UILabel!
@@ -26,10 +28,12 @@ class DashboardStatsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         hideTimer(false)
+        icon.tintColor = UIColor.whiteColor()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        setupIcon()
         setupView()
     }
     
@@ -105,6 +109,14 @@ class DashboardStatsCell: UITableViewCell {
         } else {
             timer.hidden = true
             timer.alpha = 0
+        }
+    }
+    
+    func setupIcon() {
+        if stat.type == Constants.StatTypes.COUNT {
+            icon.image = UIImage(named: "glyphicons-324-calculator")
+        } else if stat.type == Constants.StatTypes.DURATION {
+            icon.image = UIImage(named: "glyphicons-56-stopwatch")
         }
     }
 }

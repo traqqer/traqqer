@@ -9,16 +9,10 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="148" id="KGk-i7-Jjw" customClass="DashboardStatsCell" customModule="Traqqer" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="148"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qS-5i-Wq1">
-                        <rect key="frame" x="8" y="25" width="144" height="30"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="Goal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EzN-Op-05K">
                         <rect key="frame" x="256" y="25" width="56" height="30"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
@@ -37,8 +31,23 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="glyphicons-56-stopwatch" translatesAutoresizingMaskIntoConstraints="NO" id="qUe-BV-SRY">
+                        <rect key="frame" x="8" y="27" width="23" height="27"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="99N-0u-O7i"/>
+                            <constraint firstAttribute="width" constant="23" id="gZX-yG-llR"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qS-5i-Wq1">
+                        <rect key="frame" x="39" y="25" width="70" height="30"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="pET-I9-kCZ" firstAttribute="leading" secondItem="6qS-5i-Wq1" secondAttribute="trailing" constant="8" id="0bv-FY-Z9S"/>
                     <constraint firstAttribute="bottom" secondItem="pET-I9-kCZ" secondAttribute="bottom" constant="8" id="4Zs-s5-qXC"/>
@@ -47,11 +56,14 @@
                     <constraint firstItem="6qS-5i-Wq1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="LEW-cD-lrL"/>
                     <constraint firstAttribute="centerX" secondItem="amv-QR-Vgn" secondAttribute="centerX" id="OVX-XB-eGe"/>
                     <constraint firstItem="pET-I9-kCZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="RbA-as-0d9"/>
+                    <constraint firstItem="6qS-5i-Wq1" firstAttribute="leading" secondItem="qUe-BV-SRY" secondAttribute="trailing" constant="8" id="W1p-sr-l5q"/>
                     <constraint firstItem="amv-QR-Vgn" firstAttribute="top" secondItem="pET-I9-kCZ" secondAttribute="bottom" constant="25" id="Wn7-rA-Sya"/>
+                    <constraint firstItem="qUe-BV-SRY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Yfq-Gm-xO4"/>
                     <constraint firstAttribute="centerY" secondItem="EzN-Op-05K" secondAttribute="centerY" id="Z88-u5-0Mw"/>
                     <constraint firstAttribute="bottom" secondItem="6qS-5i-Wq1" secondAttribute="bottom" constant="9" id="aBq-mo-QAg"/>
                     <constraint firstItem="amv-QR-Vgn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="euP-LJ-noS"/>
                     <constraint firstItem="EzN-Op-05K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="k93-q1-i0Y"/>
+                    <constraint firstItem="6qS-5i-Wq1" firstAttribute="centerY" secondItem="qUe-BV-SRY" secondAttribute="centerY" id="lEW-my-lvM"/>
                     <constraint firstItem="pET-I9-kCZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="n7x-mz-3JF"/>
                     <constraint firstItem="EzN-Op-05K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="qWR-MI-DSC"/>
                     <constraint firstAttribute="centerY" secondItem="pET-I9-kCZ" secondAttribute="centerY" id="rZm-Vj-Nct"/>
@@ -62,6 +74,7 @@
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="H0g-SG-Zup"/>
+                        <exclude reference="LEW-cD-lrL"/>
                         <exclude reference="aBq-mo-QAg"/>
                         <exclude reference="euP-LJ-noS"/>
                         <exclude reference="0bv-FY-Z9S"/>
@@ -78,11 +91,15 @@
             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="goal" destination="EzN-Op-05K" id="wOE-UB-1mX"/>
+                <outlet property="icon" destination="qUe-BV-SRY" id="CQj-Gu-6pI"/>
                 <outlet property="name" destination="6qS-5i-Wq1" id="9Ol-gl-ZKS"/>
                 <outlet property="timer" destination="amv-QR-Vgn" id="gqd-zE-ue1"/>
                 <outlet property="value" destination="pET-I9-kCZ" id="vpl-6E-K0x"/>
             </connections>
-            <point key="canvasLocation" x="265" y="282"/>
+            <point key="canvasLocation" x="265" y="280"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="glyphicons-56-stopwatch" width="23" height="27"/>
+    </resources>
 </document>
