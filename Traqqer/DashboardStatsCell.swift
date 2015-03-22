@@ -38,9 +38,19 @@ class DashboardStatsCell: UITableViewCell {
         if stat.type == Constants.StatTypes.COUNT {
             value.text = String(format: "%d", numEntries).uppercaseString
         } else if stat.type == Constants.StatTypes.DURATION {
-            value.text = DateUtils.formatTimeInterval(totalDuration)
+            value.text = DateUtils.formatTimeInterval(totalDuration, shortForm : true)
         }
-        goal.text = String(100)
+        if let goalObj = stat.goalRef {
+            let goalAmount = goalObj[GoalKeys.Amount.rawValue] as Int
+            if stat.type == Constants.StatTypes.COUNT {
+                goal.text = String(format: " / %d", goalAmount).uppercaseString
+            } else if stat.type == Constants.StatTypes.DURATION {
+                goal.text = String(format: " / %dmin", goalAmount)
+            }
+        } else {
+            goal.text = ""
+        }
+
     }
     
     func clicked() {

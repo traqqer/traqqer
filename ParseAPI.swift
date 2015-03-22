@@ -43,10 +43,13 @@ class ParseAPI {
         ParseAPI.runQueryAndCallCompletion(query, completion: completion)
     }
 
-    class func createStat(name: NSString, statType: String, completion: (Stat -> ())?) {
+    class func createStat(name: NSString, statType: String, goal: Goal?, completion: (Stat -> ())?) {
         let stat = Stat()
         stat.name = name
         stat.type = statType
+        if let goal = goal {
+            stat.goalRef = goal
+        }
         ParseAPI.saveObjectAndCallCompletion(stat, completion: {
             completion?(stat)
             return ()
@@ -61,16 +64,18 @@ class ParseAPI {
         ParseAPI.saveObjectAndCallCompletion(entry, completion: completion)
     }
     
-    class func createGoal(stat: Stat, type: GoalType, amount: Int, completion: (() -> ())?) {
+    class func createGoal(type: GoalType, amount: Int, completion: (Goal -> ())?) {
         let goal = Goal()
-        goal.statRef = stat
         goal.type = type.rawValue
         goal.amount = amount
-        ParseAPI.saveObjectAndCallCompletion(goal, completion: completion)
+        ParseAPI.saveObjectAndCallCompletion(goal, completion: {
+            completion?(goal)
+            return ()
+        })
     }
 
     class func getStats(completion: [Stat] -> ()) {
-        let query = Stat.query()
+        let query = Stat.query().includeKey(StatKeys.goalRef)
         ParseAPI.runQueryAndCallCompletion(query, completion: completion)
     }
 }

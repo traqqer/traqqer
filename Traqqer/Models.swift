@@ -11,11 +11,13 @@ import Foundation
 struct StatKeys {
     static let name = "name"
     static let type = "type"
+    static let goalRef = "goalRef"
 }
 
 class Stat : PFObject, PFSubclassing {
     @NSManaged var name : String!
     @NSManaged var type : String!
+    @NSManaged var goalRef : Goal?
     
     override class func initialize() {
         var onceToken : dispatch_once_t = 0;
@@ -60,7 +62,6 @@ class Entry : PFObject, PFSubclassing {
 }
 
 class Goal : PFObject, PFSubclassing {
-    @NSManaged var statRef : Stat!
     @NSManaged var type : String!
     @NSManaged var amount : NSNumber!
     

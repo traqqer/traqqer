@@ -24,8 +24,9 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
     }
     
     @IBAction func donePressed(sender: AnyObject) {
-        self.processForm()
-        self.closeModal()
+        self.processForm({
+            self.closeModal()
+        })
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -165,7 +166,7 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         self.form.removeFormRowWithTag(FormTag.ReminderMetadata.rawValue)
     }
 
-    private func processForm() {
+    private func processForm(completion: (() ->())?) {
         // Will crash if any of the fields are blank
         var values = self.form.formValues()
         println(values)
@@ -176,23 +177,25 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         let usesGoal = values[FormTag.Goal.rawValue] as? Bool
         let usesReminder = values[FormTag.Reminder.rawValue] as? Bool
 
-        ParseAPI.createStat(name, statType: type, completion: { stat in
-            if let usesGoal = usesGoal {
-                if (usesGoal) {
-                    let goalType = GoalType(rawValue: (values[FormTag.GoalMetadata.rawValue] as XLFormOptionsObject).formValue() as String)!
-                    let goalAmount = (values[FormTag.GoalMetadata2.rawValue] as? Int) ?? 5 // Defaults to 5 for the demo, if we screw up
-                    
-                    ParseAPI.createGoal(stat, type: goalType, amount: goalAmount, completion: nil)
-                }
+        if usesGoal != nil && usesGoal! {
+                let goalType = GoalType(rawValue: (values[FormTag.GoalMetadata.rawValue] as XLFormOptionsObject).formValue() as String)!
+                let goalAmount = (values[FormTag.GoalMetadata2.rawValue] as? Int) ?? 5 // Defaults to 5 for the demo, if we screw up
+                ParseAPI.createGoal(goalType, amount: goalAmount, completion: { goal in
+                    ParseAPI.createStat(name, statType: type, goal: goal, completion: { stat in
+                        completion?()
+                        return ()
+                    })
+                    return ()
+                })
+        }
+        
+        if  let usesReminder = usesReminder {
+            if (usesReminder) {
+                let reminderTime = values[FormTag.ReminderMetadata.rawValue] as NSDate?
+                println("Reminder time: \(reminderTime)")
+                // Do nothing, but v2 -> create reminder
             }
-            if  let usesReminder = usesReminder {
-                if (usesReminder) {
-                    let reminderTime = values[FormTag.ReminderMetadata.rawValue] as NSDate?
-                    println("Reminder time: \(reminderTime)")
-                    // Do nothing, but v2 -> create reminder
-                }
-            }
-        })
+        }
     }
     
     private func closeModal() {
