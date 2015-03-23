@@ -14,6 +14,8 @@ class DetailsStatsViewController: UIViewController, UITableViewDataSource, UITab
     
     var stat : Stat!
     var entries = [] as [Entry]
+    var days = [] as [String]
+    var entriesByDay = Dictionary() as Dictionary<String, [Entry]>
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,20 +30,58 @@ class DetailsStatsViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DETAILS_STATS_CELL) as DetailsStatsCell
-        cell.entry = entries[indexPath.row]
+        cell.entry = self.entryForIndexPath(indexPath)
         cell.setup()
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // One row for each entry in this section's day
+        let day = self.days[section]
+        let entries = self.entriesByDay[day]!
         return entries.count
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let text = self.days[section]
+        let header = UILabel()
+        header.text = text
+        header.textAlignment = .Center
+        header.backgroundColor = UIColor.grayColor()
+        header.textColor = UIColor.whiteColor()
+        header.font = UIFont.boldSystemFontOfSize(16.0)
+        return header
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+        // One section for each day
+        return self.days.count
     }
     
     func refreshData() {
         ParseAPI.getEntriesforStat(stat, completion: {entries in
             self.entries = entries
+            for entry in entries {
+                let day = DateUtils.formatDate(entry.timestamp)
+                if self.entriesByDay[day] != nil {
+                    var entries = self.entriesByDay[day]! // var in this line is to make the array mutable
+                    entries.append(entry)
+                    self.entriesByDay[day] = entries
+                } else {
+                    var entries = [entry] // var so that it's a mutable array
+                    self.entriesByDay[day] = entries
+                    self.days.append(day)
+                }
+
+            }
             self.tableView.reloadData()
         })
+    }
+    
+    func entryForIndexPath(indexPath: NSIndexPath) -> Entry {
+        let day = self.days[indexPath.section]
+        let entries = self.entriesByDay[day]!
+        return entries[indexPath.row]
     }
     
 }

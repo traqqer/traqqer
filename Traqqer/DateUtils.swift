@@ -17,6 +17,22 @@ class DateUtils {
         return Static.formatter
     }
     
+    class var dateFormatter : NSDateFormatter {
+        struct Static {
+            static let dateFormatter = NSDateFormatter()
+        }
+        Static.dateFormatter.setLocalizedDateFormatFromTemplate("EEE d MMM")
+        return Static.dateFormatter
+    }
+    
+    class var timeFormatter : NSDateFormatter {
+        struct Static {
+            static let timeFormatter = NSDateFormatter()
+        }
+        Static.timeFormatter.setLocalizedDateFormatFromTemplate("hh:mm:s")
+        return Static.timeFormatter
+    }
+    
     class func formatTimeInterval(interval : NSTimeInterval, shortForm : Bool = false) -> String {
         let s = interval % 60
         let m = (interval / 60) % 60
@@ -37,5 +53,13 @@ class DateUtils {
     
     class func formatDatetime(date : NSDate) -> String {
         return DateUtils.formatter.stringFromDate(date)
+    }
+    
+    class func formatDate(date : NSDate) -> String {
+        return DateUtils.dateFormatter.stringFromDate(date)
+    }
+    
+    class func formatTime(date : NSDate) -> String {
+        return DateUtils.timeFormatter.stringFromDate(date)
     }
 }

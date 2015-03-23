@@ -14,20 +14,40 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timestamp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CF-0v-Fsg">
-                        <rect key="frame" x="8" y="8" width="86" height="27"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CF-0v-Fsg">
+                        <rect key="frame" x="8" y="8" width="38" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZO-Ce-T2A">
+                        <rect key="frame" x="246" y="8" width="66" height="27"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="7CF-0v-Fsg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="7u1-wp-zkM"/>
+                    <constraint firstItem="eZO-Ce-T2A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="DbE-Ga-pD3"/>
                     <constraint firstItem="7CF-0v-Fsg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Jln-ch-Evu"/>
+                    <constraint firstItem="7CF-0v-Fsg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="JrE-6g-sXF"/>
                     <constraint firstItem="7CF-0v-Fsg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="WdF-R4-Paj"/>
                     <constraint firstAttribute="bottomMargin" secondItem="7CF-0v-Fsg" secondAttribute="bottom" id="Zea-Gv-9LG"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="eZO-Ce-T2A" secondAttribute="bottom" id="c27-pk-ehD"/>
+                    <constraint firstItem="7CF-0v-Fsg" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="fzz-Yi-Ck8"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="eZO-Ce-T2A" secondAttribute="trailing" id="knR-Fe-i5D"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Jln-ch-Evu"/>
+                        <exclude reference="WdF-R4-Paj"/>
+                        <exclude reference="fzz-Yi-Ck8"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="durationLabel" destination="eZO-Ce-T2A" id="hIy-1n-cH3"/>
                 <outlet property="timestampLabel" destination="7CF-0v-Fsg" id="Wwc-t6-uGl"/>
             </connections>
         </tableViewCell>

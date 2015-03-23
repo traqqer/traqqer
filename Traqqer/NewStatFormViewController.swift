@@ -178,15 +178,20 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         let usesReminder = values[FormTag.Reminder.rawValue] as? Bool
 
         if usesGoal != nil && usesGoal! {
-                let goalType = GoalType(rawValue: (values[FormTag.GoalMetadata.rawValue] as XLFormOptionsObject).formValue() as String)!
-                let goalAmount = (values[FormTag.GoalMetadata2.rawValue] as? Int) ?? 5 // Defaults to 5 for the demo, if we screw up
-                ParseAPI.createGoal(goalType, amount: goalAmount, completion: { goal in
-                    ParseAPI.createStat(name, statType: type, goal: goal, completion: { stat in
-                        completion?()
-                        return ()
-                    })
+            let goalType = GoalType(rawValue: (values[FormTag.GoalMetadata.rawValue] as XLFormOptionsObject).formValue() as String)!
+            let goalAmount = (values[FormTag.GoalMetadata2.rawValue] as? Int) ?? 5 // Defaults to 5 for the demo, if we screw up
+            ParseAPI.createGoal(goalType, amount: goalAmount, completion: { goal in
+                ParseAPI.createStat(name, statType: type, goal: goal, completion: { stat in
+                    completion?()
                     return ()
                 })
+                return ()
+            })
+        } else {
+            ParseAPI.createStat(name, statType: type, goal: nil, completion: { stat in
+                completion?()
+                return ()
+            })
         }
         
         if  let usesReminder = usesReminder {
