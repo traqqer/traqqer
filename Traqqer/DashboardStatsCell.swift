@@ -20,8 +20,12 @@ class DashboardStatsCell: UITableViewCell {
     @IBOutlet weak var timer: UILabel!
     
     var stat : Stat!
-    var numEntries : NSInteger!
-    var totalDuration : NSTimeInterval!
+    
+    var remoteNumEntries = 0
+    var remoteTotalDuration = 0.0
+    
+    var numEntries = 0
+    var totalDuration = 0.0
     var startDate : NSDate!
     var stopwatchListener : StopwatchListener!
     
@@ -37,12 +41,22 @@ class DashboardStatsCell: UITableViewCell {
         setupView()
     }
     
+    func loadRemoteData() {
+        StatAggregationUtils.summaryForStat(stat, day: NSDate(), completion: {(numEntries, totalDuration) in
+            self.remoteNumEntries = numEntries
+            if let totalDuration = totalDuration {
+                self.remoteTotalDuration = totalDuration
+            }
+            self.setupView()
+        })
+    }
+    
     func setupView() {
         name.text = stat.name.uppercaseString
         if stat.type == Constants.StatTypes.COUNT {
-            value.text = String(format: "%d", numEntries).uppercaseString
+            value.text = String(format: "%d", numEntries + remoteNumEntries).uppercaseString
         } else if stat.type == Constants.StatTypes.DURATION {
-            value.text = DateUtils.formatTimeInterval(totalDuration, shortForm : true)
+            value.text = DateUtils.formatTimeInterval(totalDuration + remoteTotalDuration, shortForm : true)
         }
         if let goalObj = stat.goalRef {
             let goalAmount = goalObj[GoalKeys.Amount.rawValue] as Int

@@ -36,8 +36,7 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DASHBOARD_STATS_CELL) as DashboardStatsCell
         cell.stat = stats[indexPath.row]
-        cell.numEntries = 0 // For now, should be set via Parse aggregation
-        cell.totalDuration = 0.0 // Dito
+        cell.loadRemoteData()
         cell.accessoryType = detailsMode
             ? UITableViewCellAccessoryType.DisclosureIndicator
             : UITableViewCellAccessoryType.None

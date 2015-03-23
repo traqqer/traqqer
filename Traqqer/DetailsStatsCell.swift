@@ -10,7 +10,6 @@ import UIKit
 
 class DetailsStatsCell: UITableViewCell {
     @IBOutlet weak var timestampLabel: UILabel!
-    
     @IBOutlet weak var durationLabel: UILabel!
     
     var entry : Entry!
