@@ -13,10 +13,12 @@ class DetailsGraphsViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func onSegmentChanged(sender: UISegmentedControl) {
-        tableView.reloadData()
+        self.refreshData()
     }
     
     var stat : Stat!
+    var summaryData : [String: String]!
+    
     var entries = [] as [Entry]
     
     override func viewDidLoad() {
@@ -25,6 +27,32 @@ class DetailsGraphsViewController: UIViewController, UITableViewDataSource, UITa
         tableView.dataSource = self
         Traqqer.registerNibAsCell(tableView, identifier: Constants.DASHBOARD_GRAPHS_CELL)
         Traqqer.registerNibAsCell(tableView, identifier: Constants.DETAILS_GRAPHS_SUMMARY_CELL)
+
+        refreshData()
+    }
+    
+    func refreshData() {
+        // Populate summary data
+        let timeSegment = TimeSegment(rawValue: timeSegments.selectedSegmentIndex)!
+        StatAggregationUtils.detailSummaryForStat(self.stat, end: NSDate(), numberOfBuckets: timeSegment.getSegmentCount(), bucketDuration: timeSegment.getSegmentDuration()) { (countStats, durationStats) -> () in
+            self.summaryData = Dictionary()
+            switch StatType(rawValue: self.stat.type)! {
+            case .Count:
+                let (min, avg, max) = countStats
+                //TODO
+                self.summaryData["min"] = String(format: "%d", min)
+                self.summaryData["avg"] = String(format: "%5.2f", avg)
+                self.summaryData["max"] = String(format: "%d", max)
+            case .Duration:
+                let (min, avg, max) = durationStats!
+                //TODO
+                self.summaryData["min"] = DateUtils.formatTimeInterval(min, shortForm: false)
+                self.summaryData["avg"] = DateUtils.formatTimeInterval(avg, shortForm: false)
+                self.summaryData["max"] = DateUtils.formatTimeInterval(max, shortForm: false)
+            }
+            self.tableView.reloadData()
+        }
+
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,12 +71,15 @@ class DetailsGraphsViewController: UIViewController, UITableViewDataSource, UITa
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DETAILS_GRAPHS_SUMMARY_CELL, forIndexPath: indexPath) as DetailsGraphsSummaryCell
-            if row == 1 {
-                cell.setStat("Total", value: "100")
-            } else if row == 2 {
-                cell.setStat("Average", value: "200")
-            } else if row == 3 {
-                cell.setStat("Standard Deviation", value: "300")
+            cell.setStat("", value: "")
+            if let summarydata = summaryData {
+                if row == 1 {
+                    cell.setStat("Min", value: summaryData["min"]!)
+                } else if row == 2 {
+                    cell.setStat("Average", value: summaryData["avg"]!)
+                } else if row == 3 {
+                    cell.setStat("Max", value: summaryData["max"]!)
+                }
             }
             return cell
         }
