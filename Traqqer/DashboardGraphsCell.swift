@@ -22,7 +22,8 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     var delegate: DashboardGraphCellDelegate!
     var toolTip: ToolTip
     var timeSegment: TimeSegment?
-
+    var graphValues = [Double]()
+    
     @IBAction func onExpand(sender: UIButton) {
         // TODO fill in when we populate with real data
 //        delegate.onExpandClicked(stat)
@@ -53,13 +54,27 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        lineChart.headerView = HeaderView(frame: CGRectMake(0, 0, lineChart.frame.width, 40))
+        let headerView = HeaderView(frame: CGRectMake(0, 0, lineChart.frame.width, 40))
+        headerView.label.text = stat.name.uppercaseString
+        lineChart.headerView = headerView
         lineChart.footerView = FooterView(frame: CGRectMake(0, 0, lineChart.frame.width, 16), timeSegment: timeSegment!)
         
         lineChart.setState(.Collapsed, animated: false)
         lineChart.reloadData()
-        
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: Selector("showChart"), userInfo: nil, repeats: false)
+    }
+    
+    func refreshGraph() {
+        self.graphValues = []
+        StatAggregationUtils.graphSummaryForStat(self.stat, end: NSDate(), numberOfBuckets: self.timeSegment!.getSegmentCount(), bucketDuration: self.timeSegment!.getSegmentDuration(), completion: {(counts, durations) in
+            switch StatType(rawValue: self.stat.type)! {
+            case .Count:
+                self.graphValues = counts.map({i in Double(i)})
+            case .Duration:
+                self.graphValues = durations!
+            }
+            self.lineChart.reloadData()
+            self.showChart()
+        })
     }
     
     func setStat(stat: Stat?, delegate: DashboardGraphCellDelegate, enableExpand: Bool) {
@@ -82,7 +97,13 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     
     func lineChartView(lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
          //y-position (y-axis) of point at horizontalIndex (x-axis)
-        return CGFloat(arc4random_uniform(100))
+        if self.graphValues.count > 0 {
+            let doubleValue = self.graphValues[Int(horizontalIndex)]
+            let floatValue = CGFloat(doubleValue)
+                return floatValue
+        } else {
+            return 0
+        }
     }
     
     func lineChartView(lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {

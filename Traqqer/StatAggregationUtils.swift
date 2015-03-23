@@ -148,7 +148,7 @@ private class TimeBucket {
     }
     
     func contains(date: NSDate) -> Bool {
-        return self.start <= date && self.start >= end
+        return self.start <= date && date <= end
     }
     
     class func makeBuckets(start: NSDate, end: NSDate, numberOfBuckets: Int) -> [Int : TimeBucket] {
@@ -164,7 +164,7 @@ private class TimeBucket {
         
         for bucketIndex in 0..<numberOfBuckets {
             bucketStart = start + bucketIndex * bucketDuration
-            bucketEnd = start + bucketDuration
+            bucketEnd = bucketStart + bucketDuration
             timeBuckets[bucketIndex] = TimeBucket(start: bucketStart, end: bucketEnd)
         }
         

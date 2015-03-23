@@ -14,6 +14,12 @@ enum GoalType : String {
     case MoreThan = "More Than"
 }
 
+enum StatType : String {
+    case Count = "Count"
+    case Duration = "Duration"
+}
+
+
 struct Constants {
     // VCs
     static let DASHBOARD = "Dashboard"

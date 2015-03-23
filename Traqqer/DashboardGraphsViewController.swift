@@ -26,6 +26,19 @@ enum TimeSegment: Int {
         }
     }
     
+    func getSegmentDuration() -> Duration {
+        switch self {
+        case .Day:
+            return 1.hours
+        case .Week:
+            return 1.days
+        case .Month:
+            return 1.days
+        case .Year:
+            return 1.month
+        }
+    }
+    
     func getSegmentName(index: Int) -> String {
         switch self {
             case .Day:
@@ -46,6 +59,8 @@ class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, U
     @IBOutlet weak var tableView: UITableView!
     
     var detailsMode = false
+    var stats = [] as [Stat]
+    
     weak var navigationDelegate : NavigationDelegate?
     
     @IBAction func onSegmentChanged(sender: UISegmentedControl) {
@@ -59,10 +74,15 @@ class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, U
         tableView.backgroundColor = UIColor.darkGrayColor()
         tableView.rowHeight = CGFloat(250)
         Traqqer.registerNibAsCell(tableView, identifier: Constants.DASHBOARD_GRAPHS_CELL)
+        
+        ParseAPI.getStats({stats in
+            self.stats = stats
+            self.tableView.reloadData()
+        })
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return stats.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -70,7 +90,9 @@ class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, U
         cell.accessoryType = UITableViewCellAccessoryType.None
         cell.selectionStyle = UITableViewCellSelectionStyle.None;
         cell.timeSegment = TimeSegment(rawValue: timeSegments.selectedSegmentIndex)
-        cell.setStat(nil, delegate: self, enableExpand: true)
+        let stat = self.stats[indexPath.row]
+        cell.setStat(stat, delegate: self, enableExpand: true)
+        cell.refreshGraph()
         return cell
     }
     
