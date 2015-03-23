@@ -36,6 +36,7 @@ class ParseAPI {
     
     class func getEntriesforStat(stat: Stat, completion: [Entry]->()) {
         let query = Entry.query().whereKey(EntryKeys.statRef, equalTo: stat)
+        query.orderByAscending(EntryKeys.timestamp)
         ParseAPI.runQueryAndCallCompletion(query, completion: completion)
     }
     

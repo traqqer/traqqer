@@ -114,7 +114,7 @@ class DashboardStatsCell: UITableViewCell {
     
     func setupIcon() {
         if stat.type == Constants.StatTypes.COUNT {
-            icon.image = UIImage(named: "glyphicons-324-calculator")
+            icon.image = UIImage(named: "count-icon")
         } else if stat.type == Constants.StatTypes.DURATION {
             icon.image = UIImage(named: "glyphicons-56-stopwatch")
         }

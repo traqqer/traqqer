@@ -13,7 +13,6 @@ class DetailsStatsViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var tableView: UITableView!
     
     var stat : Stat!
-    var entries = [] as [Entry]
     var days = [] as [String]
     var entriesByDay = Dictionary() as Dictionary<String, [Entry]>
     
@@ -60,8 +59,7 @@ class DetailsStatsViewController: UIViewController, UITableViewDataSource, UITab
     
     func refreshData() {
         ParseAPI.getEntriesforStat(stat, completion: {entries in
-            self.entries = entries
-            for entry in entries {
+            for entry in reverse(entries) {
                 let day = DateUtils.formatDate(entry.timestamp)
                 if self.entriesByDay[day] != nil {
                     var entries = self.entriesByDay[day]! // var in this line is to make the array mutable
