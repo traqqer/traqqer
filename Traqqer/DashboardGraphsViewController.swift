@@ -48,7 +48,7 @@ enum TimeSegment: Int {
             case .Month:
                 return String(index+1)
             case .Year:
-                return NSDate().change(month: index+1).stringFromFormat("MMM").uppercaseString
+                return NSDate().change(month: index+1).stringFromFormat("MMM")
         }
     }
 }

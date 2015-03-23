@@ -23,10 +23,10 @@ class DetailsViewController: UIViewController {
         detailsStatsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS_STATS) as DetailsStatsViewController
         detailsGraphsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS_GRAPHS) as DetailsGraphsViewController
         
-        detailsStatsVC.tabBarItem!.title = "STATS"
+        detailsStatsVC.tabBarItem!.title = "Stats"
         detailsStatsVC!.tabBarItem!.image = UIImage(named: "glyphicons-67-tags")
         
-        detailsGraphsVC.tabBarItem!.title = "GRAPHS"
+        detailsGraphsVC.tabBarItem!.title = "Graphs"
         detailsGraphsVC!.tabBarItem!.image = UIImage(named: "glyphicons-41-stats")
         
         tabVC = UITabBarController()

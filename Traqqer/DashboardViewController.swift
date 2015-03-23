@@ -58,10 +58,10 @@ class DashboardViewController: UIViewController, NavigationDelegate, UITabBarCon
         dashboardGraphsVC = Traqqer.instantiateStoryboardVC(Constants.DASHBOARD_GRAPHS) as? DashboardGraphsViewController
         
         // Set the tab bar items
-        dashboardStatsVC!.tabBarItem!.title = "STATS"
+        dashboardStatsVC!.tabBarItem!.title = "Stats"
         dashboardStatsVC!.tabBarItem!.image = UIImage(named: "glyphicons-67-tags")
         
-        dashboardGraphsVC!.tabBarItem!.title = "GRAPHS"
+        dashboardGraphsVC!.tabBarItem!.title = "Graphs"
         dashboardGraphsVC!.tabBarItem!.image = UIImage(named: "glyphicons-41-stats")
 
         // Set self as the "NavigationDelegate"
@@ -78,26 +78,6 @@ class DashboardViewController: UIViewController, NavigationDelegate, UITabBarCon
     func segueToDetail(forStats stat: Stat) {
         let detailsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS) as DetailsViewController
         detailsVC.setup(stat)
-        
-//        StatAggregationUtils.summaryForStat(stat, day: NSDate()) {
-//            (count: Int, duration: NSTimeInterval?) in
-//            
-//            println("guy: \(count), \(duration)")
-//        }
-        
-//        StatAggregationUtils.graphSummaryForStat(stat, end: NSDate(), numberOfBuckets: 3, bucketDuration: 1.days) {
-//            (count: [Int], duration: [NSTimeInterval]?) in
-//            
-//            println("count: \(count)")
-//            println("durations: \(duration)")
-//        }
-        
-//        StatAggregationUtils.detailSummaryForStat(stat, end: NSDate(), numberOfBuckets: 3, bucketDuration: 1.days) {
-//            (countStats, durationStats) in
-//            
-//            println("count: \(countStats)")
-//            println("durations: \(durationStats)")
-//        }
         
         navigationController!.pushViewController(detailsVC, animated: true)
     }

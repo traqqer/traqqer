@@ -52,16 +52,16 @@ class DashboardStatsCell: UITableViewCell {
     }
     
     func setupView() {
-        name.text = stat.name.uppercaseString
+        name.text = stat.name
         if stat.type == Constants.StatTypes.COUNT {
-            value.text = String(format: "%d", numEntries + remoteNumEntries).uppercaseString
+            value.text = String(format: "%d", numEntries + remoteNumEntries)
         } else if stat.type == Constants.StatTypes.DURATION {
             value.text = DateUtils.formatTimeInterval(totalDuration + remoteTotalDuration, shortForm : true)
         }
         if let goalObj = stat.goalRef {
             let goalAmount = goalObj[GoalKeys.Amount.rawValue] as Int
             if stat.type == Constants.StatTypes.COUNT {
-                goal.text = String(format: " / %d", goalAmount).uppercaseString
+                goal.text = String(format: " / %d", goalAmount)
             } else if stat.type == Constants.StatTypes.DURATION {
                 goal.text = String(format: " / %dmin", goalAmount)
             }

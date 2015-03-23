@@ -55,7 +55,7 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     override func layoutSubviews() {
         super.layoutSubviews()
         let headerView = HeaderView(frame: CGRectMake(0, 0, lineChart.frame.width, 40))
-        headerView.label.text = stat.name.uppercaseString
+        headerView.label.text = stat.name
         lineChart.headerView = headerView
         lineChart.footerView = FooterView(frame: CGRectMake(0, 0, lineChart.frame.width, 16), timeSegment: timeSegment!)
         
