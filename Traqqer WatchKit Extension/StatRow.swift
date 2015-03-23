@@ -20,7 +20,7 @@ class StatRow: NSObject {
     var remoteTotalDuration = 0.0
     var numEntries: Int! = 0
     var startDate : NSDate!
-    var totalDuration : NSTimeInterval! = 0.9
+    var totalDuration : NSTimeInterval! = 0.0
     var stopwatchListener : StopwatchListener!
     
     func setStat(stat: Stat) {
@@ -32,7 +32,6 @@ class StatRow: NSObject {
             }
             self.refreshView()
         })
-        self.refreshView()
     }
     
     func refreshView() {

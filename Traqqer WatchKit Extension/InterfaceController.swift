@@ -15,6 +15,7 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var table: WKInterfaceTable!
     
     var stats : [Stat] = []
+    var numberOfRows = 0
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -23,7 +24,6 @@ class InterfaceController: WKInterfaceController {
         Parse.setApplicationId(Constants.PARSE_APPLICATION_ID, clientKey: Constants.PARSE_CLIENT_KEY)
         
         fetchData()
-        NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "fetchData", userInfo: nil, repeats: true)
     }
     
     func updateTable() {
@@ -40,7 +40,9 @@ class InterfaceController: WKInterfaceController {
     func fetchData() {
         ParseAPI.getStats {stats in
             self.stats = stats
-            self.table.setNumberOfRows(self.stats.count, withRowType: "StatRow")
+            if self.numberOfRows != self.stats.count {
+                self.table.setNumberOfRows(self.stats.count, withRowType: "StatRow")
+            }
             self.updateTable()
         }
     }
