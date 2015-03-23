@@ -16,6 +16,8 @@ class StatRow: NSObject {
     @IBOutlet weak var timer: WKInterfaceLabel!
     
     var stat: Stat!
+    var remoteNumEntries = 0
+    var remoteTotalDuration = 0.0
     var numEntries: Int! = 0
     var startDate : NSDate!
     var totalDuration : NSTimeInterval! = 0.9
@@ -23,21 +25,28 @@ class StatRow: NSObject {
     
     func setStat(stat: Stat) {
         self.stat = stat
-        refreshView()
+        StatAggregationUtils.summaryForStat(stat, day: NSDate(), completion: {count, duration in
+            self.remoteNumEntries = count
+            if let duration = duration {
+                self.remoteTotalDuration = duration
+            }
+            self.refreshView()
+        })
+        self.refreshView()
     }
     
     func refreshView() {
         name.setText(stat.name)
         let goalAmount = (stat.goalRef?[GoalKeys.Amount.rawValue]) as? Int
         if stat.type == Constants.StatTypes.COUNT {
-            var value = String(numEntries)
+            var value = String(numEntries + remoteNumEntries)
             if let goalAmount = goalAmount {
                 value = value + String(format: " / %d", goalAmount)
             }
             valueGoal.setText(value)
 
         } else if stat.type == Constants.StatTypes.DURATION {
-            var value = DateUtils.formatTimeInterval(totalDuration, shortForm: true)
+            var value = DateUtils.formatTimeInterval(totalDuration + remoteTotalDuration, shortForm: true)
             if let goalAmount = goalAmount {
                 value = value + String(format: " / %dmin", goalAmount)
             }
