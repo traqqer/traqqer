@@ -69,6 +69,7 @@ class DashboardStatsCell: UITableViewCell {
             goal.text = ""
         }
         
+        self.backgroundColor = Utils.Color.primaryColor
         self.contentView.backgroundColor = Utils.Color.primaryColor
     }
     
