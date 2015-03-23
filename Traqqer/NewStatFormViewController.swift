@@ -32,6 +32,14 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.initializeForm()
+        
+        self.navigationController?.navigationBar.barTintColor = Utils.Color.tertiaryColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.view.backgroundColor = Utils.Color.primaryColor
+        self.tableView.backgroundColor = Utils.Color.secondaryColor
     }
     
     func initializeForm() {
@@ -43,6 +51,7 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         
         // Stat type
         let statTypeRow = XLFormRowDescriptor(tag: FormTag.StatType.rawValue, rowType: XLFormRowDescriptorTypeSelectorSegmentedControl)
+        statTypeRow.cellConfig["backgroundColor"] = Utils.Color.primaryColor
         statTypeRow.selectorOptions = [
             XLFormOptionsObject(value: Constants.StatTypes.COUNT, displayText: "Count"),
             XLFormOptionsObject(value: Constants.StatTypes.DURATION, displayText: "Duration")
@@ -52,6 +61,7 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         
         // Name row
         let nameRow = XLFormRowDescriptor(tag: FormTag.Name.rawValue, rowType: XLFormRowDescriptorTypeName, title: "Name")
+        nameRow.cellConfig["backgroundColor"] = Utils.Color.primaryColor
         nameRow.cellConfig["textField.textAlignment"] = NSTextAlignment.Right.rawValue
 
         nameSection.addFormRow(nameRow)
@@ -62,6 +72,7 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         
         // Goal row
         let goalRow = XLFormRowDescriptor(tag: FormTag.Goal.rawValue, rowType: XLFormRowDescriptorTypeBooleanSwitch, title: "Enable goal tracking?")
+        goalRow.cellConfig["backgroundColor"] = Utils.Color.primaryColor
         goalSection.addFormRow(goalRow)
         
         // Reminder section
@@ -70,6 +81,7 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         
         // Reminder row
         let reminderRow = XLFormRowDescriptor(tag: FormTag.Reminder.rawValue, rowType: XLFormRowDescriptorTypeBooleanSwitch, title: "Enable reminders?")
+        reminderRow.cellConfig["backgroundColor"] = Utils.Color.primaryColor
         reminderSection.addFormRow(reminderRow)
         
         self.form = form
@@ -130,6 +142,7 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
     private func addGoalRows(parentRow: XLFormRowDescriptor) {
         // greater than or less than
         let goalMetadataRow = XLFormRowDescriptor(tag: FormTag.GoalMetadata.rawValue, rowType: XLFormRowDescriptorTypeSelectorSegmentedControl)
+        goalMetadataRow.cellConfig["backgroundColor"] = Utils.Color.primaryColor
         let lessThanOption = XLFormOptionsObject(value: GoalType.LessThan.rawValue, displayText: "Less than")
         let greaterThanOption = XLFormOptionsObject(value: GoalType.MoreThan.rawValue, displayText: "Greater than")
         goalMetadataRow.selectorOptions = [lessThanOption, greaterThanOption]
@@ -138,11 +151,11 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
         
         // goal target
         let goalMetadataRow2 = XLFormRowDescriptor(tag: FormTag.GoalMetadata2.rawValue, rowType: XLFormRowDescriptorTypeInteger)
+        goalMetadataRow2.cellConfig["backgroundColor"] = Utils.Color.primaryColor
         goalMetadataRow2.cellConfig["textField.textAlignment"] = NSTextAlignment.Right.rawValue
         
         let statTypeRow = self.form.formRowWithTag(FormTag.StatType.rawValue)
         let statType = (statTypeRow.value as XLFormOptionsObject).formValue() as String
-        println(statType)
         
         if (statType == Constants.StatTypes.DURATION) {
             goalMetadataRow2.cellConfigAtConfigure["textField.placeholder"] = "Goal duration (in minutes)"
@@ -159,6 +172,7 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
     
     private func addReminderRows(parentRow: XLFormRowDescriptor) {
         let reminderMetadataRow = XLFormRowDescriptor(tag: FormTag.ReminderMetadata.rawValue, rowType: XLFormRowDescriptorTypeTimeInline, title: "Remind me at ...")
+        reminderMetadataRow.cellConfig["backgroundColor"] = Utils.Color.primaryColor
         self.form.addFormRow(reminderMetadataRow, afterRow: parentRow)
     }
     

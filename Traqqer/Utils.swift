@@ -11,7 +11,7 @@ import Foundation
 class Utils {
     struct Color {
         static let primaryColor = Utils.createUIColor(255, green: 204, blue: 255, alpha: 1.0)
-        static let secondaryColor = Utils.createUIColor(204, green: 255, blue: 204, alpha: 1.0)
+        static let secondaryColor = Utils.createUIColor(255, green: 56, blue: 255, alpha: 1.0)
         static let tertiaryColor = Utils.createUIColor(204, green: 204, blue: 255, alpha: 1.0)
     }
 
