@@ -25,8 +25,9 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     var graphValues = [Double]()
     
     @IBAction func onExpand(sender: UIButton) {
+        println("On expand")
         // TODO fill in when we populate with real data
-//        delegate.onExpandClicked(stat)
+        //        delegate.onExpandClicked(stat)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -45,6 +46,7 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
         backgroundColor = UIColor.darkGrayColor()
         infoLabel.textAlignment = .Center
         infoLabel.textColor = UIColor.whiteColor()
+        infoLabel.font = UIFont.boldSystemFontOfSize(30)
         
         lineChart.dataSource = self
         lineChart.delegate = self
@@ -97,10 +99,14 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     
     func lineChartView(lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
          //y-position (y-axis) of point at horizontalIndex (x-axis)
+        return getValueForIndex(horizontalIndex)
+    }
+    
+    func getValueForIndex(horizontalIndex : UInt) -> CGFloat {
         if self.graphValues.count > 0 {
             let doubleValue = self.graphValues[Int(horizontalIndex)]
             let floatValue = CGFloat(doubleValue)
-                return floatValue
+            return floatValue
         } else {
             return 0
         }
@@ -119,12 +125,39 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     }
     
     func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt) {
-        infoLabel.text = String(horizontalIndex * 100)
+        switch StatType(rawValue: self.stat.type)! {
+        case .Count:
+            infoLabel.text = String(format: "%d", Int(self.getValueForIndex(horizontalIndex)))
+        case .Duration:
+            let timeInterval = Double(self.getValueForIndex(horizontalIndex))
+            infoLabel.text = DateUtils.formatTimeInterval(timeInterval, shortForm: false)
+        }
+    }
+    
+    func getHorizontalDescription(horizontalIndex: UInt) -> String {
+        let segment = self.timeSegment!
+        let now = NSDate()
+        let offset = segment.getSegmentCount() - Int(horizontalIndex)
+        switch segment {
+        case .Day:
+            let point = now - offset.hours
+            return DateUtils.formatHHMM(point)
+        case .Week:
+            let point = now - offset.days
+            return point.stringFromFormat("EEE")
+        case .Month:
+            let point = now - offset.days
+            return point.stringFromFormat("MMM d")
+        case .Year:
+            let point = now - offset.months
+            return point.stringFromFormat("MMM YYYY")
+        }
     }
     
     func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt, touchPoint: CGPoint) {
         toolTip.hidden = false
-        toolTip.setText(timeSegment!.getSegmentName(Int(horizontalIndex)))
+
+        toolTip.setText(getHorizontalDescription(horizontalIndex))
         
         let originalTouchPoint = self.convertPoint(touchPoint, fromView:lineChartView)
         var convertedTouchPoint = originalTouchPoint

@@ -28,20 +28,20 @@ class FooterView: UIView {
         labelRight.textAlignment = .Right
         labelRight.textColor = UIColor.whiteColor()
         labelRight.font = UIFont (name: "HelveticaNeue-Bold", size: 16)
-        
+        let now = NSDate()
         switch self.timeSegment {
             case .Day:
-                labelLeft.text = "12 AM"
-                labelRight.text = "12 AM"
+                labelLeft.text = DateUtils.formatHHMM(now)
+                labelRight.text = DateUtils.formatHHMM(now)
             case .Week:
-                labelLeft.text = NSDate().stringFromFormat("MMM") + " " + String(NSDate().change(weekday: 1).day)
-                labelRight.text = String(NSDate().change(weekday: 7).day)
+                labelLeft.text = (now - 7.days).stringFromFormat("MMM d")
+                labelRight.text = now.stringFromFormat("MMM d")
             case .Month:
-                labelLeft.text = NSDate().stringFromFormat("MMM") + " 1"
-                labelRight.text = String(NSDate().endOfMonth.day)
+                labelLeft.text = (now - 1.month).stringFromFormat("MMM d")
+                labelRight.text = now.stringFromFormat("MMM d")
             case .Year:
-                labelLeft.text = "JAN " + NSDate().stringFromFormat("YY")
-                labelRight.text = "DEC"
+                labelLeft.text = (now - 1.year).stringFromFormat("MMM YYYY")
+                labelRight.text = now.stringFromFormat("MMM YYYY")
         }
         
         addSubview(labelLeft)

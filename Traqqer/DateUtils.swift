@@ -33,6 +33,14 @@ class DateUtils {
         return Static.timeFormatter
     }
     
+    class var hhmmFormatter : NSDateFormatter {
+        struct Static {
+            static let hhmmFormatter = NSDateFormatter()
+        }
+        Static.hhmmFormatter.setLocalizedDateFormatFromTemplate("hh:mm")
+        return Static.hhmmFormatter
+    }
+    
     class func formatTimeInterval(interval : NSTimeInterval, shortForm : Bool = false) -> String {
         let s = interval % 60
         let m = (interval / 60) % 60
@@ -61,5 +69,9 @@ class DateUtils {
     
     class func formatTime(date : NSDate) -> String {
         return DateUtils.timeFormatter.stringFromDate(date)
+    }
+    
+    class func formatHHMM(date: NSDate) -> String {
+        return DateUtils.hhmmFormatter.stringFromDate(date)
     }
 }
