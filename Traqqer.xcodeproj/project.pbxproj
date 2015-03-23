@@ -31,10 +31,18 @@
 		560532861AB147B8000AF70D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560532851AB147B8000AF70D /* Constants.swift */; };
 		5605328B1AB151AA000AF70D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5605328A1AB151AA000AF70D /* DetailsViewController.swift */; };
 		5605328D1AB154D4000AF70D /* Traqqer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5605328C1AB154D4000AF70D /* Traqqer.swift */; };
+		565FCFCC1ABFF55300D45F77 /* StatAggregationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FEF6F61ABBCE8E003143CD /* StatAggregationUtils.swift */; };
+		565FCFCD1ABFF55C00D45F77 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFB90E1ABBE5DE00A37020 /* Utils.swift */; };
+		565FCFCE1ABFF57400D45F77 /* NSDate+Traqqer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C7C8F41ABBE59800A0BC1E /* NSDate+Traqqer.swift */; };
 		56888F0F1AB6697500BB98F3 /* DashboardStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56888F0D1AB6697500BB98F3 /* DashboardStatsCell.swift */; };
 		56888F101AB6697500BB98F3 /* DashboardStatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56888F0E1AB6697500BB98F3 /* DashboardStatsCell.xib */; };
 		56888F121AB6939300BB98F3 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56888F111AB6939300BB98F3 /* Stopwatch.swift */; };
 		56B5918F1AB813AF0033F483 /* DetailsStatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56B5918D1AB813AF0033F483 /* DetailsStatsCell.xib */; };
+		56C643191ABFF3C900BACF53 /* Int+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFB8FB1ABAA40700A37020 /* Int+Timepiece.swift */; };
+		56C6431A1ABFF3EC00BACF53 /* NSDate+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFB8FC1ABAA40700A37020 /* NSDate+Timepiece.swift */; };
+		56C6431B1ABFF3EC00BACF53 /* String+Timepiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFB8FD1ABAA40700A37020 /* String+Timepiece.swift */; };
+		56C6431C1ABFF41400BACF53 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DFB8FA1ABAA40700A37020 /* Duration.swift */; };
+		56C6431D1ABFF41400BACF53 /* Duration+Traqqer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D554F1ABF834F00089DF8 /* Duration+Traqqer.swift */; };
 		56EB6ADA1AB81F0300163BAE /* DetailsGraphsSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB6AD81AB81F0300163BAE /* DetailsGraphsSummaryCell.swift */; };
 		56EB6ADB1AB81F0300163BAE /* DetailsGraphsSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56EB6AD91AB81F0300163BAE /* DetailsGraphsSummaryCell.xib */; };
 		56F96D6A1AB4D695003FEB7F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F96D691AB4D695003FEB7F /* Parse.framework */; };
@@ -760,6 +768,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				565FCFCE1ABFF57400D45F77 /* NSDate+Traqqer.swift in Sources */,
+				565FCFCD1ABFF55C00D45F77 /* Utils.swift in Sources */,
+				565FCFCC1ABFF55300D45F77 /* StatAggregationUtils.swift in Sources */,
+				56C6431C1ABFF41400BACF53 /* Duration.swift in Sources */,
+				56C6431D1ABFF41400BACF53 /* Duration+Traqqer.swift in Sources */,
+				56C6431A1ABFF3EC00BACF53 /* NSDate+Timepiece.swift in Sources */,
+				56C6431B1ABFF3EC00BACF53 /* String+Timepiece.swift in Sources */,
+				56C643191ABFF3C900BACF53 /* Int+Timepiece.swift in Sources */,
 				F139E6F11ABE4ECF0090D873 /* DateUtils.swift in Sources */,
 				F139E6F01ABE4EA70090D873 /* Stopwatch.swift in Sources */,
 				F139E6EF1ABE3F730090D873 /* Constants.swift in Sources */,

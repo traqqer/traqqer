@@ -23,6 +23,7 @@ class InterfaceController: WKInterfaceController {
         Parse.setApplicationId(Constants.PARSE_APPLICATION_ID, clientKey: Constants.PARSE_CLIENT_KEY)
         
         fetchData()
+        NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "fetchData", userInfo: nil, repeats: true)
     }
     
     func updateTable() {

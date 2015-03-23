@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 John Boggs. All rights reserved.
 //
 
+import Foundation
+
 public func < (lhs: NSDate, rhs: NSDate) -> Bool {
     return lhs.timeIntervalSince1970 < rhs.timeIntervalSince1970
 }

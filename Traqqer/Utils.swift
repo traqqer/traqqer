@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 John Boggs. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Utils {
     struct Color {
