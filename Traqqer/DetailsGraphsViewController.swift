@@ -37,7 +37,9 @@ class DetailsGraphsViewController: UIViewController, UITableViewDataSource, UITa
             let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DASHBOARD_GRAPHS_CELL, forIndexPath: indexPath) as DashboardGraphCell
             cell.accessoryType = UITableViewCellAccessoryType.None
             cell.selectionStyle = UITableViewCellSelectionStyle.None;
+            cell.stat = self.stat
             cell.timeSegment = TimeSegment(rawValue: timeSegments.selectedSegmentIndex)
+            cell.refreshGraph()
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DETAILS_GRAPHS_SUMMARY_CELL, forIndexPath: indexPath) as DetailsGraphsSummaryCell
