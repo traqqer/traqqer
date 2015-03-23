@@ -68,7 +68,8 @@ class DashboardStatsCell: UITableViewCell {
         } else {
             goal.text = ""
         }
-
+        
+        self.contentView.backgroundColor = Utils.Color.primaryColor
     }
     
     func clicked() {
