@@ -9,6 +9,10 @@
 import Foundation
 
 class Utils {
+    static let primaryColor = createUIColor(255, green: 204, blue: 255, alpha: 1.0)
+    static let secondaryColor = createUIColor(204, green: 255, blue: 204, alpha: 1.0)
+    static let tertiaryColor = createUIColor(204, green: 255, blue: 255, alpha: 1.0)
+    
     class func createUIColor(red: Float, green: Float, blue: Float, alpha: Float) -> UIColor {
         return UIColor(red: CGFloat(red / 255), green: CGFloat(green / 255), blue: CGFloat(blue / 255), alpha: CGFloat(alpha))
     }
