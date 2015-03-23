@@ -8,14 +8,26 @@
 
 import UIKit
 
+protocol DashboardGraphCellDelegate: class {
+    func onExpandClicked(stat: Stat)
+}
+
 class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChartViewDelegate {
     
     @IBOutlet weak var lineChart: JBLineChartView!
     @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var expandButton: UIButton!
     
+    var stat: Stat!
+    var delegate: DashboardGraphCellDelegate!
     var toolTip: ToolTip
     var timeSegment: TimeSegment?
 
+    @IBAction func onExpand(sender: UIButton) {
+        // TODO fill in when we populate with real data
+//        delegate.onExpandClicked(stat)
+    }
+    
     required init(coder aDecoder: NSCoder) {
         toolTip = ToolTip()
         
@@ -41,13 +53,19 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        lineChart.headerView = HeaderView(frame: CGRectMake(0, 0, lineChart.frame.width, 20))
+        lineChart.headerView = HeaderView(frame: CGRectMake(0, 0, lineChart.frame.width, 40))
         lineChart.footerView = FooterView(frame: CGRectMake(0, 0, lineChart.frame.width, 16), timeSegment: timeSegment!)
         
         lineChart.setState(.Collapsed, animated: false)
         lineChart.reloadData()
         
         var timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: Selector("showChart"), userInfo: nil, repeats: false)
+    }
+    
+    func setStat(stat: Stat?, delegate: DashboardGraphCellDelegate, enableExpand: Bool) {
+        self.stat = stat
+        self.delegate = delegate
+        self.expandButton.hidden = enableExpand
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

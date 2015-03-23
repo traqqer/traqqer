@@ -40,17 +40,18 @@ enum TimeSegment: Int {
     }
 }
 
-class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate {
+class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate, DashboardGraphCellDelegate {
+    
     @IBOutlet weak var timeSegments: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
+    
+    var detailsMode = false
+    weak var navigationDelegate : NavigationDelegate?
     
     @IBAction func onSegmentChanged(sender: UISegmentedControl) {
         tableView.reloadData()
     }
     
-    var detailsMode = false
-    weak var navigationDelegate : NavigationDelegate?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,6 +70,11 @@ class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, U
         cell.accessoryType = UITableViewCellAccessoryType.None
         cell.selectionStyle = UITableViewCellSelectionStyle.None;
         cell.timeSegment = TimeSegment(rawValue: timeSegments.selectedSegmentIndex)
+        cell.setStat(nil, delegate: self, enableExpand: true)
         return cell
+    }
+    
+    func onExpandClicked(stat: Stat) {
+        navigationDelegate?.segueToDetail(forStats: stat)
     }
 }

@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Traqqer/DashboardGraphsViewController.swift"
-            timestampString = "448449127.777665"
+            timestampString = "448757908.685595"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
@@ -130,11 +130,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Traqqer/DashboardGraphsCell.swift"
-            timestampString = "448512279.529357"
+            timestampString = "448757908.685595"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "lineChartView(_:didSelectLineAtIndex:horizontalIndex:touchPoint:)"
             landmarkType = "5">
          </BreakpointContent>
