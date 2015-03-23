@@ -12,4 +12,44 @@ class Utils {
     class func createUIColor(red: Float, green: Float, blue: Float, alpha: Float) -> UIColor {
         return UIColor(red: CGFloat(red / 255), green: CGFloat(green / 255), blue: CGFloat(blue / 255), alpha: CGFloat(alpha))
     }
+    
+    class func intMin(values: [Int]) -> Int? {
+        if values.isEmpty {
+            return nil
+        }
+        
+        return values.reduce(Int.max, { min($0, $1) })
+    }
+    
+    class func doubleMin(values: [Double]) -> Double? {
+        if values.isEmpty {
+            return nil
+        }
+        
+        return values.reduce(Double.infinity, { min($0, $1) })
+    }
+    
+    class func intMax(values: [Int]) -> Int? {
+        if values.isEmpty {
+            return nil
+        }
+        
+        return values.reduce(Int.min, { max($0, $1) })
+    }
+    
+    class func doubleMax(values: [Double]) -> Double? {
+        if values.isEmpty {
+            return nil
+        }
+        
+        return values.reduce(-Double.infinity, { max($0, $1) })
+    }
+    
+    class func mean(values: [NSNumber]) -> Double? {
+        if values.isEmpty {
+            return nil
+        }
+        
+        return values.reduce(0.0) { Double($0) + Double($1) } / Double(values.count)
+    }
 }

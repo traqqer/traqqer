@@ -92,6 +92,13 @@ class DashboardViewController: UIViewController, NavigationDelegate, UITabBarCon
 //            println("durations: \(duration)")
 //        }
         
+//        StatAggregationUtils.detailSummaryForStat(stat, end: NSDate(), numberOfBuckets: 3, bucketDuration: 1.days) {
+//            (countStats, durationStats) in
+//            
+//            println("count: \(countStats)")
+//            println("durations: \(durationStats)")
+//        }
+        
         navigationController!.pushViewController(detailsVC, animated: true)
     }
     

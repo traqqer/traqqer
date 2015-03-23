@@ -102,8 +102,39 @@ class StatAggregationUtils {
         return nil
     }
     
-    class func detailSummaryForStat() {
-        // pass
+    class func detailSummaryForStat(stat: Stat, start: NSDate, numberOfBuckets: Int, bucketDuration: Duration, completion: ((countStats: (Int, Double, Int), durationStats: (NSTimeInterval, NSTimeInterval, NSTimeInterval)?) -> ())?) {
+        let end = start + numberOfBuckets * bucketDuration
+        
+        detailSummaryForStat(stat, start: start, end: end, numberOfBuckets: numberOfBuckets, completion: completion)
+    }
+    
+    class func detailSummaryForStat(stat: Stat, end: NSDate, numberOfBuckets: Int, bucketDuration: Duration, completion: ((countStats: (Int, Double, Int), durationStats: (NSTimeInterval, NSTimeInterval, NSTimeInterval)?) -> ())?) {
+        let start = end - numberOfBuckets * bucketDuration
+        
+        detailSummaryForStat(stat, start: start, end: end, numberOfBuckets: numberOfBuckets, completion: completion)
+    }
+    
+    private class func detailSummaryForStat(stat: Stat, start: NSDate, end: NSDate, numberOfBuckets: Int, completion: ((countStats: (Int, Double, Int), durationStats: (NSTimeInterval, NSTimeInterval, NSTimeInterval)?) -> ())?) {
+    
+        graphSummaryForStat(stat, start: start, end: end, numberOfBuckets: numberOfBuckets) {
+            (counts: [Int], durations: [NSTimeInterval]?) in
+            
+            var countStats: (Int, Double, Int)
+            countStats.0 = Utils.intMin(counts) ?? 0
+            countStats.1 = Utils.mean(counts) ?? 0.0
+            countStats.2 = Utils.intMax(counts) ?? 0
+    
+            if durations != nil {
+                var durationStats: (NSTimeInterval, NSTimeInterval, NSTimeInterval)
+                durationStats.0 = Utils.doubleMin(durations!) ?? 0.0
+                durationStats.1 = Utils.mean(durations!) ?? 0.0
+                durationStats.2 = Utils.doubleMax(durations!) ?? 0
+                
+                completion?(countStats: countStats, durationStats: durationStats)
+            } else {
+                completion?(countStats: countStats, durationStats: nil)
+            }
+        }
     }
 }
 
