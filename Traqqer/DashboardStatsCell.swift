@@ -31,13 +31,11 @@ class DashboardStatsCell: UITableViewCell {
     
     var numEntries = 0
     var totalDuration = 0.0
-    var startDate : NSDate!
+    var startDate : NSDate?
     var stopwatchListener : StopwatchListener!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        hideTimer(false)
-
         icon.tintColor = Utils.Color.textColor
         
         name.textColor = Utils.Color.textColor
@@ -63,7 +61,6 @@ class DashboardStatsCell: UITableViewCell {
                 self.remoteTotalDuration = totalDuration
             }
             self.setupView()
-            self.hideTimer(true)
         })
     }
     
@@ -87,6 +84,7 @@ class DashboardStatsCell: UITableViewCell {
         
         self.backgroundColor = Utils.Color.backgroundColor
         self.contentView.backgroundColor = Utils.Color.backgroundColor
+        updateTimerLabel(false)
     }
     
     func clicked() {
@@ -100,7 +98,6 @@ class DashboardStatsCell: UITableViewCell {
             })
         } else if stat.type == Constants.StatTypes.DURATION {
             if let startDate = startDate {
-                hideTimer(true)
                 let interval = stopwatchListener.currentTime.timeIntervalSinceDate(startDate)
                 self.stopwatchListener = nil  // Timer will be stopped by deallocation
                 ParseAPI.createEntry(stat, timestamp: nil, duration: interval, completion: {
@@ -111,17 +108,31 @@ class DashboardStatsCell: UITableViewCell {
                     self.checkIfGoalMet(interval)
                 })
                 self.startDate = nil
+                updateTimerLabel(true)
             } else {
-                showTimer()
                 startDate = NSDate()
-                stopwatchListener = StopwatchListener { [weak self] currentTime in
-                    if let vc = self {
-                        let interval = currentTime.timeIntervalSinceDate(vc.startDate)
-                        vc.timer.text = DateUtils.formatTimeInterval(interval)
-                    }
-                    return
+                updateTimerLabel(true)
+                self.setStopwatchListener()
+            }
+        }
+    }
+    
+    func setStopwatchListener() {
+        if let startDate = startDate {
+            stopwatchListener = StopwatchListener { [weak self] currentTime in
+                if let vc = self {
+                    let interval = currentTime.timeIntervalSinceDate(vc.startDate!)
+                    vc.timer.text = DateUtils.formatTimeInterval(interval)
                 }
             }
+        }
+    }
+    
+    func updateTimerLabel(animate : Bool) {
+        if startDate != nil {
+            showTimer()
+        } else {
+            hideTimer(animate)
         }
     }
     

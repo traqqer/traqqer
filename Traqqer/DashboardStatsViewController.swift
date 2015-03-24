@@ -14,6 +14,7 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
 
     var detailsMode = false
     var stats : [Stat] = []
+    var timers  = [String: NSDate]()
     var selected : [Bool] = []
     weak var navigationDelegate : NavigationDelegate?
     
@@ -42,6 +43,9 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
         cell.accessoryType = detailsMode
             ? UITableViewCellAccessoryType.DisclosureIndicator
             : UITableViewCellAccessoryType.None
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        cell.startDate = timers[cell.stat.objectId]
+        cell.setStopwatchListener()
         return cell
     }
     
@@ -50,7 +54,6 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let cell = self.tableView.cellForRowAtIndexPath(indexPath) as DashboardStatsCell
         if detailsMode {
             // Segue to detail view
@@ -59,6 +62,7 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
             // Trigger the event
             cell.clicked()
             if cell.stat.type == Constants.StatTypes.DURATION {
+                timers[cell.stat.objectId] = cell.startDate
                 selected[indexPath.row] = !selected[indexPath.row]
                 tableView.beginUpdates()
                 tableView.endUpdates()
