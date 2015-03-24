@@ -38,9 +38,11 @@ class DashboardViewController: UIViewController, NavigationDelegate, UITabBarCon
         super.viewDidLoad()
         setupTabViewController()
         navigationController!.navigationBar.translucent = false
+        navigationController!.navigationBar.barTintColor = Utils.Color.navColor
+        
         addButton.imageView!.image!.imageWithRenderingMode(.AlwaysTemplate)
-        addButton.imageView!.tintColor = UIColor.whiteColor()
-        addButton.tintColor = UIColor.whiteColor()
+        addButton.imageView!.tintColor = Utils.Color.textColor
+        addButton.tintColor = Utils.Color.textColor
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -50,9 +52,9 @@ class DashboardViewController: UIViewController, NavigationDelegate, UITabBarCon
     
     func setupTabViewController() {
         // Set colors for all UITabBars in the app
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Normal)
-        UITabBar.appearance().selectedImageTintColor = UIColor.whiteColor()
-        UITabBar.appearance().barTintColor = Utils.createUIColor(50, green: 70, blue: 90, alpha: 1)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: Utils.Color.textColor], forState:.Normal)
+        UITabBar.appearance().selectedImageTintColor = Utils.Color.textColor
+        UITabBar.appearance().barTintColor = Utils.Color.navColor
         
         dashboardStatsVC = Traqqer.instantiateStoryboardVC(Constants.DASHBOARD_STATS) as? DashboardStatsViewController
         dashboardGraphsVC = Traqqer.instantiateStoryboardVC(Constants.DASHBOARD_GRAPHS) as? DashboardGraphsViewController

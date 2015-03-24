@@ -32,7 +32,11 @@ class DashboardStatsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         hideTimer(false)
-        icon.tintColor = UIColor.whiteColor()
+        icon.tintColor = Utils.Color.textColor
+        name.textColor = Utils.Color.textColor
+        value.textColor = Utils.Color.textColor
+        goal.textColor = Utils.Color.textColor
+        timer.textColor = Utils.Color.textColor
     }
     
     override func layoutSubviews() {
@@ -69,8 +73,8 @@ class DashboardStatsCell: UITableViewCell {
             goal.text = ""
         }
         
-        self.backgroundColor = Utils.Color.primaryColor
-        self.contentView.backgroundColor = Utils.Color.primaryColor
+        self.backgroundColor = Utils.Color.backgroudColor
+        self.contentView.backgroundColor = Utils.Color.backgroudColor
     }
     
     func clicked() {

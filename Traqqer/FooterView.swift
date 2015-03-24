@@ -22,11 +22,11 @@ class FooterView: UIView {
         super.init(frame: frame)
         
         labelLeft.textAlignment = .Left
-        labelLeft.textColor = UIColor.whiteColor()
+        labelLeft.textColor = Utils.Color.textColor
         labelLeft.font = UIFont (name: "HelveticaNeue-Bold", size: 16)
         
         labelRight.textAlignment = .Right
-        labelRight.textColor = UIColor.whiteColor()
+        labelRight.textColor = Utils.Color.textColor
         labelRight.font = UIFont (name: "HelveticaNeue-Bold", size: 16)
         let now = NSDate()
         switch self.timeSegment {

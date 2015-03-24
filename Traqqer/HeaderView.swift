@@ -19,7 +19,7 @@ class HeaderView: UIView {
         
         label.textAlignment = .Center
         label.font = UIFont (name: "HelveticaNeue-Bold", size: 24)
-        label.textColor = UIColor.whiteColor()
+        label.textColor = Utils.Color.textColor
         label.text = "Coffee"
         addSubview(label)
     }

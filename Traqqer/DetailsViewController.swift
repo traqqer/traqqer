@@ -23,11 +23,19 @@ class DetailsViewController: UIViewController {
         detailsStatsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS_STATS) as DetailsStatsViewController
         detailsGraphsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS_GRAPHS) as DetailsGraphsViewController
         
+        UITabBar.appearance().barTintColor = Utils.Color.navColor
+        UITabBar.appearance().selectedImageTintColor = Utils.Color.textColor
+        UITabBar.appearance().translucent = false
+        
         detailsStatsVC.tabBarItem!.title = "Stats"
-        detailsStatsVC!.tabBarItem!.image = UIImage(named: "glyphicons-67-tags")
+        var statsImage = UIImage(named: "glyphicons-67-tags")!
+        statsImage.imageWithRenderingMode(.AlwaysTemplate)
+        detailsStatsVC!.tabBarItem!.image = statsImage
         
         detailsGraphsVC.tabBarItem!.title = "Graphs"
-        detailsGraphsVC!.tabBarItem!.image = UIImage(named: "glyphicons-41-stats")
+        var graphsImage = UIImage(named: "glyphicons-41-stats")!
+        graphsImage.imageWithRenderingMode(.AlwaysTemplate)
+        detailsGraphsVC!.tabBarItem!.image = graphsImage
         
         tabVC = UITabBarController()
         

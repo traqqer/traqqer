@@ -43,15 +43,15 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
         super.awakeFromNib()
         // Initialization code
         
-        backgroundColor = UIColor.darkGrayColor()
+        backgroundColor = Utils.Color.backgroudColor
         infoLabel.textAlignment = .Center
-        infoLabel.textColor = UIColor.whiteColor()
+        infoLabel.textColor = Utils.Color.textColor
         infoLabel.font = UIFont.boldSystemFontOfSize(30)
         
         lineChart.dataSource = self
         lineChart.delegate = self
         lineChart.minimumValue = 0
-        lineChart.backgroundColor = UIColor.darkGrayColor()
+        lineChart.backgroundColor = Utils.Color.backgroudColor
     }
     
     override func layoutSubviews() {
@@ -113,11 +113,11 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     }
     
     func lineChartView(lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.redColor()
+        return Utils.Color.graphColor
     }
     
     func lineChartView(lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.redColor()
+        return Utils.Color.graphColor
     }
     
     func lineChartView(lineChartView: JBLineChartView!, widthForLineAtLineIndex lineIndex: UInt) -> CGFloat {
