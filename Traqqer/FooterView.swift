@@ -23,25 +23,30 @@ class FooterView: UIView {
         
         labelLeft.textAlignment = .Left
         labelLeft.textColor = Utils.Color.textColor
-        labelLeft.font = UIFont (name: "HelveticaNeue-Bold", size: 16)
+        labelLeft.font = Utils.Font.primaryFont
         
         labelRight.textAlignment = .Right
         labelRight.textColor = Utils.Color.textColor
-        labelRight.font = UIFont (name: "HelveticaNeue-Bold", size: 16)
-        let now = NSDate()
+        labelRight.font = Utils.Font.primaryFont
+
+        var endDate : NSDate
         switch self.timeSegment {
             case .Day:
-                labelLeft.text = DateUtils.formatHHMM(now)
-                labelRight.text = DateUtils.formatHHMM(now)
+                endDate = DateUtils.getEndOfDay()
+                labelLeft.text = DateUtils.formatHHMM(endDate)
+                labelRight.text = DateUtils.formatHHMM(endDate - 1.minute)
             case .Week:
-                labelLeft.text = (now - 7.days).stringFromFormat("MMM d")
-                labelRight.text = now.stringFromFormat("MMM d")
+                endDate = DateUtils.getEndOfWeek()
+                labelLeft.text = (endDate - 7.days).stringFromFormat("MMM d")
+                labelRight.text = (endDate - 1.minute).stringFromFormat("MMM d")
             case .Month:
-                labelLeft.text = (now - 1.month).stringFromFormat("MMM d")
-                labelRight.text = now.stringFromFormat("MMM d")
+                endDate = DateUtils.getEndOfMonth()
+                labelLeft.text = (endDate - 1.month).stringFromFormat("MMM d")
+                labelRight.text = (endDate - 1.minute).stringFromFormat("MMM d")
             case .Year:
-                labelLeft.text = (now - 1.year).stringFromFormat("MMM YYYY")
-                labelRight.text = now.stringFromFormat("MMM YYYY")
+                endDate = DateUtils.getEndOfYear()
+                labelLeft.text = "Jan"
+                labelRight.text = "Dec"
         }
         
         addSubview(labelLeft)
