@@ -37,8 +37,9 @@ class DashboardStatsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         hideTimer(false)
+
         icon.tintColor = Utils.Color.textColor
-    
+        
         name.textColor = Utils.Color.textColor
         name.font = Utils.Font.primaryFont
         value.textColor = Utils.Color.textColor
@@ -46,7 +47,7 @@ class DashboardStatsCell: UITableViewCell {
         goal.textColor = Utils.Color.textColor
         goal.font = Utils.Font.primaryFont
         timer.textColor = Utils.Color.textColor
-        timer.font = Utils.Font.primaryFont
+        timer.font = Utils.Font.largeBoldFont
     }
     
     override func layoutSubviews() {
@@ -62,6 +63,7 @@ class DashboardStatsCell: UITableViewCell {
                 self.remoteTotalDuration = totalDuration
             }
             self.setupView()
+            self.hideTimer(true)
         })
     }
     
@@ -115,7 +117,7 @@ class DashboardStatsCell: UITableViewCell {
                 stopwatchListener = StopwatchListener { [weak self] currentTime in
                     if let vc = self {
                         let interval = currentTime.timeIntervalSinceDate(vc.startDate)
-                        vc.timer.text = DateUtils.formatTimeIntervalPretty(interval)
+                        vc.timer.text = DateUtils.formatTimeInterval(interval, shortForm: false)
                     }
                     return
                 }
