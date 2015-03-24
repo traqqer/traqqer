@@ -24,7 +24,7 @@ class DetailsViewController: UIViewController {
         detailsGraphsVC = Traqqer.instantiateStoryboardVC(Constants.DETAILS_GRAPHS) as DetailsGraphsViewController
         
         UITabBar.appearance().barTintColor = Utils.Color.navColor
-        UITabBar.appearance().selectedImageTintColor = Utils.Color.textColor
+        UITabBar.appearance().selectedImageTintColor = Utils.Color.backgroundColor
         UITabBar.appearance().translucent = false
         
         detailsStatsVC.tabBarItem!.title = "Stats"
