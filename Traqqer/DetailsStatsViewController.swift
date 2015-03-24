@@ -48,7 +48,7 @@ class DetailsStatsViewController: UIViewController, UITableViewDataSource, UITab
         header.textAlignment = .Center
         header.backgroundColor = Utils.Color.sectionHeaderColor
         header.textColor = Utils.Color.sectionHeaderTextColor
-        header.font = UIFont.boldSystemFontOfSize(16.0)
+        header.font = Utils.Font.boldFont
         return header
     }
     

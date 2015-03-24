@@ -18,9 +18,9 @@ class HeaderView: UIView {
         super.init(frame: frame)
         
         label.textAlignment = .Center
-        label.font = UIFont (name: "HelveticaNeue-Bold", size: 24)
+        label.font = Utils.Font.largeBoldFont
         label.textColor = Utils.Color.textColor
-        label.text = "Coffee"
+        label.text = ""
         addSubview(label)
     }
 

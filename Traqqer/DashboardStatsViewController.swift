@@ -35,7 +35,7 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DASHBOARD_STATS_CELL) as DashboardStatsCell
+        let cell = NSBundle.mainBundle().loadNibNamed(Constants.DASHBOARD_STATS_CELL, owner: self, options: nil)[0] as DashboardStatsCell
         cell.delegate = self
         cell.stat = stats[indexPath.row]
         cell.loadRemoteData()

@@ -46,7 +46,7 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
         backgroundColor = Utils.Color.backgroundColor
         infoLabel.textAlignment = .Center
         infoLabel.textColor = Utils.Color.textColor
-        infoLabel.font = UIFont.boldSystemFontOfSize(30)
+        infoLabel.font = Utils.Font.largeBoldFont
         
         lineChart.dataSource = self
         lineChart.delegate = self
@@ -67,7 +67,20 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     
     func refreshGraph() {
         self.graphValues = []
-        StatAggregationUtils.graphSummaryForStat(self.stat, end: NSDate(), numberOfBuckets: self.timeSegment!.getSegmentCount(), bucketDuration: self.timeSegment!.getSegmentDuration(), completion: {(counts, durations) in
+        
+        var endDate : NSDate
+        switch self.timeSegment! {
+        case .Day:
+            endDate = DateUtils.getEndOfDay()
+        case .Week:
+            endDate = DateUtils.getEndOfWeek()
+        case .Month:
+            endDate = DateUtils.getEndOfMonth()
+        case .Year:
+            endDate = DateUtils.getEndOfYear()
+        }
+        
+        StatAggregationUtils.graphSummaryForStat(self.stat, end: endDate, numberOfBuckets: self.timeSegment!.getSegmentCount(), bucketDuration: self.timeSegment!.getSegmentDuration(), completion: {(counts, durations) in
             switch StatType(rawValue: self.stat.type)! {
             case .Count:
                 self.graphValues = counts.map({i in Double(i)})
@@ -140,21 +153,20 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     
     func getHorizontalDescription(horizontalIndex: UInt) -> String {
         let segment = self.timeSegment!
-        let now = NSDate()
         let offset = segment.getSegmentCount() - Int(horizontalIndex)
         switch segment {
         case .Day:
-            let point = now - offset.hours
+            let point = DateUtils.getEndOfDay() - offset.hours
             return DateUtils.formatHHMM(point)
         case .Week:
-            let point = now - offset.days
+            let point = DateUtils.getEndOfWeek() - offset.days
             return point.stringFromFormat("EEE")
         case .Month:
-            let point = now - offset.days
+            let point = DateUtils.getEndOfMonth() - offset.days
             return point.stringFromFormat("MMM d")
         case .Year:
-            let point = now - offset.months
-            return point.stringFromFormat("MMM YYYY")
+            let point = DateUtils.getEndOfYear() - offset.months
+            return point.stringFromFormat("MMM")
         }
     }
     
