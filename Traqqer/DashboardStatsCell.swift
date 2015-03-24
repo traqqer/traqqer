@@ -60,14 +60,14 @@ class DashboardStatsCell: UITableViewCell {
         if stat.type == Constants.StatTypes.COUNT {
             value.text = String(format: "%d", numEntries + remoteNumEntries)
         } else if stat.type == Constants.StatTypes.DURATION {
-            value.text = DateUtils.formatTimeInterval(totalDuration + remoteTotalDuration, shortForm : true)
+            value.text = DateUtils.formatTimeIntervalPretty(totalDuration + remoteTotalDuration)
         }
         if let goalObj = stat.goalRef {
             let goalAmount = goalObj[GoalKeys.Amount.rawValue] as Int
             if stat.type == Constants.StatTypes.COUNT {
                 goal.text = String(format: " / %d", goalAmount)
             } else if stat.type == Constants.StatTypes.DURATION {
-                goal.text = String(format: " / %dmin", goalAmount)
+                goal.text = " / " + DateUtils.formatTimeIntervalPretty(NSTimeInterval(goalAmount * 60))
             }
         } else {
             goal.text = ""
@@ -103,7 +103,7 @@ class DashboardStatsCell: UITableViewCell {
                 stopwatchListener = StopwatchListener { [weak self] currentTime in
                     if let vc = self {
                         let interval = currentTime.timeIntervalSinceDate(vc.startDate)
-                        vc.timer.text = DateUtils.formatTimeInterval(interval)
+                        vc.timer.text = DateUtils.formatTimeIntervalPretty(interval)
                     }
                     return ()
                 }

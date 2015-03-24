@@ -52,9 +52,9 @@ class StatRow: NSObject {
             valueGoal.setText(value)
 
         } else if stat.type == Constants.StatTypes.DURATION {
-            var value = DateUtils.formatTimeInterval(totalDuration + remoteTotalDuration, shortForm: true)
+            var value = DateUtils.formatTimeIntervalPretty(totalDuration + remoteTotalDuration)
             if let goalAmount = goalAmount {
-                value = value + String(format: " / %dmin", goalAmount)
+                value = value + " / " + DateUtils.formatTimeIntervalPretty(NSTimeInterval(goalAmount * 60))
             }
             valueGoal.setText(value)
         }
@@ -87,7 +87,7 @@ class StatRow: NSObject {
                         let interval = currentTime.timeIntervalSinceDate(vc.startDate)
                         updateInterval = currentTime.timeIntervalSinceDate(lastUpdate)
                         if updateInterval >= 1.0 {
-                            vc.timer.setText(DateUtils.formatTimeIntervalHMS(interval))
+                            vc.timer.setText(DateUtils.formatTimeIntervalPretty(interval))
                             lastUpdate = NSDate()
                         }
                     }
