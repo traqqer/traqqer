@@ -20,7 +20,7 @@ class Utils {
     }
     
     struct Font {
-        static let primaryFont = UIFont(name: "HelveticaNeue-Bold", size: 16)
+        static let primaryFont = UIFont(name: "HelveticaNeue-Bold", size: 17)
     }
 
     class func createUIColor(red: Float, green: Float, blue: Float, alpha: Float) -> UIColor {

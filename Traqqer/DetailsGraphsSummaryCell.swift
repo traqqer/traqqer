@@ -10,17 +10,21 @@ import UIKit
 
 class DetailsGraphsSummaryCell: UITableViewCell {
 
+    @IBOutlet weak var content: UIView!
     @IBOutlet weak var statName: UILabel!
     @IBOutlet weak var statValue: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        content.backgroundColor = Utils.Color.backgroudColor
+        statName.textColor = Utils.Color.textColor
+        statName.font = Utils.Font.primaryFont
+        statValue.textColor = Utils.Color.textColor
+        statValue.font = Utils.Font.primaryFont
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
     
     func setStat(name: String, value: String) {
