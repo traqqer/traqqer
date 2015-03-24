@@ -16,7 +16,7 @@ class DetailsGraphsSummaryCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        content.backgroundColor = Utils.Color.backgroudColor
+        content.backgroundColor = Utils.Color.backgroundColor
         statName.textColor = Utils.Color.textColor
         statName.font = Utils.Font.primaryFont
         statValue.textColor = Utils.Color.textColor

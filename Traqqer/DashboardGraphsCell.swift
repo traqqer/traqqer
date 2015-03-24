@@ -134,6 +134,10 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
         }
     }
     
+    func lineChartView(lineChartView: JBLineChartView!, verticalSelectionColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
+        return Utils.Color.selectionGraphColor
+    }
+    
     func getHorizontalDescription(horizontalIndex: UInt) -> String {
         let segment = self.timeSegment!
         let now = NSDate()
@@ -155,11 +159,11 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     }
     
     func lineChartView(lineChartView: JBLineChartView!, selectionColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        return Utils.Color.highlightGraphColor
+        return Utils.Color.selectedGraphColor
     }
     
     func lineChartView(lineChartView: JBLineChartView!, selectionColorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
-        return Utils.Color.highlightGraphColor
+        return Utils.Color.selectedGraphColor
     }
     
     func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt, touchPoint: CGPoint) {

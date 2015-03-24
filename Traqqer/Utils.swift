@@ -17,7 +17,8 @@ class Utils {
         static let navColor = Utils.createUIColor(5, green: 3, blue: 95, alpha: 1.0)
         static let textColor = Utils.createUIColor(2, green: 1, blue: 61, alpha: 1.0)
         static let graphColor = Utils.createUIColor(136, green: 124, blue: 0, alpha: 1.0)
-        static let highlightGraphColor = UIColor.blackColor()
+        static let selectedGraphColor = Utils.createUIColor(211, green: 122, blue: 0, alpha: 1.0)
+        static let selectionGraphColor = Color.selectedGraphColor
     }
     
     struct Font {
