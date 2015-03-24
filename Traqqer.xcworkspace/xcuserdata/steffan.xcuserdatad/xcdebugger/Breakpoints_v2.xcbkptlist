@@ -135,7 +135,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
             endingLineNumber = "106"
-            landmarkName = "getValueForIndex(_:)"
+            landmarkName = "numberOfLinesInLineChartView(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -150,9 +150,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "DashboardStatsCell"
-            landmarkType = "3">
+            endingLineNumber = "16">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -379,7 +377,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
             endingLineNumber = "65"
-            landmarkName = "setupView()"
+            landmarkName = "loadRemoteData()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -395,7 +393,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
-            landmarkName = "setupView()"
+            landmarkName = "loadRemoteData()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -411,7 +409,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
             endingLineNumber = "59"
-            landmarkName = "setupView()"
+            landmarkName = "loadRemoteData()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -427,7 +425,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
             endingLineNumber = "49"
-            landmarkName = "loadRemoteData()"
+            landmarkName = "awakeFromNib()"
             landmarkType = "5">
             <Locations>
                <Location
@@ -473,7 +471,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
             endingLineNumber = "43"
-            landmarkName = "layoutSubviews()"
+            landmarkName = "awakeFromNib()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

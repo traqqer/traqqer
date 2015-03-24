@@ -46,7 +46,7 @@ class DashboardStatsCell: UITableViewCell {
         goal.textColor = Utils.Color.textColor
         goal.font = Utils.Font.primaryFont
         timer.textColor = Utils.Color.textColor
-        timer.font = Utils.Font.primaryFont
+        timer.font = Utils.Font.appTimerFont
     }
     
     override func layoutSubviews() {
@@ -115,7 +115,7 @@ class DashboardStatsCell: UITableViewCell {
                 stopwatchListener = StopwatchListener { [weak self] currentTime in
                     if let vc = self {
                         let interval = currentTime.timeIntervalSinceDate(vc.startDate)
-                        vc.timer.text = DateUtils.formatTimeIntervalPretty(interval)
+                        vc.timer.text = DateUtils.formatTimeInterval(interval)
                     }
                     return
                 }
