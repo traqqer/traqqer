@@ -54,7 +54,7 @@ class StatRow: NSObject {
         } else if stat.type == Constants.StatTypes.DURATION {
             var value = DateUtils.formatTimeIntervalPretty(totalDuration + remoteTotalDuration)
             if let goalAmount = goalAmount {
-                value = value + " / " + DateUtils.formatTimeIntervalPretty(NSTimeInterval(goalAmount * 60))
+                value = value + " / " + DateUtils.formatTimeIntervalPretty(NSTimeInterval(goalAmount))
             }
             valueGoal.setText(value)
         }

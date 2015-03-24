@@ -72,7 +72,7 @@ class DashboardStatsCell: UITableViewCell {
             if stat.type == Constants.StatTypes.COUNT {
                 goal.text = String(format: " / %d", goalAmount)
             } else if stat.type == Constants.StatTypes.DURATION {
-                goal.text = " / " + DateUtils.formatTimeIntervalPretty(NSTimeInterval(goalAmount * 60))
+                goal.text = " / " + DateUtils.formatTimeIntervalPretty(NSTimeInterval(goalAmount))
             }
         } else {
             goal.text = ""
@@ -176,6 +176,10 @@ class DashboardStatsCell: UITableViewCell {
             let newDuration = self.totalDuration + self.remoteTotalDuration
             let previousDuration = newDuration - (delta as? Double ?? 1.0)
             let goalDuration = goalObj[GoalKeys.Amount.rawValue] as Double
+            
+            println(newDuration)
+            println(previousDuration)
+            println(goalDuration)
             
             if previousDuration < goalDuration && newDuration >= goalDuration {
                 println("duration goal reached!")
