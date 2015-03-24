@@ -27,9 +27,9 @@ class StatRow: NSObject {
     func setStat(stat: Stat) {
         self.stat = stat
         if stat.type == Constants.StatTypes.COUNT {
-            icon.setImage(UIImage(named: "count-icon"))
+            icon.setImage(UIImage(named: "count-icon-white"))
         } else if stat.type == Constants.StatTypes.DURATION {
-            icon.setImage(UIImage(named: "glyphicons-56-stopwatch"))
+            icon.setImage(UIImage(named: "glyphicons-56-stopwatch-white"))
         }
         
         StatAggregationUtils.summaryForStat(stat, day: NSDate(), completion: {count, duration in
