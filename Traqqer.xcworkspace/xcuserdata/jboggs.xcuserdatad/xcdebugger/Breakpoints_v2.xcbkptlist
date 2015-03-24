@@ -298,12 +298,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Traqqer/DashboardStatsCell.swift"
-            timestampString = "448880230.60567"
+            timestampString = "448880803.021845"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "setupView()"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "loadRemoteData()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -394,13 +394,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Traqqer/DashboardStatsCell.swift"
-            timestampString = "448880118.299628"
+            timestampString = "448880803.021845"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "DashboardStatsCell"
-            landmarkType = "3">
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "awakeFromNib()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
