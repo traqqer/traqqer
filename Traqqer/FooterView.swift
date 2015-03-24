@@ -45,7 +45,7 @@ class FooterView: UIView {
                 labelRight.text = (endDate - 1.minute).stringFromFormat("MMM d")
             case .Year:
                 endDate = DateUtils.getEndOfYear()
-                labelLeft.text = "Jan"
+                labelLeft.text = "Jan " + NSDate().stringFromFormat("yy")
                 labelRight.text = "Dec"
         }
         
