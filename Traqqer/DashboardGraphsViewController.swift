@@ -75,11 +75,17 @@ class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, U
         timeSegments.tintColor = Utils.Color.textColor
         tableView.rowHeight = CGFloat(250)
         Traqqer.registerNibAsCell(tableView, identifier: Constants.DASHBOARD_GRAPHS_CELL)
-        
+    }
+    
+    func refreshData() {
         ParseAPI.getStats({stats in
             self.stats = stats
             self.tableView.reloadData()
         })
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        refreshData()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

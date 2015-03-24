@@ -193,9 +193,13 @@ class NewStatFormViewController: XLFormViewController, XLFormDescriptorDelegate 
 
         if usesGoal != nil && usesGoal! {
             let goalType = GoalType(rawValue: (values[FormTag.GoalMetadata.rawValue] as XLFormOptionsObject).formValue() as String)!
-            // The form asks for goal duration in minutes, so convert to seconds upon saving
-            let goalAmountSeconds = ((values[FormTag.GoalMetadata2.rawValue] as? Int) ?? 5) * 60 // Defaults to 5 for the demo, if we screw up
-            ParseAPI.createGoal(goalType, amount: goalAmountSeconds, completion: { goal in
+            var goalAmount = ((values[FormTag.GoalMetadata2.rawValue] as? Int) ?? 5) // Defaults to 5 for the demo, if we screw up
+            if type == StatType.Duration.rawValue {
+                // The form asks for goal duration in minutes, so convert to seconds upon saving
+                var goalAmount =  goalAmount * 60
+            }
+
+            ParseAPI.createGoal(goalType, amount: goalAmount, completion: { goal in
                 ParseAPI.createStat(name, statType: type, goal: goal, completion: { stat in
                     completion?()
                     return ()

@@ -43,7 +43,6 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
         cell.accessoryType = detailsMode
             ? UITableViewCellAccessoryType.DisclosureIndicator
             : UITableViewCellAccessoryType.None
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
         cell.startDate = timers[cell.stat.objectId]
         cell.setStopwatchListener()
         return cell
@@ -54,6 +53,7 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let cell = self.tableView.cellForRowAtIndexPath(indexPath) as DashboardStatsCell
         if detailsMode {
             // Segue to detail view
