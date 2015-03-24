@@ -53,6 +53,10 @@ class DetailsStatsViewController: UIViewController, UITableViewDataSource, UITab
         return header
     }
     
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
         // One section for each day
         return self.days.count
