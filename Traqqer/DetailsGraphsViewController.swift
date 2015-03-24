@@ -28,6 +28,12 @@ class DetailsGraphsViewController: UIViewController, UITableViewDataSource, UITa
         Traqqer.registerNibAsCell(tableView, identifier: Constants.DASHBOARD_GRAPHS_CELL)
         Traqqer.registerNibAsCell(tableView, identifier: Constants.DETAILS_GRAPHS_SUMMARY_CELL)
 
+        tableView.scrollEnabled = false
+        
+        timeSegments.tintColor = Utils.Color.textColor
+        self.view.backgroundColor = Utils.Color.backgroundColor
+        self.tableView.backgroundColor = Utils.Color.backgroundColor
+        
         refreshData()
     }
     
