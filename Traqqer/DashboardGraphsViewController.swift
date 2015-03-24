@@ -72,7 +72,7 @@ class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, U
         
         view.backgroundColor = Utils.Color.backgroundColor
         tableView.backgroundColor = Utils.Color.backgroundColor
-        timeSegments.tintColor = Utils.Color.textColor
+        timeSegments.tintColor = Utils.Color.segmentControllerColor
         tableView.rowHeight = CGFloat(250)
         Traqqer.registerNibAsCell(tableView, identifier: Constants.DASHBOARD_GRAPHS_CELL)
     }

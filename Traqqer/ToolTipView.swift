@@ -20,7 +20,7 @@ class ToolTip: UIView {
         self.layer.cornerRadius = 5.0
         self.layer.masksToBounds = true
         
-        label.font = UIFont (name: "HelveticaNeue-Bold", size: 14)
+        label.font = Utils.Font.smallFont
         label.backgroundColor = Utils.Color.backgroundColor
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 1

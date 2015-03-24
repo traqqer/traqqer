@@ -15,19 +15,19 @@ class FooterView: UIView {
     var timeSegment: TimeSegment
     
     init(frame: CGRect, timeSegment: TimeSegment) {
-        self.labelLeft = UILabel(frame: CGRectMake(0, 0, frame.width/2, 16))
-        self.labelRight = UILabel(frame: CGRectMake(frame.width/2, 0, frame.width/2, 16))
+        self.labelLeft = UILabel(frame: CGRectMake(0, 3, frame.width/2, 16))
+        self.labelRight = UILabel(frame: CGRectMake(frame.width/2, 3, frame.width/2, 16))
         self.timeSegment = timeSegment
         
         super.init(frame: frame)
         
         labelLeft.textAlignment = .Left
         labelLeft.textColor = Utils.Color.textColor
-        labelLeft.font = Utils.Font.primaryFont
+        labelLeft.font = Utils.Font.smallFont
         
         labelRight.textAlignment = .Right
         labelRight.textColor = Utils.Color.textColor
-        labelRight.font = Utils.Font.primaryFont
+        labelRight.font = Utils.Font.smallFont
 
         var endDate : NSDate
         switch self.timeSegment {

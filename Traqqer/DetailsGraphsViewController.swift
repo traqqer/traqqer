@@ -30,7 +30,7 @@ class DetailsGraphsViewController: UIViewController, UITableViewDataSource, UITa
 
         tableView.scrollEnabled = false
         
-        timeSegments.tintColor = Utils.Color.textColor
+        timeSegments.tintColor = Utils.Color.segmentControllerColor
         self.view.backgroundColor = Utils.Color.backgroundColor
         self.tableView.backgroundColor = Utils.Color.backgroundColor
         

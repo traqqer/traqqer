@@ -10,14 +10,13 @@ import UIKit
 
 class Utils {
     struct Color {
-        static let primaryColor = Utils.createUIColor(255, green: 204, blue: 255, alpha: 1.0)
-        static let secondaryColor = Utils.createUIColor(255, green: 56, blue: 255, alpha: 1.0)
-        static let tertiaryColor = Utils.createUIColor(204, green: 204, blue: 255, alpha: 1.0)
-        
         static let backgroundColor = UIColor.whiteColor()
+        static let secondaryBackgroundColor = Utils.createUIColor(126, green: 170, blue: 194, alpha: 1.0)
         static let sectionHeaderColor = Color.backgroundColor
         
         static let navColor = Utils.createUIColor(5, green: 3, blue: 95, alpha: 1.0)
+        static let segmentControllerColor = Color.navColor
+        static let navTextColor = Color.backgroundColor
         static let textColor = Utils.createUIColor(2, green: 1, blue: 61, alpha: 1.0)
         static let sectionHeaderTextColor = Color.textColor
         static let graphColor = Utils.createUIColor(136, green: 124, blue: 0, alpha: 1.0)
@@ -26,6 +25,7 @@ class Utils {
     }
 
     struct Font {
+        static let smallFont = UIFont(name: "HelveticaNeue", size: 12)
         static let primaryFont = UIFont(name: "HelveticaNeue", size: 16)
         static let boldFont = UIFont(name: "HelveticaNeue-Bold", size: 16)
         static let largeBoldFont = UIFont(name: "HelveticaNeue-Bold", size: 30)
