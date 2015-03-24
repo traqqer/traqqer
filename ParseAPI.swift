@@ -67,7 +67,7 @@ class ParseAPI {
     
     class func createGoal(type: GoalType, amount: Int, completion: (Goal -> ())?) {
         let goal = Goal()
-        goal.type = type.rawValue
+        goal.comparisonType = type.rawValue
         goal.amount = amount
         ParseAPI.saveObjectAndCallCompletion(goal, completion: {
             completion?(goal)

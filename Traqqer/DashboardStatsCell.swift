@@ -11,6 +11,10 @@ import UIKit
 // Part of setup to observe time changes on Stopwatch.instance
 private var context = 0
 
+protocol DashboardStatsCellDelegate: class {
+    func onGoalReached(stat: Stat)
+}
+
 class DashboardStatsCell: UITableViewCell {
     
     @IBOutlet weak var icon: UIImageView!
@@ -20,6 +24,7 @@ class DashboardStatsCell: UITableViewCell {
     @IBOutlet weak var timer: UILabel!
     
     var stat : Stat!
+    var delegate : DashboardStatsCellDelegate?
     
     var remoteNumEntries = 0
     var remoteTotalDuration = 0.0
@@ -82,8 +87,9 @@ class DashboardStatsCell: UITableViewCell {
             ParseAPI.createEntry(stat, timestamp: NSDate(), duration: nil, completion: {
                 // Reload the cell, so that the goal count increases
                 println("complete")
-                self.numEntries = self.numEntries + 1
+                self.numEntries++
                 self.setupView()
+                self.checkIfGoalMet(1)
             })
         } else if stat.type == Constants.StatTypes.DURATION {
             if let startDate = startDate {
@@ -92,9 +98,10 @@ class DashboardStatsCell: UITableViewCell {
                 self.stopwatchListener = nil  // Timer will be stopped by deallocation
                 ParseAPI.createEntry(stat, timestamp: nil, duration: interval, completion: {
                     // Reload the total count
-                    self.numEntries = self.numEntries + 1
-                    self.totalDuration = self.totalDuration + interval
+                    self.numEntries++
+                    self.totalDuration += interval
                     self.setupView()
+                    self.checkIfGoalMet(interval)
                 })
                 self.startDate = nil
             } else {
@@ -105,7 +112,7 @@ class DashboardStatsCell: UITableViewCell {
                         let interval = currentTime.timeIntervalSinceDate(vc.startDate)
                         vc.timer.text = DateUtils.formatTimeInterval(interval)
                     }
-                    return ()
+                    return
                 }
             }
         }
@@ -137,6 +144,46 @@ class DashboardStatsCell: UITableViewCell {
             icon.image = UIImage(named: "count-icon")
         } else if stat.type == Constants.StatTypes.DURATION {
             icon.image = UIImage(named: "glyphicons-56-stopwatch")
+        }
+    }
+    
+    private func checkIfGoalMet(delta: NSNumber) {
+        if stat.goalRef == nil {
+            return
+        }
+        
+        let goalObj = stat.goalRef!
+        
+        // If the goal is to minimize a value, incrementing can't help reach it
+        let goalType = goalObj[GoalKeys.ComparisonType.rawValue] as? String
+        if goalType == nil || goalType == GoalType.LessThan.rawValue {
+            return
+        }
+        
+        switch stat.type {
+            
+        case StatType.Count.rawValue:
+            let newCount = self.numEntries + self.remoteNumEntries
+            let previousCount = newCount - (delta as? Int ?? 1)
+            let goalCount = goalObj[GoalKeys.Amount.rawValue] as Int
+            
+            if previousCount < goalCount && newCount >= goalCount {
+                println("count goal reached!")
+                delegate?.onGoalReached(stat)
+            }
+            
+        case StatType.Duration.rawValue:
+            let newDuration = self.totalDuration + self.remoteTotalDuration
+            let previousDuration = newDuration - (delta as? Double ?? 1.0)
+            let goalDuration = goalObj[GoalKeys.Amount.rawValue] as Double
+            
+            if previousDuration < goalDuration && newDuration >= goalDuration {
+                println("duration goal reached!")
+                delegate?.onGoalReached(stat)
+            }
+            
+        default:
+            return
         }
     }
 }

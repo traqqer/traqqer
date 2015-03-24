@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DashboardStatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class DashboardStatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DashboardStatsCellDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -36,6 +36,7 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DASHBOARD_STATS_CELL) as DashboardStatsCell
+        cell.delegate = self
         cell.stat = stats[indexPath.row]
         cell.loadRemoteData()
         cell.accessoryType = detailsMode
@@ -84,5 +85,11 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
     func setDetailsMode(detailsMode: Bool) {
         self.detailsMode = detailsMode
         tableView.reloadData()
+    }
+    
+    // MARK: DashboardStatsCellDelegate
+    
+    func onGoalReached(stat: Stat) {
+        GoalCompletion.performGoalAnimation(self.view)
     }
 }

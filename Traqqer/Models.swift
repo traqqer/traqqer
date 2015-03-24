@@ -63,7 +63,7 @@ class Entry : PFObject, PFSubclassing {
 }
 
 class Goal : PFObject, PFSubclassing {
-    @NSManaged var type : String!
+    @NSManaged var comparisonType : String!
     @NSManaged var amount : NSNumber!
     
     override class func initialize() {
@@ -78,6 +78,6 @@ class Goal : PFObject, PFSubclassing {
 }
 
 enum GoalKeys : String {
-    case Type = "type"
+    case ComparisonType = "comparisonType"
     case Amount = "amount"
 }
