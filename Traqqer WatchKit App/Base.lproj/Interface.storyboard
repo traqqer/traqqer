@@ -13,21 +13,27 @@
                         <table alignment="left" id="vRb-dY-ZxX">
                             <items>
                                 <tableRow identifier="StatRow" id="Xgh-dz-uhc" customClass="StatRow" customModule="Traqqer_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="84.5" alignment="left" layout="vertical" id="WYT-pg-x1y">
+                                    <group key="rootItem" width="1" height="99.5" alignment="left" layout="vertical" id="WYT-pg-x1y">
                                         <items>
-                                            <label width="128" alignment="left" text="Stat Name" textAlignment="center" id="j7F-Aj-3cg">
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            <group width="129" height="29" alignment="left" id="8Y7-gp-tJp">
+                                                <items>
+                                                    <imageView width="20" height="20" alignment="left" verticalAlignment="center" image="glyphicons-56-stopwatch" id="VF9-gz-9RS"/>
+                                                    <label width="120" height="23" alignment="left" verticalAlignment="center" text="Stat Name" textAlignment="center" id="j7F-Aj-3cg">
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                            <label width="135" height="47" alignment="left" verticalAlignment="center" text="00:00:00" textAlignment="center" id="Z1c-pF-f6g">
+                                                <fontDescription key="font" type="system" pointSize="25"/>
                                             </label>
-                                            <label width="136" height="28" alignment="left" verticalAlignment="center" text="Value / Goal" textAlignment="center" id="Z1c-pF-f6g">
-                                                <fontDescription key="font" style="UICTFontTextStyleBody"/>
-                                            </label>
-                                            <label width="136" height="28" alignment="left" verticalAlignment="center" hidden="YES" textAlignment="center" id="5yD-Iw-1en">
+                                            <label width="136" height="17" alignment="left" verticalAlignment="center" hidden="YES" text="00:00:00" textAlignment="center" id="5yD-Iw-1en">
                                                 <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                             </label>
                                         </items>
                                     </group>
                                     <connections>
+                                        <outlet property="icon" destination="VF9-gz-9RS" id="ZVq-ky-ECp"/>
                                         <outlet property="name" destination="j7F-Aj-3cg" id="nMy-dc-cFb"/>
                                         <outlet property="timer" destination="5yD-Iw-1en" id="fOe-S5-JqI"/>
                                         <outlet property="valueGoal" destination="Z1c-pF-f6g" id="PgX-P6-2Y0"/>

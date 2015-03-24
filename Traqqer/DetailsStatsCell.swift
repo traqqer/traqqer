@@ -27,7 +27,7 @@ class DetailsStatsCell: UITableViewCell {
     func setup() {
         timestampLabel.text = DateUtils.formatTime(entry.timestamp)
         if let duration = entry!.duration {
-            durationLabel.text = DateUtils.formatTimeInterval(duration as Double, shortForm: true)
+            durationLabel.text = DateUtils.formatTimeIntervalPretty(duration as Double)
         } else {
             durationLabel.text = ""
         }

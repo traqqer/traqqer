@@ -52,9 +52,9 @@ class DetailsGraphsViewController: UIViewController, UITableViewDataSource, UITa
             case .Duration:
                 let (min, avg, max) = durationStats!
                 //TODO
-                self.summaryData["min"] = DateUtils.formatTimeInterval(min, shortForm: false)
-                self.summaryData["avg"] = DateUtils.formatTimeInterval(avg, shortForm: false)
-                self.summaryData["max"] = DateUtils.formatTimeInterval(max, shortForm: false)
+                self.summaryData["min"] = DateUtils.formatTimeIntervalPretty(min)
+                self.summaryData["avg"] = DateUtils.formatTimeIntervalPretty(avg)
+                self.summaryData["max"] = DateUtils.formatTimeIntervalPretty(max)
             }
             self.tableView.reloadData()
         }

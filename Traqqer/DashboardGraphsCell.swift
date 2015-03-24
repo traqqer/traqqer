@@ -130,7 +130,7 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
             infoLabel.text = String(format: "%d", Int(self.getValueForIndex(horizontalIndex)))
         case .Duration:
             let timeInterval = Double(self.getValueForIndex(horizontalIndex))
-            infoLabel.text = DateUtils.formatTimeInterval(timeInterval, shortForm: false)
+            infoLabel.text = DateUtils.formatTimeIntervalPretty(timeInterval)
         }
     }
     

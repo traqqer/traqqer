@@ -59,6 +59,37 @@ class DateUtils {
         return NSString(format: "%02d:%02d:%02d", Int(h), Int(m), Int(s))
     }
     
+    class func formatTimeIntervalPretty(interval: NSTimeInterval) -> String {
+        let s = floor(interval % 60)
+        let m = (interval / 60) % 60
+        let h = floor(interval / 3600)
+        
+        var timeString = String()
+        if h >= 1 {
+            timeString += stripLeadingZero(NSString(format: "%02dh ", Int(h)))
+        }
+        if m >= 1 {
+            timeString += stripLeadingZero(NSString(format: "%02dm ", Int(m)))
+        }
+        if s != 0 {
+            timeString += stripLeadingZero(NSString(format: "%02ds", Int(s)))
+        }
+        
+        if timeString.isEmpty {
+            timeString = "0s"
+        }
+        
+        return timeString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    }
+    
+    class func stripLeadingZero(str: String) -> String {
+        var _str = str
+        if _str.substringToIndex(_str.startIndex.successor()) == "0" {
+            _str.removeAtIndex(_str.startIndex)
+        }
+        return _str
+    }
+    
     class func formatDatetime(date : NSDate) -> String {
         return DateUtils.formatter.stringFromDate(date)
     }
