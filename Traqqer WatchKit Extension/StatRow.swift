@@ -11,6 +11,7 @@ import WatchKit
 
 class StatRow: NSObject {
    
+    @IBOutlet weak var icon: WKInterfaceImage!
     @IBOutlet weak var name: WKInterfaceLabel!
     @IBOutlet weak var valueGoal: WKInterfaceLabel!
     @IBOutlet weak var timer: WKInterfaceLabel!
@@ -25,6 +26,12 @@ class StatRow: NSObject {
     
     func setStat(stat: Stat) {
         self.stat = stat
+        if stat.type == Constants.StatTypes.COUNT {
+            icon.setImage(UIImage(named: "count-icon"))
+        } else if stat.type == Constants.StatTypes.DURATION {
+            icon.setImage(UIImage(named: "glyphicons-56-stopwatch"))
+        }
+        
         StatAggregationUtils.summaryForStat(stat, day: NSDate(), completion: {count, duration in
             self.remoteNumEntries = count
             if let duration = duration {
