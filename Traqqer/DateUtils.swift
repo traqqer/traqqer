@@ -105,4 +105,26 @@ class DateUtils {
     class func formatHHMM(date: NSDate) -> String {
         return DateUtils.hhmmFormatter.stringFromDate(date)
     }
+    
+    class func getEndOfDay() -> NSDate {
+        return (NSDate() + 1.day).beginningOfDay
+    }
+    
+    class func getEndOfWeek() -> NSDate {
+        let now = NSDate()
+        let weekday = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitWeekday, fromDate: now).weekday
+        
+        let sunday = now + (8 - weekday).days
+        let midnightSaturday = sunday.beginningOfDay
+        return midnightSaturday
+        
+    }
+    
+    class func getEndOfMonth() -> NSDate {
+        return (NSDate() + 1.month).beginningOfMonth
+    }
+    
+    class func getEndOfYear() -> NSDate {
+        return (NSDate() + 1.year).beginningOfYear
+    }
 }
