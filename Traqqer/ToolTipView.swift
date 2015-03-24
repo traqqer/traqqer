@@ -21,7 +21,7 @@ class ToolTip: UIView {
         self.layer.masksToBounds = true
         
         label.font = UIFont (name: "HelveticaNeue-Bold", size: 14)
-        label.backgroundColor = Utils.Color.backgroudColor
+        label.backgroundColor = Utils.Color.backgroundColor
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 1
         label.textAlignment = .Center

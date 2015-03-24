@@ -26,7 +26,7 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
         
         // Setup the tableview
         tableView.delegate = self; tableView.dataSource = self
-        tableView.backgroundColor = Utils.Color.backgroudColor
+        tableView.backgroundColor = Utils.Color.backgroundColor
         Traqqer.registerNibAsCell(tableView, identifier: Constants.DASHBOARD_STATS_CELL)
     }
     

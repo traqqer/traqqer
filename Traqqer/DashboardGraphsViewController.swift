@@ -70,8 +70,9 @@ class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.darkGrayColor()
-        tableView.backgroundColor = UIColor.darkGrayColor()
+        view.backgroundColor = Utils.Color.backgroundColor
+        tableView.backgroundColor = Utils.Color.backgroundColor
+        timeSegments.tintColor = Utils.Color.textColor
         tableView.rowHeight = CGFloat(250)
         Traqqer.registerNibAsCell(tableView, identifier: Constants.DASHBOARD_GRAPHS_CELL)
         

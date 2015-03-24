@@ -43,7 +43,7 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
         super.awakeFromNib()
         // Initialization code
         
-        backgroundColor = Utils.Color.backgroudColor
+        backgroundColor = Utils.Color.backgroundColor
         infoLabel.textAlignment = .Center
         infoLabel.textColor = Utils.Color.textColor
         infoLabel.font = UIFont.boldSystemFontOfSize(30)
@@ -51,7 +51,7 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
         lineChart.dataSource = self
         lineChart.delegate = self
         lineChart.minimumValue = 0
-        lineChart.backgroundColor = Utils.Color.backgroudColor
+        lineChart.backgroundColor = Utils.Color.backgroundColor
     }
     
     override func layoutSubviews() {
@@ -134,6 +134,10 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
         }
     }
     
+    func lineChartView(lineChartView: JBLineChartView!, verticalSelectionColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
+        return Utils.Color.selectionGraphColor
+    }
+    
     func getHorizontalDescription(horizontalIndex: UInt) -> String {
         let segment = self.timeSegment!
         let now = NSDate()
@@ -152,6 +156,14 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
             let point = now - offset.months
             return point.stringFromFormat("MMM YYYY")
         }
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, selectionColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
+        return Utils.Color.selectedGraphColor
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, selectionColorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
+        return Utils.Color.selectedGraphColor
     }
     
     func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt, touchPoint: CGPoint) {
