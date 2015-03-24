@@ -13,11 +13,16 @@ class Utils {
         static let primaryColor = Utils.createUIColor(255, green: 204, blue: 255, alpha: 1.0)
         static let secondaryColor = Utils.createUIColor(255, green: 56, blue: 255, alpha: 1.0)
         static let tertiaryColor = Utils.createUIColor(204, green: 204, blue: 255, alpha: 1.0)
+        
         static let backgroundColor = UIColor.whiteColor()
+        static let sectionHeaderColor = Color.backgroundColor
+        
         static let navColor = Utils.createUIColor(5, green: 3, blue: 95, alpha: 1.0)
         static let textColor = Utils.createUIColor(2, green: 1, blue: 61, alpha: 1.0)
+        static let sectionHeaderTextColor = Color.textColor
         static let graphColor = Utils.createUIColor(136, green: 124, blue: 0, alpha: 1.0)
-        static let highlightGraphColor = UIColor.blackColor()
+        static let selectedGraphColor = Utils.createUIColor(211, green: 122, blue: 0, alpha: 1.0)
+        static let selectionGraphColor = Color.selectedGraphColor
     }
     
     struct Font {

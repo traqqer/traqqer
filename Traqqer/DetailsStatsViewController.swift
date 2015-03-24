@@ -18,7 +18,6 @@ class DetailsStatsViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         tableView.delegate = self
         tableView.dataSource = self
         Traqqer.registerNibAsCell(tableView, identifier: Constants.DETAILS_STATS_CELL)
@@ -47,8 +46,8 @@ class DetailsStatsViewController: UIViewController, UITableViewDataSource, UITab
         let header = UILabel()
         header.text = text
         header.textAlignment = .Center
-        header.backgroundColor = UIColor.grayColor()
-        header.textColor = UIColor.whiteColor()
+        header.backgroundColor = Utils.Color.sectionHeaderColor
+        header.textColor = Utils.Color.sectionHeaderTextColor
         header.font = UIFont.boldSystemFontOfSize(16.0)
         return header
     }
