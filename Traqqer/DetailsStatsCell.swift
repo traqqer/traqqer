@@ -19,7 +19,7 @@ class DetailsStatsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .None
-        content.backgroundColor = Utils.Color.backgroudColor
+        content.backgroundColor = Utils.Color.backgroundColor
         timestampLabel.textColor = Utils.Color.textColor
         durationLabel.textColor = Utils.Color.textColor
     }
