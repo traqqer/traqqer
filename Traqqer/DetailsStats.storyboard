@@ -24,7 +24,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="RVd-NA-Fbd" firstAttribute="top" secondItem="yTb-qB-dGI" secondAttribute="top" id="ARx-Zw-mhe"/>
-                            <constraint firstAttribute="bottom" secondItem="RVd-NA-Fbd" secondAttribute="bottom" id="HZA-En-A9a"/>
+                            <constraint firstItem="EMS-Fu-oo9" firstAttribute="top" secondItem="RVd-NA-Fbd" secondAttribute="bottom" id="YJd-vg-hIf"/>
                             <constraint firstItem="RVd-NA-Fbd" firstAttribute="leading" secondItem="yTb-qB-dGI" secondAttribute="leading" id="Zfi-sJ-Nlb"/>
                             <constraint firstAttribute="trailing" secondItem="RVd-NA-Fbd" secondAttribute="trailing" id="fIS-It-b5U"/>
                         </constraints>

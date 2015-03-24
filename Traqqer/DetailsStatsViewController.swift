@@ -18,6 +18,7 @@ class DetailsStatsViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         tableView.delegate = self
         tableView.dataSource = self
         Traqqer.registerNibAsCell(tableView, identifier: Constants.DETAILS_STATS_CELL)
