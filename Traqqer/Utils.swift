@@ -19,6 +19,10 @@ class Utils {
         static let graphColor = Utils.createUIColor(136, green: 124, blue: 0, alpha: 1.0)
         static let highlightGraphColor = UIColor.blackColor()
     }
+    
+    struct Font {
+        static let primaryFont = UIFont(name: "HelveticaNeue-Bold", size: 16)
+    }
 
     class func createUIColor(red: Float, green: Float, blue: Float, alpha: Float) -> UIColor {
         return UIColor(red: CGFloat(red / 255), green: CGFloat(green / 255), blue: CGFloat(blue / 255), alpha: CGFloat(alpha))
