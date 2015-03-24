@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C2513" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="148" id="KGk-i7-Jjw" customClass="DashboardStatsCell" customModule="Traqqer" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="130" id="KGk-i7-Jjw" customClass="DashboardStatsCell" customModule="Traqqer" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="148"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -19,14 +20,14 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Value /" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pET-I9-kCZ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" misplaced="YES" text="Value /" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pET-I9-kCZ">
                         <rect key="frame" x="175" y="25" width="81" height="30"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amv-QR-Vgn">
-                        <rect key="frame" x="10" y="80" width="301" height="70"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="00 : 00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amv-QR-Vgn">
+                        <rect key="frame" x="10" y="50" width="301" height="64"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -65,8 +66,10 @@
                     <constraint firstItem="EzN-Op-05K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="k93-q1-i0Y"/>
                     <constraint firstItem="6qS-5i-Wq1" firstAttribute="centerY" secondItem="qUe-BV-SRY" secondAttribute="centerY" id="lEW-my-lvM"/>
                     <constraint firstItem="pET-I9-kCZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="n7x-mz-3JF"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="amv-QR-Vgn" secondAttribute="bottom" constant="5" id="omw-ec-N6M"/>
                     <constraint firstItem="EzN-Op-05K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="qWR-MI-DSC"/>
                     <constraint firstAttribute="centerY" secondItem="pET-I9-kCZ" secondAttribute="centerY" id="rZm-Vj-Nct"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="amv-QR-Vgn" secondAttribute="bottom" constant="25" id="tB3-DA-65u"/>
                     <constraint firstAttribute="bottom" secondItem="EzN-Op-05K" secondAttribute="bottom" constant="8" id="wxH-SK-Bku"/>
                     <constraint firstAttribute="trailing" secondItem="EzN-Op-05K" secondAttribute="trailing" constant="8" id="yIO-DQ-NbP"/>
                     <constraint firstItem="EzN-Op-05K" firstAttribute="leading" secondItem="pET-I9-kCZ" secondAttribute="trailing" id="zaW-hX-pRB"/>
@@ -77,6 +80,7 @@
                         <exclude reference="LEW-cD-lrL"/>
                         <exclude reference="aBq-mo-QAg"/>
                         <exclude reference="euP-LJ-noS"/>
+                        <exclude reference="omw-ec-N6M"/>
                         <exclude reference="0bv-FY-Z9S"/>
                         <exclude reference="4Zs-s5-qXC"/>
                         <exclude reference="RbA-as-0d9"/>

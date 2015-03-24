@@ -37,8 +37,9 @@ class DashboardStatsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         hideTimer(false)
+
         icon.tintColor = Utils.Color.textColor
-    
+        
         name.textColor = Utils.Color.textColor
         name.font = Utils.Font.primaryFont
         value.textColor = Utils.Color.textColor
@@ -62,6 +63,7 @@ class DashboardStatsCell: UITableViewCell {
                 self.remoteTotalDuration = totalDuration
             }
             self.setupView()
+            self.hideTimer(true)
         })
     }
     

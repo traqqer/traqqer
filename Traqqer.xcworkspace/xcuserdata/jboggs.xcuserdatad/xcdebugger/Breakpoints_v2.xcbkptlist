@@ -240,9 +240,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "DateUtils"
-            landmarkType = "3">
+            endingLineNumber = "133">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -284,12 +282,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Traqqer/DashboardStatsViewController.swift"
-            timestampString = "448866108.84758"
+            timestampString = "448879206.372273"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "fetchData()"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "tableView(_:heightForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -300,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Traqqer/DashboardStatsCell.swift"
-            timestampString = "448865490.997734"
+            timestampString = "448880230.60567"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "setupView()"
             landmarkType = "5">
          </BreakpointContent>
@@ -396,13 +394,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Traqqer/DashboardStatsCell.swift"
-            timestampString = "448865490.997734"
+            timestampString = "448880118.299628"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "loadRemoteData()"
-            landmarkType = "5">
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "DashboardStatsCell"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -416,9 +414,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "refreshGraph()"
-            landmarkType = "5">
+            endingLineNumber = "91">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -432,9 +428,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "refreshGraph()"
-            landmarkType = "5">
+            endingLineNumber = "86">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -478,9 +472,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "refreshGraph()"
-            landmarkType = "5">
+            endingLineNumber = "84">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -590,9 +582,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "refreshGraph()"
-            landmarkType = "5">
+            endingLineNumber = "69">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -650,11 +640,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Traqqer/DashboardStatsViewController.swift"
-            timestampString = "448877242.95189"
+            timestampString = "448879206.372273"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>

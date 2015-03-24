@@ -29,7 +29,7 @@ class Utils {
         static let primaryFont = UIFont(name: "HelveticaNeue", size: 16)
         static let boldFont = UIFont(name: "HelveticaNeue-Bold", size: 16)
         static let largeBoldFont = UIFont(name: "HelveticaNeue-Bold", size: 30)
-        static let appTimerFont = UIFont(name: "HelveticaNeue", size: 60)
+        static let appTimerFont = UIFont(name: "HelveticaNeue", size: 50)
     }
     
     class func createUIColor(red: Float, green: Float, blue: Float, alpha: Float) -> UIColor {
