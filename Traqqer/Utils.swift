@@ -11,7 +11,7 @@ import UIKit
 class Utils {
     struct Color {
         static let backgroundColor = UIColor.whiteColor()
-        static let secondaryBackgroundColor = Utils.createUIColor(126, green: 170, blue: 194, alpha: 1.0)
+        static let secondaryBackgroundColor = Utils.createUIColor(177, green: 224, blue: 250, alpha: 1.0)
         static let sectionHeaderColor = Color.backgroundColor
         
         static let navColor = Utils.createUIColor(5, green: 3, blue: 95, alpha: 1.0)
