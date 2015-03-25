@@ -64,6 +64,7 @@
 		56F96D8C1AB4EEFD003FEB7F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F96D8B1AB4EEFD003FEB7F /* Models.swift */; };
 		D77D55501ABF834F00089DF8 /* Duration+Traqqer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D554F1ABF834F00089DF8 /* Duration+Traqqer.swift */; };
 		D77D55521AC1237800089DF8 /* GoalCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D55511AC1237800089DF8 /* GoalCompletion.swift */; };
+		D7EFD30F1AC25EDC004B1BDB /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EFD30E1AC25EDC004B1BDB /* Fixtures.swift */; };
 		E4C7C8F51ABBE59800A0BC1E /* NSDate+Traqqer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C7C8F41ABBE59800A0BC1E /* NSDate+Traqqer.swift */; };
 		E4FEF6F71ABBCE8E003143CD /* StatAggregationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FEF6F61ABBCE8E003143CD /* StatAggregationUtils.swift */; };
 		F102978E1AB6391100A99DA3 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F102978D1AB6391100A99DA3 /* HeaderView.swift */; };
@@ -199,6 +200,7 @@
 		A757E6C0617708E77008E8A0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D77D554F1ABF834F00089DF8 /* Duration+Traqqer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Duration+Traqqer.swift"; sourceTree = "<group>"; };
 		D77D55511AC1237800089DF8 /* GoalCompletion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCompletion.swift; sourceTree = "<group>"; };
+		D7EFD30E1AC25EDC004B1BDB /* Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		E4C7C8F41ABBE59800A0BC1E /* NSDate+Traqqer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Traqqer.swift"; sourceTree = "<group>"; };
 		E4FEF6F61ABBCE8E003143CD /* StatAggregationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatAggregationUtils.swift; sourceTree = "<group>"; };
 		EE1FD542F3AA759EF8D6BDB7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -350,6 +352,7 @@
 				560532501AB13F4A000AF70D /* LaunchScreen.xib */,
 				560532451AB13F4A000AF70D /* Supporting Files */,
 				560532851AB147B8000AF70D /* Constants.swift */,
+				D7EFD30E1AC25EDC004B1BDB /* Fixtures.swift */,
 				D77D55511AC1237800089DF8 /* GoalCompletion.swift */,
 				56888F111AB6939300BB98F3 /* Stopwatch.swift */,
 				5605328C1AB154D4000AF70D /* Traqqer.swift */,
@@ -762,6 +765,7 @@
 				560532861AB147B8000AF70D /* Constants.swift in Sources */,
 				F1D0185F1AB629080017A909 /* DateUtils.swift in Sources */,
 				56F96D8A1AB4E4F6003FEB7F /* ParseAPI.swift in Sources */,
+				D7EFD30F1AC25EDC004B1BDB /* Fixtures.swift in Sources */,
 				5605328B1AB151AA000AF70D /* DetailsViewController.swift in Sources */,
 				F102978E1AB6391100A99DA3 /* HeaderView.swift in Sources */,
 				F10297901AB63CE200A99DA3 /* FooterView.swift in Sources */,
