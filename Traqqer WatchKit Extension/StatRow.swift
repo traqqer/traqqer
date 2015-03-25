@@ -102,7 +102,7 @@ class StatRow: NSObject {
     }
     
     func hideTimer(animate: Bool) {
-        timer.setText("")
+        timer.setText("00:00:00")
         timer.setHidden(true)
     }
 }
