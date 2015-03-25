@@ -71,10 +71,12 @@ class DashboardStatsViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if selected[indexPath.row] {
+        let stat = self.stats[indexPath.row]
+        if timers[stat.objectId] != nil {
             return CGFloat(80) * 2
+        } else {
+            return CGFloat(80)
         }
-        return CGFloat(80)
     }
     
     func fetchData() {
