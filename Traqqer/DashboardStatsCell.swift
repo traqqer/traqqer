@@ -132,6 +132,8 @@ class DashboardStatsCell: UITableViewCell {
                     vc.timer.text = DateUtils.formatTimeInterval(interval)
                 }
             }
+        } else {
+            self.stopwatchListener = nil
         }
     }
     
