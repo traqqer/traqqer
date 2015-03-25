@@ -40,10 +40,15 @@ class DashboardStatsCell: UITableViewCell {
         
         name.textColor = Utils.Color.textColor
         name.font = Utils.Font.primaryFont
+        
         value.textColor = Utils.Color.textColor
         value.font = Utils.Font.primaryFont
+        value.hidden = true
+        
         goal.textColor = Utils.Color.textColor
         goal.font = Utils.Font.primaryFont
+        goal.hidden = false
+        
         timer.textColor = Utils.Color.textColor
         timer.font = Utils.Font.appTimerFont
     }
@@ -60,6 +65,8 @@ class DashboardStatsCell: UITableViewCell {
             if let totalDuration = totalDuration {
                 self.remoteTotalDuration = totalDuration
             }
+            self.goal.hidden = false
+            self.value.hidden = false
             self.setupView()
         })
     }
