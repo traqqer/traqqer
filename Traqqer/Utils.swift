@@ -27,6 +27,7 @@ class Utils {
     struct Font {
         static let smallFont = UIFont(name: "HelveticaNeue", size: 12)
         static let primaryFont = UIFont(name: "HelveticaNeue", size: 16)
+        static let bigFont = UIFont(name: "HelveticaNeue", size: 24)
         static let boldFont = UIFont(name: "HelveticaNeue-Bold", size: 16)
         static let largeBoldFont = UIFont(name: "HelveticaNeue-Bold", size: 30)
         static let appTimerFont = UIFont(name: "HelveticaNeue", size: 50)

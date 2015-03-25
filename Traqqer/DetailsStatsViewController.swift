@@ -63,7 +63,7 @@ class DetailsStatsViewController: UIViewController, UITableViewDataSource, UITab
     
     func refreshData() {
         ParseAPI.getEntriesforStat(stat, completion: {entries in
-            for entry in reverse(entries) {
+            for entry in entries {
                 let day = DateUtils.formatDate(entry.timestamp)
                 if self.entriesByDay[day] != nil {
                     var entries = self.entriesByDay[day]! // var in this line is to make the array mutable

@@ -39,18 +39,18 @@ class DashboardStatsCell: UITableViewCell {
         icon.tintColor = Utils.Color.textColor
         
         name.textColor = Utils.Color.textColor
-        name.font = Utils.Font.primaryFont
+        name.font = Utils.Font.bigFont
         
         value.textColor = Utils.Color.textColor
-        value.font = Utils.Font.primaryFont
+        value.font = Utils.Font.bigFont
         value.hidden = true
         
         goal.textColor = Utils.Color.textColor
-        goal.font = Utils.Font.primaryFont
+        goal.font = Utils.Font.bigFont
         goal.hidden = false
         
         timer.textColor = Utils.Color.textColor
-        timer.font = Utils.Font.appTimerFont
+        timer.font = Utils.Font.largeBoldFont
     }
     
     override func layoutSubviews() {
@@ -65,6 +65,9 @@ class DashboardStatsCell: UITableViewCell {
             if let totalDuration = totalDuration {
                 self.remoteTotalDuration = totalDuration
             }
+            
+            self.numEntries = 0
+            self.totalDuration = 0
             self.goal.hidden = false
             self.value.hidden = false
             self.setupView()
