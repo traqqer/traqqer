@@ -87,7 +87,7 @@ class StatRow: NSObject {
                         let interval = currentTime.timeIntervalSinceDate(vc.startDate)
                         updateInterval = currentTime.timeIntervalSinceDate(lastUpdate)
                         if updateInterval >= 1.0 {
-                            vc.timer.setText(DateUtils.formatTimeIntervalPretty(interval))
+                            vc.timer.setText(DateUtils.formatTimeIntervalHMS(interval))
                             lastUpdate = NSDate()
                         }
                     }

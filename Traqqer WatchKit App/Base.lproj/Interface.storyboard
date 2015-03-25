@@ -24,7 +24,7 @@
                                                     </label>
                                                 </items>
                                             </group>
-                                            <label width="135" height="47" alignment="left" verticalAlignment="center" text="00:00:00" textAlignment="center" id="Z1c-pF-f6g">
+                                            <label width="135" height="47" alignment="left" verticalAlignment="center" text="..." textAlignment="center" id="Z1c-pF-f6g">
                                                 <fontDescription key="font" type="system" pointSize="25"/>
                                             </label>
                                             <label width="136" height="17" alignment="left" verticalAlignment="center" hidden="YES" text="00:00:00" textAlignment="center" id="5yD-Iw-1en">

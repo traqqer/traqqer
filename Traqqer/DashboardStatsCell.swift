@@ -50,7 +50,7 @@ class DashboardStatsCell: UITableViewCell {
         goal.hidden = false
         
         timer.textColor = Utils.Color.textColor
-        timer.font = Utils.Font.largeBoldFont
+        timer.font = Utils.Font.appTimerFont
     }
     
     override func layoutSubviews() {
