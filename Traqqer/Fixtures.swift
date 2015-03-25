@@ -19,12 +19,12 @@ class Fixtures {
         ParseAPI.createStat("Swearing", statType: StatType.Count.rawValue, goal: nil) {
             stat in
             
-            var currentDay = Static.now - 2.months
+            var currentDay = Static.now - 45.days
             var cursesToday: Int!
             var timestamp: NSDate!
             
             while currentDay <= Static.now {
-                cursesToday = self.randInRange(1, max: 4)
+                cursesToday = self.randInRange(1, max: 3)
                 println("currentDay: \(currentDay); curses: \(cursesToday)")
                 for x in 1...cursesToday {
                     timestamp = self.randomTimeInDay(currentDay)
@@ -40,7 +40,7 @@ class Fixtures {
         ParseAPI.createStat("Studying Swift", statType: StatType.Duration.rawValue, goal: nil) {
             stat in
             
-            var currentDay = Static.now - 2.months
+            var currentDay = Static.now - 45.days
             var studySessionsToday: Int!
             var studyDuration: Double!
             var timestamp: NSDate!
@@ -49,7 +49,7 @@ class Fixtures {
                 studySessionsToday = self.randInRange(1, max: 2)
                 for x in 1...studySessionsToday {
                     timestamp = self.randomTimeInDay(currentDay)
-                    studyDuration = Double(self.randInRange(30 * 60, max: 70 * 60))
+                    studyDuration = Double(self.randInRange(30 * 60, max: 60 * 60))
                     ParseAPI.createEntry(stat, timestamp: timestamp, duration: studyDuration, completion: nil)
                 }
                 
