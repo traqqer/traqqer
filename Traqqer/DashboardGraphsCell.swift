@@ -12,9 +12,9 @@ protocol DashboardGraphCellDelegate: class {
     func onExpandClicked(stat: Stat)
 }
 
-class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChartViewDelegate {
+class DashboardGraphCell: UITableViewCell, JBBarChartViewDataSource, JBBarChartViewDelegate {
     
-    @IBOutlet weak var lineChart: JBLineChartView!
+    @IBOutlet weak var barChart: JBBarChartView!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var expandButton: UIButton!
     
@@ -23,6 +23,8 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
     var toolTip: ToolTip
     var timeSegment: TimeSegment?
     var graphValues = [Double]()
+    var lowValue = 0.0
+    
     
     @IBAction func onExpand(sender: UIButton) {
         println("On expand")
@@ -48,21 +50,21 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
         infoLabel.textColor = Utils.Color.textColor
         infoLabel.font = Utils.Font.largeBoldFont
         
-        lineChart.dataSource = self
-        lineChart.delegate = self
-        lineChart.minimumValue = 0
-        lineChart.backgroundColor = Utils.Color.backgroundColor
+        barChart.dataSource = self
+        barChart.delegate = self
+        barChart.minimumValue = 0
+        barChart.backgroundColor = Utils.Color.backgroundColor
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let headerView = HeaderView(frame: CGRectMake(0, 0, lineChart.frame.width, 40))
+        let headerView = HeaderView(frame: CGRectMake(0, 0, barChart.frame.width, 40))
         headerView.label.text = stat.name
-        lineChart.headerView = headerView
-        lineChart.footerView = FooterView(frame: CGRectMake(0, 0, lineChart.frame.width, 16), timeSegment: timeSegment!)
+        barChart.headerView = headerView
+        barChart.footerView = FooterView(frame: CGRectMake(0, 0, barChart.frame.width, 16), timeSegment: timeSegment!)
         
-        lineChart.setState(.Collapsed, animated: false)
-        lineChart.reloadData()
+        barChart.setState(.Collapsed, animated: false)
+        barChart.reloadData()
     }
     
     func refreshGraph() {
@@ -87,32 +89,11 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
             case .Duration:
                 self.graphValues = durations!
             }
-            self.lineChart.reloadData()
+            self.lowValue = self.graphValues.reduce(Double(0.0), combine: {(first, second) in max(first, second)}) * 0.01
+            
+            self.barChart.reloadData()
             self.showChart()
         })
-    }
-    
-    func setStat(stat: Stat?, delegate: DashboardGraphCellDelegate, enableExpand: Bool) {
-        self.stat = stat
-        self.delegate = delegate
-        self.expandButton.hidden = enableExpand
-    }
-    
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
-    func numberOfLinesInLineChartView(lineChartView: JBLineChartView!) -> UInt {
-        return 1
-    }
-    
-    func lineChartView(lineChartView: JBLineChartView!, numberOfVerticalValuesAtLineIndex lineIndex: UInt) -> UInt {
-        return UInt(timeSegment!.getSegmentCount())
-    }
-    
-    func lineChartView(lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
-         //y-position (y-axis) of point at horizontalIndex (x-axis)
-        return getValueForIndex(horizontalIndex)
     }
     
     func getValueForIndex(horizontalIndex : UInt) -> CGFloat {
@@ -125,29 +106,70 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
         }
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        return Utils.Color.graphColor
+    func setStat(stat: Stat?, delegate: DashboardGraphCellDelegate, enableExpand: Bool) {
+        self.stat = stat
+        self.delegate = delegate
+        self.expandButton.hidden = enableExpand
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
-        return Utils.Color.graphColor
+    func numberOfBarsInBarChartView(barChartView: JBBarChartView!) -> UInt {
+        return UInt(self.timeSegment!.getSegmentCount())
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, widthForLineAtLineIndex lineIndex: UInt) -> CGFloat {
-        return CGFloat(2.0)
-    }
-    
-    func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt) {
-        switch StatType(rawValue: self.stat.type)! {
-        case .Count:
-            infoLabel.text = String(format: "%d", Int(self.getValueForIndex(horizontalIndex)))
-        case .Duration:
-            let timeInterval = Double(self.getValueForIndex(horizontalIndex))
-            infoLabel.text = DateUtils.formatTimeIntervalPretty(timeInterval)
+    func barChartView(barChartView: JBBarChartView!, heightForBarViewAtIndex index: UInt) -> CGFloat {
+        let value = getValueForIndex(index)
+        if value == 0 {
+            return CGFloat(self.lowValue)
+        } else {
+            return value
         }
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, verticalSelectionColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
+
+    func barChartView(barChartView: JBBarChartView!, didSelectBarAtIndex index: UInt, touchPoint: CGPoint) {
+        switch StatType(rawValue: self.stat.type)! {
+        case .Count:
+            infoLabel.text = String(format: "%d", Int(self.getValueForIndex(index)))
+        case .Duration:
+            let timeInterval = Double(self.getValueForIndex(index))
+            infoLabel.text = DateUtils.formatTimeIntervalPretty(timeInterval)
+        }
+        
+        toolTip.hidden = false
+        
+        toolTip.setText(getHorizontalDescription(index))
+        
+        let originalTouchPoint = self.convertPoint(touchPoint, fromView:barChartView)
+        var convertedTouchPoint = originalTouchPoint
+        
+        let minChartX = (barChart.frame.origin.x + ceil(toolTip.frame.size.width * 0.5));
+        if (convertedTouchPoint.x < minChartX)
+        {
+            convertedTouchPoint.x = minChartX;
+        }
+        
+        let maxChartX = (barChartView.frame.origin.x + barChartView.frame.size.width - ceil(toolTip.frame.size.width * 0.5));
+        if (convertedTouchPoint.x > maxChartX)
+        {
+            convertedTouchPoint.x = maxChartX;
+        }
+        
+        toolTip.frame = CGRectMake(convertedTouchPoint.x - ceil(toolTip.frame.size.width * 0.5), CGRectGetMaxY(barChart.headerView.frame), toolTip.frame.size.width, toolTip.frame.size.height)
+    }
+    
+    func barPaddingForBarChartView(barChartView: JBBarChartView!) -> CGFloat {
+        return CGFloat(2.0)
+    }
+    
+    func barChartView(barChartView: JBBarChartView!, colorForBarViewAtIndex index: UInt) -> UIColor! {
+        return Utils.Color.graphColor
+    }
+    
+    func barChartView(barChartView: JBBarChartView!, widthForLineAtLineIndex lineIndex: UInt) -> CGFloat {
+        return CGFloat(2.0)
+    }
+    
+    func barSelectionColorForBarChartView(barChartView: JBBarChartView!) -> UIColor! {
         return Utils.Color.selectionGraphColor
     }
     
@@ -170,59 +192,28 @@ class DashboardGraphCell: UITableViewCell, JBLineChartViewDataSource, JBLineChar
         }
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, selectionColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
+    func barChartView(barChartView: JBBarChartView!, selectionColorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
         return Utils.Color.selectedGraphColor
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, selectionColorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
-        return Utils.Color.selectedGraphColor
-    }
-    
-    func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt, touchPoint: CGPoint) {
-        toolTip.hidden = false
-
-        toolTip.setText(getHorizontalDescription(horizontalIndex))
-        
-        let originalTouchPoint = self.convertPoint(touchPoint, fromView:lineChartView)
-        var convertedTouchPoint = originalTouchPoint
-        
-        let minChartX = (lineChart.frame.origin.x + ceil(toolTip.frame.size.width * 0.5));
-        if (convertedTouchPoint.x < minChartX)
-        {
-            convertedTouchPoint.x = minChartX;
-        }
-        
-        let maxChartX = (lineChartView.frame.origin.x + lineChartView.frame.size.width - ceil(toolTip.frame.size.width * 0.5));
-        if (convertedTouchPoint.x > maxChartX)
-        {
-            convertedTouchPoint.x = maxChartX;
-        }
-
-        toolTip.frame = CGRectMake(convertedTouchPoint.x - ceil(toolTip.frame.size.width * 0.5), CGRectGetMaxY(lineChart.headerView.frame), toolTip.frame.size.width, toolTip.frame.size.height)
-    }
-    
-    func lineChartView(lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {
+    func barChartView(barChartView: JBBarChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {
         return false
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, lineStyleForLineAtLineIndex lineIndex: UInt) -> JBLineChartViewLineStyle {
-        return .Dashed
-    }
-    
-    func lineChartView(lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
+    func barChartView(barChartView: JBBarChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
         return true
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, dotRadiusForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
+    func barChartView(barChartView: JBBarChartView!, dotRadiusForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
         return CGFloat(2 * 4)
     }
     
-    func didDeselectLineInLineChartView(lineChartView: JBLineChartView!) {
+    func didDeselectBarChartView(barChartView: JBBarChartView!) {
         infoLabel.text = ""
         toolTip.hidden = true
     }
     
     func showChart() {
-        lineChart.setState(.Expanded, animated: true)
+        barChart.setState(.Expanded, animated: true)
     }
 }

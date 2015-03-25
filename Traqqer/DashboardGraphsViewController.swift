@@ -93,7 +93,8 @@ class DashboardGraphsViewController: UIViewController,  UITableViewDataSource, U
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DASHBOARD_GRAPHS_CELL, forIndexPath: indexPath) as DashboardGraphCell
+        let cell = NSBundle.mainBundle().loadNibNamed(Constants.DASHBOARD_GRAPHS_CELL, owner: self, options: nil)[0] as DashboardGraphCell
+//        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.DASHBOARD_GRAPHS_CELL, forIndexPath: indexPath) as DashboardGraphCell
         cell.accessoryType = UITableViewCellAccessoryType.None
         cell.selectionStyle = UITableViewCellSelectionStyle.None;
         cell.timeSegment = TimeSegment(rawValue: timeSegments.selectedSegmentIndex)
