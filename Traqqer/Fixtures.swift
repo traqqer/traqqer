@@ -37,7 +37,7 @@ class Fixtures {
     }
     
     class func studyingSwift() {
-        ParseAPI.createStat("Studying Swift", statType: StatType.Duration.rawValue, goal: nil) {
+        ParseAPI.createStat("CodePath", statType: StatType.Duration.rawValue, goal: nil) {
             stat in
             
             var currentDay = Static.now - 45.days
